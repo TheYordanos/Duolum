@@ -15,6 +15,7 @@
 
 	<div class="app-container">
 
+		<!-- SIDEBAR -->
 		<aside class="sidebar">
 			<div class="sidebar-header">
 				<h1>Duolum</h1>
@@ -43,8 +44,151 @@
 			</nav>
 		</aside>
 
+		<!-- MAIN -->
 		<main class="main-content">
-			<!-- Main content will go here later -->
+
+			<!-- BROWSE -->
+			<section class="browse-section">
+
+				<header class="page-header">
+					<h2>Browse Books</h2>
+				</header>
+
+				<section class="filters">
+					<div class="filter-search">
+						<input
+							type="search"
+							placeholder="Search books, authors..."
+							aria-label="Search books and authors"
+						>
+					</div>
+
+					<div class="filter-options">
+						<select aria-label="Genre">
+							<option value="">All Genres</option>
+							<option>Fiction</option>
+							<option>Non-fiction</option>
+							<option>Fantasy</option>
+							<option>Romance</option>
+							<option>Mystery</option>
+							<option>Science Fiction</option>
+						</select>
+
+						<select aria-label="Publication date">
+							<option value="">Any Date</option>
+							<option>Recently Published</option>
+							<option>This Year</option>
+							<option>Last Year</option>
+							<option>Older</option>
+						</select>
+
+						<select aria-label="Sort books">
+							<option value="">Sort By</option>
+							<option>Newest First</option>
+							<option>Oldest First</option>
+							<option>Price: Low to High</option>
+							<option>Price: High to Low</option>
+						</select>
+
+						<button class="clear-filters" type="button">
+							Clear Filters
+						</button>
+					</div>
+
+					<div class="price-filter">
+						<div class="price-filter-header">
+							<span>Price Range</span>
+							<span>$0 - $100</span>
+						</div>
+
+						<input
+							type="range"
+							min="0"
+							max="100"
+							value="100"
+							aria-label="Maximum price"
+						>
+					</div>
+				</section>
+
+				<!-- Book Grid -->
+				<section class="book-grid">
+
+					<a class="book-card">
+						<img src="imgs/placeholder.png" alt="Book cover">
+						<div class="book-info">
+							<h3>The Silent Garden</h3>
+							<p class="book-author">James Anderson</p>
+							<div class="book-meta">
+								<span>2025</span>
+								<span>$12.00</span>
+							</div>
+						</div>
+					</a>
+
+					<a class="book-card">
+						<img src="imgs/placeholder.png" alt="Book cover">
+						<div class="book-info">
+							<h3>Letters to Tomorrow</h3>
+							<p class="book-author">Sarah Mitchell</p>
+							<div class="book-meta">
+								<span>2024</span>
+								<span>$8.50</span>
+							</div>
+						</div>
+					</a>
+
+					<a class="book-card">
+						<img src="imgs/placeholder.png" alt="Book cover">
+						<div class="book-info">
+							<h3>Beyond the Horizon</h3>
+							<p class="book-author">Daniel Brooks</p>
+							<div class="book-meta">
+								<span>2026</span>
+								<span>$15.00</span>
+							</div>
+						</div>
+					</a>
+
+					<a class="book-card">
+						<img src="imgs/placeholder.png" alt="Book cover">
+						<div class="book-info">
+							<h3>Things We Remember</h3>
+							<p class="book-author">Emily Carter</p>
+							<div class="book-meta">
+								<span>2023</span>
+								<span>$10.00</span>
+							</div>
+						</div>
+					</a>
+
+					<a class="book-card">
+						<img src="imgs/placeholder.png" alt="Book cover">
+						<div class="book-info">
+							<h3>The Art of Being</h3>
+							<p class="book-author">Michael Reed</p>
+							<div class="book-meta">
+								<span>2025</span>
+								<span>$18.00</span>
+							</div>
+						</div>
+					</a>
+
+					<a class="book-card">
+						<img src="imgs/placeholder.png" alt="Book cover">
+						<div class="book-info">
+							<h3>Quiet Waters</h3>
+							<p class="book-author">Olivia Bennett</p>
+							<div class="book-meta">
+								<span>2024</span>
+								<span>$9.00</span>
+							</div>
+						</div>
+					</a>
+
+				</section>
+			</section>
+
 		</main>
 
 	</div>
