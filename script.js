@@ -41,7 +41,7 @@ libraryTabs.forEach((tab) => {
 				(filter === 'favorites' && card.dataset.favorite === 'true') ||
 				card.dataset.bookStatus === filter;
 
-			card.hidden = !matchesFilter;
+			card.style.display = matchesFilter ? "block" : "none";
 		});
 	});
 });
