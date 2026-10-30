@@ -21,24 +21,24 @@
 				<h1>Duolum</h1>
 			</div>
 
-			<nav class="navigation">
-				<button class="nav-item active" data-tab="browse">
+			<nav class="navigation" aria-label="Main navigation">
+				<button class="nav-item active" type="button" data-page="browse">
 					Browse Books
 				</button>
 
-				<button class="nav-item" data-tab="my-books">
+				<button class="nav-item" type="button" data-page="my-books">
 					My Books
 				</button>
 
-				<button class="nav-item" data-tab="publication">
+				<button class="nav-item" type="button" data-page="publication">
 					Publication
 				</button>
 
-				<button class="nav-item" data-tab="messages">
+				<button class="nav-item" type="button" data-page="messages">
 					Messages
 				</button>
 
-				<button class="nav-item" data-tab="profile">
+				<button class="nav-item" type="button" data-page="profile">
 					Profile
 				</button>
 			</nav>
@@ -47,8 +47,8 @@
 		<!-- MAIN -->
 		<main class="main-content">
 
-			<!-- BROWSE -->
-			<section class="browse-section">
+			<!-- BROWSE BOOKS -->
+			<section class="page-section browse-section" data-page-section="browse">
 
 				<header class="page-header">
 					<h2>Browse Books</h2>
@@ -111,10 +111,8 @@
 					</div>
 				</section>
 
-				<!-- Book Grid -->
 				<section class="book-grid">
-
-					<a class="book-card">
+					<a class="book-card" href="#">
 						<img src="imgs/placeholder.png" alt="Book cover">
 						<div class="book-info">
 							<h3>The Silent Garden</h3>
@@ -126,7 +124,7 @@
 						</div>
 					</a>
 
-					<a class="book-card">
+					<a class="book-card" href="#">
 						<img src="imgs/placeholder.png" alt="Book cover">
 						<div class="book-info">
 							<h3>Letters to Tomorrow</h3>
@@ -138,7 +136,7 @@
 						</div>
 					</a>
 
-					<a class="book-card">
+					<a class="book-card" href="#">
 						<img src="imgs/placeholder.png" alt="Book cover">
 						<div class="book-info">
 							<h3>Beyond the Horizon</h3>
@@ -150,7 +148,7 @@
 						</div>
 					</a>
 
-					<a class="book-card">
+					<a class="book-card" href="#">
 						<img src="imgs/placeholder.png" alt="Book cover">
 						<div class="book-info">
 							<h3>Things We Remember</h3>
@@ -162,7 +160,7 @@
 						</div>
 					</a>
 
-					<a class="book-card">
+					<a class="book-card" href="#">
 						<img src="imgs/placeholder.png" alt="Book cover">
 						<div class="book-info">
 							<h3>The Art of Being</h3>
@@ -174,7 +172,7 @@
 						</div>
 					</a>
 
-					<a class="book-card">
+					<a class="book-card" href="#">
 						<img src="imgs/placeholder.png" alt="Book cover">
 						<div class="book-info">
 							<h3>Quiet Waters</h3>
@@ -185,8 +183,188 @@
 							</div>
 						</div>
 					</a>
+				</section>
+			</section>
+
+			<!-- MY BOOKS -->
+			<section class="page-section my-books-section" data-page-section="my-books" hidden>
+
+				<header class="page-header">
+					<h2>My Books</h2>
+				</header>
+
+				<!-- Library statistics -->
+				<section class="library-stats" aria-label="Library statistics">
+					<div class="stat-item">
+						<span class="stat-label">Total Books</span>
+						<span class="stat-value">12</span>
+					</div>
+
+					<div class="stat-item">
+						<span class="stat-label">Favorites</span>
+						<span class="stat-value">6</span>
+					</div>
+
+					<div class="stat-item">
+						<span class="stat-label">Currently Reading</span>
+						<span class="stat-value">4</span>
+					</div>
+
+					<div class="stat-item">
+						<span class="stat-label">Finished</span>
+						<span class="stat-value">4</span>
+					</div>
+				</section>
+
+				<!-- Library tabs -->
+				<nav class="library-tabs" aria-label="Filter your books">
+					<button class="library-tab active" type="button" data-library-filter="all">
+						All <span>12</span>
+					</button>
+
+					<button class="library-tab" type="button" data-library-filter="favorites">
+						Favorites <span>6</span>
+					</button>
+
+					<button class="library-tab" type="button" data-library-filter="reading">
+						Reading <span>4</span>
+					</button>
+
+					<button class="library-tab" type="button" data-library-filter="finished">
+						Finished <span>4</span>
+					</button>
+
+					<button class="library-tab" type="button" data-library-filter="want-to-read">
+						Want to Read <span>4</span>
+					</button>
+				</nav>
+
+				<!-- Hardcoded library cards -->
+				<section class="book-grid library-grid" id="library-grid" aria-live="polite">
+
+					<a class="book-card" href="#" data-book-status="reading" data-favorite="true">
+						<img src="imgs/placeholder.png" alt="Cover of The Silent Garden">
+						<div class="book-info">
+							<h3>The Silent Garden</h3>
+							<p class="book-author">James Anderson</p>
+							<div class="book-meta"><span>2025</span><span>Reading</span></div>
+						</div>
+					</a>
+
+					<a class="book-card" href="#" data-book-status="finished" data-favorite="true">
+						<img src="imgs/placeholder.png" alt="Cover of Letters to Tomorrow">
+						<div class="book-info">
+							<h3>Letters to Tomorrow</h3>
+							<p class="book-author">Sarah Mitchell</p>
+							<div class="book-meta"><span>2024</span><span>Finished</span></div>
+						</div>
+					</a>
+
+					<a class="book-card" href="#" data-book-status="want-to-read" data-favorite="true">
+						<img src="imgs/placeholder.png" alt="Cover of Beyond the Horizon">
+						<div class="book-info">
+							<h3>Beyond the Horizon</h3>
+							<p class="book-author">Daniel Brooks</p>
+							<div class="book-meta"><span>2026</span><span>Want to Read</span></div>
+						</div>
+					</a>
+
+					<a class="book-card" href="#" data-book-status="reading" data-favorite="false">
+						<img src="imgs/placeholder.png" alt="Cover of Things We Remember">
+						<div class="book-info">
+							<h3>Things We Remember</h3>
+							<p class="book-author">Emily Carter</p>
+							<div class="book-meta"><span>2023</span><span>Reading</span></div>
+						</div>
+					</a>
+
+					<a class="book-card" href="#" data-book-status="finished" data-favorite="true">
+						<img src="imgs/placeholder.png" alt="Cover of The Art of Being">
+						<div class="book-info">
+							<h3>The Art of Being</h3>
+							<p class="book-author">Michael Reed</p>
+							<div class="book-meta"><span>2025</span><span>Finished</span></div>
+						</div>
+					</a>
+
+					<a class="book-card" href="#" data-book-status="want-to-read" data-favorite="true">
+						<img src="imgs/placeholder.png" alt="Cover of Quiet Waters">
+						<div class="book-info">
+							<h3>Quiet Waters</h3>
+							<p class="book-author">Olivia Bennett</p>
+							<div class="book-meta"><span>2024</span><span>Want to Read</span></div>
+						</div>
+					</a>
+
+					<a class="book-card" href="#" data-book-status="reading" data-favorite="false">
+						<img src="imgs/placeholder.png" alt="Cover of A Map of Small Things">
+						<div class="book-info">
+							<h3>A Map of Small Things</h3>
+							<p class="book-author">Nora Ellis</p>
+							<div class="book-meta"><span>2022</span><span>Reading</span></div>
+						</div>
+					</a>
+
+					<a class="book-card" href="#" data-book-status="finished" data-favorite="false">
+						<img src="imgs/placeholder.png" alt="Cover of The Last Orchard">
+						<div class="book-info">
+							<h3>The Last Orchard</h3>
+							<p class="book-author">Thomas Avery</p>
+							<div class="book-meta"><span>2025</span><span>Finished</span></div>
+						</div>
+					</a>
+
+					<a class="book-card" href="#" data-book-status="want-to-read" data-favorite="true">
+						<img src="imgs/placeholder.png" alt="Cover of Notes from Elsewhere">
+						<div class="book-info">
+							<h3>Notes from Elsewhere</h3>
+							<p class="book-author">Clara Morgan</p>
+							<div class="book-meta"><span>2024</span><span>Want to Read</span></div>
+						</div>
+					</a>
+
+					<a class="book-card" href="#" data-book-status="reading" data-favorite="false">
+						<img src="imgs/placeholder.png" alt="Cover of A Place Between">
+						<div class="book-info">
+							<h3>A Place Between</h3>
+							<p class="book-author">Ethan Cole</p>
+							<div class="book-meta"><span>2023</span><span>Reading</span></div>
+						</div>
+					</a>
+
+					<a class="book-card" href="#" data-book-status="finished" data-favorite="false">
+						<img src="imgs/placeholder.png" alt="Cover of Winter Letters">
+						<div class="book-info">
+							<h3>Winter Letters</h3>
+							<p class="book-author">Amelia Rose</p>
+							<div class="book-meta"><span>2022</span><span>Finished</span></div>
+						</div>
+					</a>
+
+					<a class="book-card" href="#" data-book-status="want-to-read" data-favorite="false">
+						<img src="imgs/placeholder.png" alt="Cover of The Open Window">
+						<div class="book-info">
+							<h3>The Open Window</h3>
+							<p class="book-author">Lucas Gray</p>
+							<div class="book-meta"><span>2026</span><span>Want to Read</span></div>
+						</div>
+					</a>
 
 				</section>
+
+			</section>
+
+			<!-- Placeholder pages for the remaining sidebar destinations -->
+			<section class="page-section placeholder-section" data-page-section="publication" hidden>
+				<header class="page-header"><h2>Publication</h2></header>
+			</section>
+
+			<section class="page-section placeholder-section" data-page-section="messages" hidden>
+				<header class="page-header"><h2>Messages</h2></header>
+			</section>
+
+			<section class="page-section placeholder-section" data-page-section="profile" hidden>
+				<header class="page-header"><h2>Profile</h2></header>
 			</section>
 
 		</main>
