@@ -43,6 +43,7 @@ button {
 	top: 0;
 	padding: 32px 20px;
 	border-right: 1px solid var(--border);
+	background: var(--background);
 }
 
 .sidebar-header {
@@ -60,6 +61,7 @@ button {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
+	flex-wrap: wrap;
 }
 
 .nav-item {
