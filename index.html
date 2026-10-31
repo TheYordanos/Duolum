@@ -359,8 +359,290 @@
 				<header class="page-header"><h2>Publication</h2></header>
 			</section>
 
-			<section class="page-section placeholder-section" data-page-section="messages" hidden>
-				<header class="page-header"><h2>Messages</h2></header>
+			<!-- MESSAGES -->
+			<section class="page-section messages-section" data-page-section="messages" hidden>
+
+				<header class="page-header">
+					<h2>Messages</h2>
+				</header>
+
+				<div class="chat-layout" id="chat-layout">
+
+					<!-- Conversation list -->
+					<aside class="chat-list" aria-label="Conversations">
+						<div class="chat-list-search">
+							<input type="search" placeholder="Search messages..." aria-label="Search conversations">
+						</div>
+
+						<ul class="chat-list-items">
+							<li>
+								<button class="chat-list-item active" type="button" data-conversation="sarah">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Sarah Mitchell</span>
+											<span class="chat-list-time">10:42</span>
+										</span>
+										<span class="chat-list-preview">Thank you! I'll send the revised chapter tonight.</span>
+									</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="chat-list-item unread" type="button" data-conversation="james">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">James Anderson</span>
+											<span class="chat-list-time">9:15</span>
+										</span>
+										<span class="chat-list-preview">Would you be open to a signed copy giveaway?</span>
+									</span>
+									<span class="unread-dot" aria-label="Unread"></span>
+								</button>
+							</li>
+
+							<li>
+								<button class="chat-list-item" type="button" data-conversation="emily">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Emily Carter</span>
+											<span class="chat-list-time">Yesterday</span>
+										</span>
+										<span class="chat-list-preview">The cover draft looks great to me.</span>
+									</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="chat-list-item" type="button" data-conversation="daniel">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Daniel Brooks</span>
+											<span class="chat-list-time">Tue</span>
+										</span>
+										<span class="chat-list-preview">Pre-orders open on the 12th, I'll let you know.</span>
+									</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="chat-list-item" type="button" data-conversation="olivia">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Olivia Bennett</span>
+											<span class="chat-list-time">Oct 24</span>
+										</span>
+										<span class="chat-list-preview">Loved the ending. Any plans for a sequel?</span>
+									</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="chat-list-item" type="button" data-conversation="michael">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Michael Reed</span>
+											<span class="chat-list-time">Oct 19</span>
+										</span>
+										<span class="chat-list-preview">Sounds good, talk next week.</span>
+									</span>
+								</button>
+							</li>
+						</ul>
+					</aside>
+
+					<!-- Active conversation -->
+					<div class="chat-window">
+
+						<!-- Sarah Mitchell -->
+						<div class="chat-thread" data-thread="sarah">
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="">
+								<div class="chat-thread-title">
+									<h3>Sarah Mitchell</h3>
+									<p>Author &middot; Letters to Tomorrow</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Today</div>
+
+								<div class="message received">
+									<p>Hi! I just finished Letters to Tomorrow. Honestly one of my favorites this year.</p>
+									<span class="message-time">10:21</span>
+								</div>
+
+								<div class="message sent">
+									<p>That means a lot, thank you! Did you have a favorite chapter?</p>
+									<span class="message-time">10:28</span>
+								</div>
+
+								<div class="message received">
+									<p>Chapter 7 for sure. I noticed a couple of typos in it though, happy to send them over.</p>
+									<span class="message-time">10:35</span>
+								</div>
+
+								<div class="message sent">
+									<p>Please do! I'm preparing a revised edition.</p>
+									<span class="message-time">10:40</span>
+								</div>
+
+								<div class="message received">
+									<p>Thank you! I'll send the revised chapter tonight.</p>
+									<span class="message-time">10:42</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- James Anderson -->
+						<div class="chat-thread" data-thread="james" hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="">
+								<div class="chat-thread-title">
+									<h3>James Anderson</h3>
+									<p>Author &middot; The Silent Garden</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Today</div>
+
+								<div class="message received">
+									<p>Hello! I saw The Silent Garden is in your reading list. Thanks for the support.</p>
+									<span class="message-time">9:02</span>
+								</div>
+
+								<div class="message sent">
+									<p>I'm about halfway through and can't put it down.</p>
+									<span class="message-time">9:10</span>
+								</div>
+
+								<div class="message received">
+									<p>Would you be open to a signed copy giveaway?</p>
+									<span class="message-time">9:15</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Emily Carter -->
+						<div class="chat-thread" data-thread="emily" hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="">
+								<div class="chat-thread-title">
+									<h3>Emily Carter</h3>
+									<p>Author &middot; Things We Remember</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Yesterday</div>
+
+								<div class="message sent">
+									<p>Hi Emily, here's the cover draft for the new edition.</p>
+									<span class="message-time">14:05</span>
+								</div>
+
+								<div class="message received">
+									<p>The cover draft looks great to me.</p>
+									<span class="message-time">16:48</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Daniel Brooks -->
+						<div class="chat-thread" data-thread="daniel" hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="">
+								<div class="chat-thread-title">
+									<h3>Daniel Brooks</h3>
+									<p>Author &middot; Beyond the Horizon</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Tuesday</div>
+
+								<div class="message sent">
+									<p>When does Beyond the Horizon go on sale?</p>
+									<span class="message-time">11:30</span>
+								</div>
+
+								<div class="message received">
+									<p>Pre-orders open on the 12th, I'll let you know.</p>
+									<span class="message-time">12:02</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Olivia Bennett -->
+						<div class="chat-thread" data-thread="olivia" hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="">
+								<div class="chat-thread-title">
+									<h3>Olivia Bennett</h3>
+									<p>Author &middot; Quiet Waters</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">October 24</div>
+
+								<div class="message sent">
+									<p>Just finished Quiet Waters. That ending!</p>
+									<span class="message-time">20:12</span>
+								</div>
+
+								<div class="message received">
+									<p>Loved the ending. Any plans for a sequel?</p>
+									<span class="message-time">20:40</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Michael Reed -->
+						<div class="chat-thread" data-thread="michael" hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="">
+								<div class="chat-thread-title">
+									<h3>Michael Reed</h3>
+									<p>Author &middot; The Art of Being</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">October 19</div>
+
+								<div class="message received">
+									<p>Shall we schedule the interview for next week?</p>
+									<span class="message-time">15:20</span>
+								</div>
+
+								<div class="message sent">
+									<p>Sounds good, talk next week.</p>
+									<span class="message-time">15:45</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Composer -->
+						<form class="chat-composer" id="chat-composer">
+							<input type="text" placeholder="Write a message..." aria-label="Message" autocomplete="off">
+							<button type="submit">Send</button>
+						</form>
+
+					</div>
+				</div>
 			</section>
 
 			<section class="page-section placeholder-section" data-page-section="profile" hidden>
