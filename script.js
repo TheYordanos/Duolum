@@ -1,29 +1,59 @@
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
+const app = {
+	currentPage: 'browse',
+	pageBeforeDetail: 'browse',
+};
+
 function initNavigation() {
 	const navItems = $$('.nav-item');
 	const pages = $$('[data-page-section]');
+	const main = $('.main-content');
 
-	function showPage(name) {
+	function showPage(name, activeNav = name) {
+		app.currentPage = name;
+
 		pages.forEach((page) => {
 			page.hidden = page.dataset.pageSection !== name;
 		});
 
 		navItems.forEach((item) => {
-			const isActive = item.dataset.page === name;
+			const isActive = item.dataset.page === activeNav;
 
 			item.classList.toggle('active', isActive);
 			item.setAttribute('aria-current', isActive ? 'page' : 'false');
 		});
+
+		main.scrollTop = 0;
 
 		if (name === 'messages') {
 			scrollActiveThreadToBottom();
 		}
 	}
 
+	function openBookDetail() {
+		if (app.currentPage !== 'book') {
+			app.pageBeforeDetail = app.currentPage;
+		}
+
+		showPage('book', app.pageBeforeDetail);
+	}
+
 	navItems.forEach((item) => {
 		item.addEventListener('click', () => showPage(item.dataset.page));
+	});
+
+	document.addEventListener('click', (event) => {
+		if (event.target.closest('[data-book-link]')) {
+			event.preventDefault();
+			openBookDetail();
+			return;
+		}
+
+		if (event.target.closest('[data-book-back]')) {
+			showPage(app.pageBeforeDetail);
+		}
 	});
 
 	showPage('browse');
