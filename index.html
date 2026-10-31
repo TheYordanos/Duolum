@@ -23,6 +23,7 @@
 			<nav class="navigation" aria-label="Main navigation">
 				<button class="nav-item active" type="button" data-page="browse">Browse Books</button>
 				<button class="nav-item" type="button" data-page="library">Library</button>
+				<button class="nav-item" type="button" data-page="following">Following</button>
 				<button class="nav-item" type="button" data-page="publication">Publication</button>
 				<button class="nav-item" type="button" data-page="messages">Messages</button>
 				<button class="nav-item" type="button" data-page="profile">Profile</button>
@@ -38,15 +39,18 @@
 				</header>
 
 				<section class="filters">
-					<div class="filter-search">
-						<input
-							type="search"
-							placeholder="Search books, authors..."
-							aria-label="Search books and authors"
-						>
+					<div class="filter-bar">
+						<div class="filter-search">
+							<input type="search" placeholder="Search books..." aria-label="Search books">
+						</div>
+
+						<div class="segmented" role="group" aria-label="Browse by">
+							<button class="segment active" type="button" aria-pressed="true" data-browse-view="books">Books</button>
+							<button class="segment" type="button" aria-pressed="false" data-browse-view="people">People</button>
+						</div>
 					</div>
 
-					<div class="filter-options">
+					<div class="filter-options" data-browse-panel="books">
 						<select aria-label="Genre">
 							<option value="">All Genres</option>
 							<option>Fiction</option>
@@ -76,7 +80,7 @@
 						<button class="clear-filters" type="button">Clear Filters</button>
 					</div>
 
-					<div class="price-filter">
+					<div class="price-filter" data-browse-panel="books">
 						<div class="price-filter-header">
 							<span>Price Range</span>
 							<span>$0 - $100</span>
@@ -92,7 +96,7 @@
 					</div>
 				</section>
 
-				<section class="book-grid">
+				<section class="book-grid" data-browse-panel="books">
 					<article class="book-card">
 						<a class="book-link" href="#" data-book-link>
 							<div class="book-cover">
@@ -179,6 +183,96 @@
 								<div class="book-meta"><span>2024</span><span>Subscription</span></div>
 							</div>
 						</a>
+					</article>
+				</section>
+
+				<section class="person-grid" data-browse-panel="people" hidden>
+					<article class="person-card">
+						<a class="person-link" href="#" data-person-link>
+							<img class="avatar" src="imgs/profile.jpg" alt="">
+							<div class="person-card-info">
+								<h3>Sarah Mitchell</h3>
+								<p>@sarahmitchell &middot; 2,310 followers</p>
+							</div>
+						</a>
+						<button class="button button-small" type="button" aria-pressed="true" data-follow-toggle>Following</button>
+					</article>
+
+					<article class="person-card">
+						<a class="person-link" href="#" data-person-link>
+							<img class="avatar" src="imgs/profile.jpg" alt="">
+							<div class="person-card-info">
+								<h3>James Anderson</h3>
+								<p>@jamesanderson &middot; 1,204 followers</p>
+							</div>
+						</a>
+						<button class="button button-small" type="button" aria-pressed="true" data-follow-toggle>Following</button>
+					</article>
+
+					<article class="person-card">
+						<a class="person-link" href="#" data-person-link>
+							<img class="avatar" src="imgs/profile.jpg" alt="">
+							<div class="person-card-info">
+								<h3>Priya Nair</h3>
+								<p>@priyanair &middot; 87 followers</p>
+							</div>
+						</a>
+						<button class="button button-small" type="button" aria-pressed="true" data-follow-toggle>Following</button>
+					</article>
+
+					<article class="person-card">
+						<a class="person-link" href="#" data-person-link>
+							<img class="avatar" src="imgs/profile.jpg" alt="">
+							<div class="person-card-info">
+								<h3>Nora Ellis</h3>
+								<p>@noraellis &middot; 642 followers</p>
+							</div>
+						</a>
+						<button class="button button-small button-primary" type="button" aria-pressed="false" data-follow-toggle>Follow</button>
+					</article>
+
+					<article class="person-card">
+						<a class="person-link" href="#" data-person-link>
+							<img class="avatar" src="imgs/profile.jpg" alt="">
+							<div class="person-card-info">
+								<h3>Lucas Gray</h3>
+								<p>@lucasgray &middot; 318 followers</p>
+							</div>
+						</a>
+						<button class="button button-small button-primary" type="button" aria-pressed="false" data-follow-toggle>Follow</button>
+					</article>
+
+					<article class="person-card">
+						<a class="person-link" href="#" data-person-link>
+							<img class="avatar" src="imgs/profile.jpg" alt="">
+							<div class="person-card-info">
+								<h3>Clara Morgan</h3>
+								<p>@claramorgan &middot; 905 followers</p>
+							</div>
+						</a>
+						<button class="button button-small button-primary" type="button" aria-pressed="false" data-follow-toggle>Follow</button>
+					</article>
+
+					<article class="person-card">
+						<a class="person-link" href="#" data-person-link>
+							<img class="avatar" src="imgs/profile.jpg" alt="">
+							<div class="person-card-info">
+								<h3>Ethan Cole</h3>
+								<p>@ethancole &middot; 1,057 followers</p>
+							</div>
+						</a>
+						<button class="button button-small button-primary" type="button" aria-pressed="false" data-follow-toggle>Follow</button>
+					</article>
+
+					<article class="person-card">
+						<a class="person-link" href="#" data-person-link>
+							<img class="avatar" src="imgs/profile.jpg" alt="">
+							<div class="person-card-info">
+								<h3>Amelia Rose</h3>
+								<p>@ameliarose &middot; 1,722 followers</p>
+							</div>
+						</a>
+						<button class="button button-small button-primary" type="button" aria-pressed="false" data-follow-toggle>Follow</button>
 					</article>
 				</section>
 			</section>
@@ -503,7 +597,7 @@
 
 			<section class="page-section book-detail-section" data-page-section="book" hidden>
 
-				<button class="back-link" type="button" data-book-back>&larr; Back</button>
+				<button class="back-link" type="button" data-back>&larr; Back</button>
 
 				<div class="book-detail">
 					<div class="book-detail-cover">
@@ -513,7 +607,7 @@
 					<div class="book-detail-body">
 						<p class="book-genre">Mystery</p>
 						<h2>The Silent Garden</h2>
-						<p class="book-author">by James Anderson</p>
+						<p class="book-author">by <a class="text-link" href="#" data-person-link>James Anderson</a></p>
 
 						<div class="book-detail-purchase">
 							<span class="book-detail-price">$12.00</span>
@@ -550,6 +644,293 @@
 						</dl>
 					</div>
 				</div>
+
+			</section>
+
+			<section class="page-section following-section" data-page-section="following" hidden>
+
+				<header class="page-header">
+					<h2>Following</h2>
+				</header>
+
+				<div class="people-layout" id="people-layout">
+
+					<aside class="people-list" aria-label="People you follow">
+						<div class="people-list-top">
+							<button class="people-toggle" type="button" aria-label="Collapse list" aria-expanded="true" data-people-toggle><span aria-hidden="true">&lsaquo;</span></button>
+							<div class="people-search">
+								<input type="search" placeholder="Search people..." aria-label="Search people you follow">
+							</div>
+						</div>
+
+						<ul class="people-items">
+							<li>
+								<button class="person-item active" type="button" title="All" aria-current="true" data-person="all">
+									<span class="person-all-icon" aria-hidden="true"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><rect x="1.5" y="1.5" width="5" height="5" rx="1"/><rect x="9.5" y="1.5" width="5" height="5" rx="1"/><rect x="1.5" y="9.5" width="5" height="5" rx="1"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/></svg></span>
+									<span class="person-name">All</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Sarah Mitchell" data-person="sarah">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="person-name">Sarah Mitchell</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="James Anderson" data-person="james">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="person-name">James Anderson</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Emily Carter" data-person="emily">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="person-name">Emily Carter</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Daniel Brooks" data-person="daniel">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="person-name">Daniel Brooks</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Olivia Bennett" data-person="olivia">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="person-name">Olivia Bennett</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Michael Reed" data-person="michael">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="person-name">Michael Reed</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Priya Nair" data-person="priya">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="person-name">Priya Nair</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Tom Becker" data-person="tom">
+									<img class="avatar" src="imgs/profile.jpg" alt="">
+									<span class="person-name">Tom Becker</span>
+								</button>
+							</li>
+						</ul>
+					</aside>
+
+					<div class="people-content">
+						<header class="people-content-header">
+							<div class="people-content-title">
+								<h3 id="people-content-title">New releases</h3>
+								<p id="people-content-count">8 books</p>
+							</div>
+
+							<div class="people-content-actions" id="people-content-actions" hidden>
+								<button class="button button-small" type="button" data-person-link>View profile</button>
+								<button class="button button-small" type="button" data-unfollow>Unfollow</button>
+							</div>
+						</header>
+
+						<div class="people-content-body">
+							<div class="book-grid following-grid">
+								<article class="book-card" data-person="daniel">
+									<a class="book-link" href="#" data-book-link>
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of Beyond the Horizon">
+										</div>
+										<div class="book-info">
+											<h3>Beyond the Horizon</h3>
+											<p class="book-author">Daniel Brooks</p>
+											<p class="book-genre">Science Fiction</p>
+											<div class="book-meta"><span>2026</span><span>$15.00</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="james">
+									<a class="book-link" href="#" data-book-link>
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of The Silent Garden">
+											<span class="book-tag">Owned</span>
+										</div>
+										<div class="book-info">
+											<h3>The Silent Garden</h3>
+											<p class="book-author">James Anderson</p>
+											<p class="book-genre">Mystery</p>
+											<div class="book-meta"><span>2025</span><span>$12.00</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="michael">
+									<a class="book-link" href="#" data-book-link>
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of The Art of Being">
+											<span class="book-tag">Owned</span>
+										</div>
+										<div class="book-info">
+											<h3>The Art of Being</h3>
+											<p class="book-author">Michael Reed</p>
+											<p class="book-genre">Non-fiction</p>
+											<div class="book-meta"><span>2025</span><span>Pay what you want</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="sarah">
+									<a class="book-link" href="#" data-book-link>
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of Letters to Tomorrow">
+											<span class="book-tag">Owned</span>
+										</div>
+										<div class="book-info">
+											<h3>Letters to Tomorrow</h3>
+											<p class="book-author">Sarah Mitchell</p>
+											<p class="book-genre">Fiction</p>
+											<div class="book-meta"><span>2024</span><span>$8.50</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="olivia">
+									<a class="book-link" href="#" data-book-link>
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of Quiet Waters">
+										</div>
+										<div class="book-info">
+											<h3>Quiet Waters</h3>
+											<p class="book-author">Olivia Bennett</p>
+											<p class="book-genre">Romance</p>
+											<div class="book-meta"><span>2024</span><span>Subscription</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="emily">
+									<a class="book-link" href="#" data-book-link>
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of Things We Remember">
+											<span class="book-tag">Owned</span>
+										</div>
+										<div class="book-info">
+											<h3>Things We Remember</h3>
+											<p class="book-author">Emily Carter</p>
+											<p class="book-genre">Non-fiction</p>
+											<div class="book-meta"><span>2023</span><span>Free</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="james">
+									<a class="book-link" href="#" data-book-link>
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of The Hollow Hour">
+										</div>
+										<div class="book-info">
+											<h3>The Hollow Hour</h3>
+											<p class="book-author">James Anderson</p>
+											<p class="book-genre">Mystery</p>
+											<div class="book-meta"><span>2023</span><span>$10.00</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="sarah">
+									<a class="book-link" href="#" data-book-link>
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of Small Hours">
+										</div>
+										<div class="book-info">
+											<h3>Small Hours</h3>
+											<p class="book-author">Sarah Mitchell</p>
+											<p class="book-genre">Fiction</p>
+											<div class="book-meta"><span>2022</span><span>$6.00</span></div>
+										</div>
+									</a>
+								</article>
+							</div>
+
+							<div class="empty-state" id="people-empty" hidden>
+								<h4>Nothing to show yet</h4>
+								<p></p>
+								<button class="button" type="button" data-go-page="browse" data-empty-action="browse" hidden>Browse</button>
+								<button class="button" type="button" data-go-page="messages" data-empty-action="message" hidden>Message</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			<section class="page-section person-section" data-page-section="person" hidden>
+
+				<button class="back-link" type="button" data-back>&larr; Back</button>
+
+				<section class="profile-header">
+					<img class="avatar avatar-large" src="imgs/profile.jpg" alt="James Anderson">
+
+					<div class="profile-identity">
+						<h3>James Anderson</h3>
+						<p class="profile-handle">@jamesanderson</p>
+						<p class="profile-bio">Mystery writer, tea drinker and collector of second-hand paperbacks.</p>
+
+						<ul class="profile-links">
+							<li>Joined March 2024</li>
+							<li>1,204 followers</li>
+						</ul>
+					</div>
+
+					<div class="profile-actions">
+						<button class="button" type="button" aria-pressed="true" data-follow-toggle>Following</button>
+						<button class="button" type="button" data-go-page="messages">Message</button>
+					</div>
+				</section>
+
+				<section class="content-block">
+					<h3 class="section-title">Published books</h3>
+
+					<div class="book-grid">
+							<article class="book-card">
+								<a class="book-link" href="#" data-book-link>
+									<div class="book-cover">
+										<img src="imgs/placeholder.png" alt="Cover of The Silent Garden">
+										<span class="book-tag">Owned</span>
+									</div>
+									<div class="book-info">
+										<h3>The Silent Garden</h3>
+										<p class="book-author">James Anderson</p>
+										<p class="book-genre">Mystery</p>
+										<div class="book-meta"><span>2025</span><span>$12.00</span></div>
+									</div>
+								</a>
+							</article>
+
+							<article class="book-card">
+								<a class="book-link" href="#" data-book-link>
+									<div class="book-cover">
+										<img src="imgs/placeholder.png" alt="Cover of The Hollow Hour">
+									</div>
+									<div class="book-info">
+										<h3>The Hollow Hour</h3>
+										<p class="book-author">James Anderson</p>
+										<p class="book-genre">Mystery</p>
+										<div class="book-meta"><span>2023</span><span>$10.00</span></div>
+									</div>
+								</a>
+							</article>
+					</div>
+				</section>
 
 			</section>
 
@@ -738,90 +1119,132 @@ when someone has just left.</pre>
 				<div class="chat-layout" id="chat-layout">
 
 					<aside class="chat-list" aria-label="Conversations">
-						<div class="chat-list-search">
-							<input type="search" placeholder="Search messages..." aria-label="Search conversations">
+						<div class="chat-list-view" data-chat-list-view="conversations">
+							<div class="chat-list-search">
+								<input type="search" placeholder="Search messages..." aria-label="Search conversations">
+							</div>
+
+							<button class="chat-requests-entry" type="button" data-chat-list-link="requests">
+								<span>Message requests</span>
+								<span class="count-badge" id="requests-count">2</span>
+							</button>
+
+							<ul class="chat-list-items">
+								<li>
+									<button class="chat-list-item active" type="button" data-conversation="sarah">
+										<img class="avatar" src="imgs/profile.jpg" alt="">
+										<span class="chat-list-text">
+											<span class="chat-list-top">
+												<span class="chat-list-name">Sarah Mitchell</span>
+												<span class="chat-list-time">10:42</span>
+											</span>
+											<span class="chat-list-preview">Thank you! I'll send the revised chapter tonight.</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button class="chat-list-item unread" type="button" data-conversation="james">
+										<img class="avatar" src="imgs/profile.jpg" alt="">
+										<span class="chat-list-text">
+											<span class="chat-list-top">
+												<span class="chat-list-name">James Anderson</span>
+												<span class="chat-list-time">9:15</span>
+											</span>
+											<span class="chat-list-preview">Would you be open to a signed copy giveaway?</span>
+										</span>
+										<span class="unread-dot" aria-label="Unread"></span>
+									</button>
+								</li>
+
+								<li>
+									<button class="chat-list-item" type="button" data-conversation="emily">
+										<img class="avatar" src="imgs/profile.jpg" alt="">
+										<span class="chat-list-text">
+											<span class="chat-list-top">
+												<span class="chat-list-name">Emily Carter</span>
+												<span class="chat-list-time">Yesterday</span>
+											</span>
+											<span class="chat-list-preview">The cover draft looks great to me.</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button class="chat-list-item" type="button" data-conversation="daniel">
+										<img class="avatar" src="imgs/profile.jpg" alt="">
+										<span class="chat-list-text">
+											<span class="chat-list-top">
+												<span class="chat-list-name">Daniel Brooks</span>
+												<span class="chat-list-time">Tue</span>
+											</span>
+											<span class="chat-list-preview">Pre-orders open on the 12th, I'll let you know.</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button class="chat-list-item" type="button" data-conversation="olivia">
+										<img class="avatar" src="imgs/profile.jpg" alt="">
+										<span class="chat-list-text">
+											<span class="chat-list-top">
+												<span class="chat-list-name">Olivia Bennett</span>
+												<span class="chat-list-time">Oct 24</span>
+											</span>
+											<span class="chat-list-preview">Loved the ending. Any plans for a sequel?</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button class="chat-list-item" type="button" data-conversation="michael">
+										<img class="avatar" src="imgs/profile.jpg" alt="">
+										<span class="chat-list-text">
+											<span class="chat-list-top">
+												<span class="chat-list-name">Michael Reed</span>
+												<span class="chat-list-time">Oct 19</span>
+											</span>
+											<span class="chat-list-preview">Sounds good, talk next week.</span>
+										</span>
+									</button>
+								</li>
+							</ul>
 						</div>
 
-						<ul class="chat-list-items">
-							<li>
-								<button class="chat-list-item active" type="button" data-conversation="sarah">
-									<img class="avatar" src="imgs/profile.jpg" alt="">
-									<span class="chat-list-text">
-										<span class="chat-list-top">
-											<span class="chat-list-name">Sarah Mitchell</span>
-											<span class="chat-list-time">10:42</span>
-										</span>
-										<span class="chat-list-preview">Thank you! I'll send the revised chapter tonight.</span>
-									</span>
-								</button>
-							</li>
+						<div class="chat-list-view" data-chat-list-view="requests" hidden>
+							<div class="chat-list-heading">
+								<button class="list-back" type="button" aria-label="Back to conversations" data-chat-list-link="conversations">&larr;</button>
+								<h3>Message requests</h3>
+							</div>
 
-							<li>
-								<button class="chat-list-item unread" type="button" data-conversation="james">
-									<img class="avatar" src="imgs/profile.jpg" alt="">
-									<span class="chat-list-text">
-										<span class="chat-list-top">
-											<span class="chat-list-name">James Anderson</span>
-											<span class="chat-list-time">9:15</span>
+							<ul class="chat-list-items">
+								<li>
+									<button class="chat-list-item" type="button" data-conversation="ava">
+										<img class="avatar" src="imgs/profile.jpg" alt="">
+										<span class="chat-list-text">
+											<span class="chat-list-top">
+												<span class="chat-list-name">Ava Morrison</span>
+												<span class="chat-list-time">8:30</span>
+											</span>
+											<span class="chat-list-preview">Hi! I saw we both loved Quiet Waters. Any books like it?</span>
 										</span>
-										<span class="chat-list-preview">Would you be open to a signed copy giveaway?</span>
-									</span>
-									<span class="unread-dot" aria-label="Unread"></span>
-								</button>
-							</li>
+									</button>
+								</li>
 
-							<li>
-								<button class="chat-list-item" type="button" data-conversation="emily">
-									<img class="avatar" src="imgs/profile.jpg" alt="">
-									<span class="chat-list-text">
-										<span class="chat-list-top">
-											<span class="chat-list-name">Emily Carter</span>
-											<span class="chat-list-time">Yesterday</span>
+								<li>
+									<button class="chat-list-item" type="button" data-conversation="marcus">
+										<img class="avatar" src="imgs/profile.jpg" alt="">
+										<span class="chat-list-text">
+											<span class="chat-list-top">
+												<span class="chat-list-name">Marcus Webb</span>
+												<span class="chat-list-time">Thu</span>
+											</span>
+											<span class="chat-list-preview">Hello! I loved Salt and Ember. Could I ask you a few questions?</span>
 										</span>
-										<span class="chat-list-preview">The cover draft looks great to me.</span>
-									</span>
-								</button>
-							</li>
-
-							<li>
-								<button class="chat-list-item" type="button" data-conversation="daniel">
-									<img class="avatar" src="imgs/profile.jpg" alt="">
-									<span class="chat-list-text">
-										<span class="chat-list-top">
-											<span class="chat-list-name">Daniel Brooks</span>
-											<span class="chat-list-time">Tue</span>
-										</span>
-										<span class="chat-list-preview">Pre-orders open on the 12th, I'll let you know.</span>
-									</span>
-								</button>
-							</li>
-
-							<li>
-								<button class="chat-list-item" type="button" data-conversation="olivia">
-									<img class="avatar" src="imgs/profile.jpg" alt="">
-									<span class="chat-list-text">
-										<span class="chat-list-top">
-											<span class="chat-list-name">Olivia Bennett</span>
-											<span class="chat-list-time">Oct 24</span>
-										</span>
-										<span class="chat-list-preview">Loved the ending. Any plans for a sequel?</span>
-									</span>
-								</button>
-							</li>
-
-							<li>
-								<button class="chat-list-item" type="button" data-conversation="michael">
-									<img class="avatar" src="imgs/profile.jpg" alt="">
-									<span class="chat-list-text">
-										<span class="chat-list-top">
-											<span class="chat-list-name">Michael Reed</span>
-											<span class="chat-list-time">Oct 19</span>
-										</span>
-										<span class="chat-list-preview">Sounds good, talk next week.</span>
-									</span>
-								</button>
-							</li>
-						</ul>
+									</button>
+								</li>
+							</ul>
+						</div>
 					</aside>
 
 					<div class="chat-window">
@@ -832,7 +1255,7 @@ when someone has just left.</pre>
 								<img class="avatar" src="imgs/profile.jpg" alt="">
 								<div class="chat-thread-title">
 									<h3>Sarah Mitchell</h3>
-									<p>Author &middot; Letters to Tomorrow</p>
+									<p class="is-online">Online</p>
 								</div>
 							</header>
 
@@ -872,7 +1295,7 @@ when someone has just left.</pre>
 								<img class="avatar" src="imgs/profile.jpg" alt="">
 								<div class="chat-thread-title">
 									<h3>James Anderson</h3>
-									<p>Author &middot; The Silent Garden</p>
+									<p>Last seen today at 9:15</p>
 								</div>
 							</header>
 
@@ -902,7 +1325,7 @@ when someone has just left.</pre>
 								<img class="avatar" src="imgs/profile.jpg" alt="">
 								<div class="chat-thread-title">
 									<h3>Emily Carter</h3>
-									<p>Author &middot; Things We Remember</p>
+									<p>Last seen yesterday at 16:48</p>
 								</div>
 							</header>
 
@@ -927,7 +1350,7 @@ when someone has just left.</pre>
 								<img class="avatar" src="imgs/profile.jpg" alt="">
 								<div class="chat-thread-title">
 									<h3>Daniel Brooks</h3>
-									<p>Author &middot; Beyond the Horizon</p>
+									<p>Last seen Tuesday at 12:02</p>
 								</div>
 							</header>
 
@@ -952,7 +1375,7 @@ when someone has just left.</pre>
 								<img class="avatar" src="imgs/profile.jpg" alt="">
 								<div class="chat-thread-title">
 									<h3>Olivia Bennett</h3>
-									<p>Author &middot; Quiet Waters</p>
+									<p>Last seen Oct 24</p>
 								</div>
 							</header>
 
@@ -977,7 +1400,7 @@ when someone has just left.</pre>
 								<img class="avatar" src="imgs/profile.jpg" alt="">
 								<div class="chat-thread-title">
 									<h3>Michael Reed</h3>
-									<p>Author &middot; The Art of Being</p>
+									<p>Last seen Oct 19</p>
 								</div>
 							</header>
 
@@ -992,6 +1415,62 @@ when someone has just left.</pre>
 								<div class="message sent">
 									<p>Sounds good, talk next week.</p>
 									<span class="message-time">15:45</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="chat-thread" data-thread="ava" data-request hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="">
+								<div class="chat-thread-title">
+									<h3>Ava Morrison</h3>
+									<p>Wants to message you</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Today</div>
+
+								<div class="message received">
+									<p>Hi! I saw we both loved Quiet Waters. Any books like it?</p>
+									<span class="message-time">8:30</span>
+								</div>
+							</div>
+
+							<div class="request-bar">
+								<p>Ava isn't in your conversations yet. Accept to start chatting, or decline to remove this request.</p>
+								<div class="request-actions">
+									<button class="button" type="button" data-request-action="decline">Decline</button>
+									<button class="button button-primary" type="button" data-request-action="accept">Accept</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="chat-thread" data-thread="marcus" data-request hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="">
+								<div class="chat-thread-title">
+									<h3>Marcus Webb</h3>
+									<p>Wants to message you</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Thursday</div>
+
+								<div class="message received">
+									<p>Hello! I loved Salt and Ember. Could I ask you a few questions?</p>
+									<span class="message-time">19:14</span>
+								</div>
+							</div>
+
+							<div class="request-bar">
+								<p>Marcus isn't in your conversations yet. Accept to start chatting, or decline to remove this request.</p>
+								<div class="request-actions">
+									<button class="button" type="button" data-request-action="decline">Decline</button>
+									<button class="button button-primary" type="button" data-request-action="accept">Accept</button>
 								</div>
 							</div>
 						</div>
