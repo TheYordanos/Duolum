@@ -68,23 +68,17 @@ function initNavigation() {
 	showPage('browse');
 }
 
-function initLibraryFilters() {
-	const tabs = $$('[data-library-filter]');
-	const cards = $$('.library-grid .book-card');
-
-	function matchesFilter(card, filter) {
-		if (filter === 'all') return true;
-		if (filter === 'favorites') return card.dataset.favorite === 'true';
-		return card.dataset.bookStatus === filter;
-	}
+function initFilterTabs({ tabSelector, itemSelector, filterKey, matches }) {
+	const tabs = $$(tabSelector);
+	const items = $$(itemSelector);
 
 	function setFilter(activeTab) {
 		setActiveTab(tabs, activeTab);
 
-		const filter = activeTab.dataset.libraryFilter;
+		const filter = activeTab.dataset[filterKey];
 
-		cards.forEach((card) => {
-			card.hidden = !matchesFilter(card, filter);
+		items.forEach((item) => {
+			item.hidden = !matches(item, filter);
 		});
 	}
 
@@ -92,8 +86,47 @@ function initLibraryFilters() {
 		tab.addEventListener('click', () => setFilter(tab));
 	});
 
-	const initialTab = $('[data-library-filter].active');
+	const initialTab = tabs.find((tab) => tab.classList.contains('active'));
 	if (initialTab) setFilter(initialTab);
+}
+
+function initLibraryFilters() {
+	initFilterTabs({
+		tabSelector: '[data-library-filter]',
+		itemSelector: '.library-grid .book-card',
+		filterKey: 'libraryFilter',
+		matches: (card, filter) => {
+			if (filter === 'all') return true;
+			if (filter === 'favorites') return card.dataset.favorite === 'true';
+			return card.dataset.bookStatus === filter;
+		},
+	});
+}
+
+function initPublication() {
+	const views = $$('[data-publication-view]');
+	const links = $$('[data-publication-view-link]');
+
+	function showView(name) {
+		views.forEach((view) => {
+			view.hidden = view.dataset.publicationView !== name;
+		});
+
+		$('.main-content').scrollTop = 0;
+	}
+
+	links.forEach((link) => {
+		link.addEventListener('click', () => showView(link.dataset.publicationViewLink));
+	});
+
+	initFilterTabs({
+		tabSelector: '[data-publication-filter]',
+		itemSelector: '[data-publication-status]',
+		filterKey: 'publicationFilter',
+		matches: (row, filter) => filter === 'all' || row.dataset.publicationStatus === filter,
+	});
+
+	showView('dashboard');
 }
 
 function initProfile() {
@@ -212,5 +245,6 @@ function initChat() {
 
 initNavigation();
 initLibraryFilters();
+initPublication();
 initProfile();
 initChat();

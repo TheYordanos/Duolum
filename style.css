@@ -190,7 +190,8 @@ button {
 	background: var(--hover);
 }
 
-.button:focus-visible {
+.button:focus-visible,
+.button:has(input:focus-visible) {
 	outline: 2px solid var(--muted);
 	outline-offset: 2px;
 }
@@ -964,7 +965,7 @@ button {
 	color: var(--foreground);
 }
 
-.profile-block {
+.content-block {
 	margin-bottom: 36px;
 }
 
@@ -1004,6 +1005,7 @@ button {
 
 .list-detail {
 	display: flex;
+	min-width: 120px;
 	flex-direction: column;
 	align-items: flex-end;
 	gap: 2px;
@@ -1099,6 +1101,123 @@ button {
 .checkbox-row input {
 	accent-color: var(--foreground);
 	cursor: pointer;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+.page-header-split {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+}
+
+.page-subtitle {
+	margin-top: 8px;
+	color: var(--muted);
+	font-size: 13px;
+}
+
+.status {
+	flex: none;
+	padding: 3px 8px;
+	border: 1px solid var(--border-strong);
+	border-radius: var(--radius);
+	color: var(--muted);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.2px;
+}
+
+.status-published {
+	border-color: var(--foreground);
+	color: var(--foreground);
+}
+
+.row-actions {
+	display: flex;
+	flex: none;
+	gap: 8px;
+}
+
+.option-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+	gap: 16px;
+}
+
+.option-card {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 24px;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+}
+
+.option-card h3 {
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: -0.3px;
+}
+
+.option-card p {
+	color: var(--muted);
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+.option-actions {
+	margin-top: auto;
+}
+
+.markdown-sample {
+	padding: 14px 16px;
+	border-radius: var(--radius);
+	background: var(--hover);
+	color: var(--muted);
+	font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+	font-size: 12px;
+	line-height: 1.7;
+	white-space: pre-wrap;
+	overflow-x: auto;
+}
+
+.dropzone {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+	margin-top: auto;
+	padding: 28px 16px;
+	border: 1px dashed var(--border-strong);
+	border-radius: var(--radius);
+	color: var(--muted);
+	font-size: 12px;
+	text-align: center;
+}
+
+.format-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 6px;
+	list-style: none;
+}
+
+.format-list li {
+	padding: 3px 8px;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	font-size: 11px;
+	font-weight: 500;
 }
 
 @media (max-width: 700px) {

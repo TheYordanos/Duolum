@@ -553,8 +553,180 @@
 
 			</section>
 
-			<section class="page-section placeholder-section" data-page-section="publication" hidden>
-				<header class="page-header"><h2>Publication</h2></header>
+			<section class="page-section publication-section" data-page-section="publication" hidden>
+
+				<div data-publication-view="dashboard">
+
+					<header class="page-header page-header-split">
+						<h2>Publication</h2>
+						<button class="button button-primary" type="button" data-publication-view-link="new">New book</button>
+					</header>
+
+					<div class="stats content-block">
+						<div class="stat-item">
+							<span class="stat-label">Published</span>
+							<span class="stat-value">3</span>
+						</div>
+
+						<div class="stat-item">
+							<span class="stat-label">Drafts</span>
+							<span class="stat-value">2</span>
+						</div>
+
+						<div class="stat-item">
+							<span class="stat-label">Total readers</span>
+							<span class="stat-value">1,248</span>
+						</div>
+
+						<div class="stat-item">
+							<span class="stat-label">Earnings this month</span>
+							<span class="stat-value">$184.20</span>
+						</div>
+					</div>
+
+					<nav class="tabs" aria-label="Filter your publications">
+						<button class="tab active" type="button" data-publication-filter="all">All <span>5</span></button>
+						<button class="tab" type="button" data-publication-filter="published">Published <span>3</span></button>
+						<button class="tab" type="button" data-publication-filter="draft">Drafts <span>2</span></button>
+					</nav>
+
+					<ul class="list" aria-live="polite">
+						<li class="list-row" data-publication-status="published">
+							<img class="list-cover" src="imgs/placeholder.png" alt="Cover of The Quiet Between">
+							<div class="list-text">
+								<h4>The Quiet Between</h4>
+								<p class="book-author">Fiction &middot; 12 chapters &middot; Updated Oct 24, 2026</p>
+							</div>
+							<span class="status status-published">Published</span>
+							<div class="list-detail">
+								<span>$9.00</span>
+								<span class="list-note">482 readers</span>
+							</div>
+							<div class="row-actions">
+								<button class="button button-small" type="button">Edit</button>
+								<button class="button button-small" type="button" data-book-link>View</button>
+							</div>
+						</li>
+
+						<li class="list-row" data-publication-status="published">
+							<img class="list-cover" src="imgs/placeholder.png" alt="Cover of Salt and Ember">
+							<div class="list-text">
+								<h4>Salt and Ember</h4>
+								<p class="book-author">Fantasy &middot; 24 chapters &middot; Updated Aug 3, 2026</p>
+							</div>
+							<span class="status status-published">Published</span>
+							<div class="list-detail">
+								<span>Pay what you want</span>
+								<span class="list-note">631 readers</span>
+							</div>
+							<div class="row-actions">
+								<button class="button button-small" type="button">Edit</button>
+								<button class="button button-small" type="button" data-book-link>View</button>
+							</div>
+						</li>
+
+						<li class="list-row" data-publication-status="published">
+							<img class="list-cover" src="imgs/placeholder.png" alt="Cover of Field Notes on Leaving">
+							<div class="list-text">
+								<h4>Field Notes on Leaving</h4>
+								<p class="book-author">Non-fiction &middot; 9 chapters &middot; Updated Jun 12, 2026</p>
+							</div>
+							<span class="status status-published">Published</span>
+							<div class="list-detail">
+								<span>Free</span>
+								<span class="list-note">135 readers</span>
+							</div>
+							<div class="row-actions">
+								<button class="button button-small" type="button">Edit</button>
+								<button class="button button-small" type="button" data-book-link>View</button>
+							</div>
+						</li>
+
+						<li class="list-row" data-publication-status="draft">
+							<img class="list-cover" src="imgs/placeholder.png" alt="Cover of The Lantern Keeper">
+							<div class="list-text">
+								<h4>The Lantern Keeper</h4>
+								<p class="book-author">Fantasy &middot; 8 chapters &middot; Updated Oct 29, 2026</p>
+							</div>
+							<span class="status">Draft</span>
+							<div class="list-detail">
+								<span>Subscription</span>
+								<span class="list-note">Not published</span>
+							</div>
+							<div class="row-actions">
+								<button class="button button-small" type="button">Edit</button>
+								<button class="button button-small button-primary" type="button">Publish</button>
+							</div>
+						</li>
+
+						<li class="list-row" data-publication-status="draft">
+							<img class="list-cover" src="imgs/placeholder.png" alt="Cover of Letters I Never Sent">
+							<div class="list-text">
+								<h4>Letters I Never Sent</h4>
+								<p class="book-author">Non-fiction &middot; 6 chapters &middot; Updated Oct 21, 2026</p>
+							</div>
+							<span class="status">Draft</span>
+							<div class="list-detail">
+								<span>$7.00</span>
+								<span class="list-note">Not published</span>
+							</div>
+							<div class="row-actions">
+								<button class="button button-small" type="button">Edit</button>
+								<button class="button button-small button-primary" type="button">Publish</button>
+							</div>
+						</li>
+					</ul>
+
+				</div>
+
+				<div data-publication-view="new" hidden>
+
+					<button class="back-link" type="button" data-publication-view-link="dashboard">&larr; Back to dashboard</button>
+
+					<header class="page-header">
+						<h2>New book</h2>
+						<p class="page-subtitle">Choose how you want to add your work.</p>
+					</header>
+
+					<div class="option-grid">
+						<section class="option-card">
+							<h3>Write in Duolum</h3>
+							<p>Write your book directly on the site using CommonMark Markdown, one chapter at a time.</p>
+
+							<pre class="markdown-sample"># Chapter One
+
+The house was **quiet**, the way houses are
+when someone has just left.</pre>
+
+							<div class="option-actions">
+								<button class="button button-primary" type="button">Start writing</button>
+							</div>
+						</section>
+
+						<section class="option-card">
+							<h3>Upload a manuscript</h3>
+							<p>Already written your book somewhere else? Upload it and we'll split it into chapters for you to review before publishing.</p>
+
+							<div class="dropzone">
+								<span>Choose a file from your device</span>
+
+								<label class="button">
+									Choose file
+									<input class="visually-hidden" type="file" accept=".docx,.epub,.md,.markdown,.txt">
+								</label>
+
+								<ul class="format-list" aria-label="Accepted formats">
+									<li>DOCX</li>
+									<li>EPUB</li>
+									<li>Markdown</li>
+									<li>TXT</li>
+								</ul>
+							</div>
+						</section>
+					</div>
+
+				</div>
+
 			</section>
 
 			<section class="page-section messages-section" data-page-section="messages" hidden>
@@ -864,7 +1036,7 @@
 
 				<div class="profile-panel" data-profile-panel="overview">
 
-					<section class="profile-block">
+					<section class="content-block">
 						<h3 class="section-title">Reading snapshot</h3>
 
 						<div class="stats">
@@ -890,7 +1062,7 @@
 						</div>
 					</section>
 
-					<section class="profile-block">
+					<section class="content-block">
 						<h3 class="section-title">Published books</h3>
 
 						<div class="book-grid">
@@ -942,7 +1114,7 @@
 
 				<div class="profile-panel" data-profile-panel="purchases" hidden>
 
-					<section class="profile-block">
+					<section class="content-block">
 						<h3 class="section-title">Subscriptions</h3>
 
 						<ul class="list">
@@ -974,7 +1146,7 @@
 						</ul>
 					</section>
 
-					<section class="profile-block">
+					<section class="content-block">
 						<h3 class="section-title">Order history</h3>
 
 						<div class="table-wrap">
@@ -1029,7 +1201,7 @@
 						</div>
 					</section>
 
-					<section class="profile-block">
+					<section class="content-block">
 						<h3 class="section-title">Payment method</h3>
 
 						<ul class="list">
