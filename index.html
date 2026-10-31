@@ -259,12 +259,12 @@
 					</div>
 				</section>
 
-				<nav class="library-tabs" aria-label="Filter your books">
-					<button class="library-tab active" type="button" data-library-filter="all">All <span>12</span></button>
-					<button class="library-tab" type="button" data-library-filter="favorites">Favorites <span>6</span></button>
-					<button class="library-tab" type="button" data-library-filter="reading">Reading <span>4</span></button>
-					<button class="library-tab" type="button" data-library-filter="finished">Finished <span>4</span></button>
-					<button class="library-tab" type="button" data-library-filter="want-to-read">Want to Read <span>4</span></button>
+				<nav class="tabs" aria-label="Filter your books">
+					<button class="tab active" type="button" data-library-filter="all">All <span>12</span></button>
+					<button class="tab" type="button" data-library-filter="favorites">Favorites <span>6</span></button>
+					<button class="tab" type="button" data-library-filter="reading">Reading <span>4</span></button>
+					<button class="tab" type="button" data-library-filter="finished">Finished <span>4</span></button>
+					<button class="tab" type="button" data-library-filter="want-to-read">Want to Read <span>4</span></button>
 				</nav>
 
 				<section class="book-grid library-grid" id="library-grid" aria-live="polite">
@@ -833,8 +833,297 @@
 				</div>
 			</section>
 
-			<section class="page-section placeholder-section" data-page-section="profile" hidden>
-				<header class="page-header"><h2>Profile</h2></header>
+			<section class="page-section profile-section" data-page-section="profile" hidden>
+
+				<header class="page-header">
+					<h2>Profile</h2>
+				</header>
+
+				<section class="profile-header">
+					<img class="avatar avatar-large" src="imgs/profile.jpg" alt="Jordan Hale">
+
+					<div class="profile-identity">
+						<h3>Jordan Hale</h3>
+						<p class="profile-handle">@jordanhale</p>
+						<p class="profile-bio">Writer of quiet, character-driven fiction and a reader of almost everything else.</p>
+
+						<ul class="profile-links">
+							<li>Joined October 2024</li>
+							<li><a href="#">jordanhale.com</a></li>
+						</ul>
+					</div>
+
+					<button class="button" type="button" data-profile-tab-link="settings">Edit profile</button>
+				</section>
+
+				<nav class="tabs" aria-label="Profile sections">
+					<button class="tab active" type="button" data-profile-tab="overview">Overview</button>
+					<button class="tab" type="button" data-profile-tab="purchases">Purchases</button>
+					<button class="tab" type="button" data-profile-tab="settings">Settings</button>
+				</nav>
+
+				<div class="profile-panel" data-profile-panel="overview">
+
+					<section class="profile-block">
+						<h3 class="section-title">Reading snapshot</h3>
+
+						<div class="stats">
+							<div class="stat-item">
+								<span class="stat-label">Books finished</span>
+								<span class="stat-value">4</span>
+							</div>
+
+							<div class="stat-item">
+								<span class="stat-label">Currently reading</span>
+								<span class="stat-value">4</span>
+							</div>
+
+							<div class="stat-item">
+								<span class="stat-label">Favorites</span>
+								<span class="stat-value">6</span>
+							</div>
+
+							<div class="stat-item">
+								<span class="stat-label">Books published</span>
+								<span class="stat-value">3</span>
+							</div>
+						</div>
+					</section>
+
+					<section class="profile-block">
+						<h3 class="section-title">Published books</h3>
+
+						<div class="book-grid">
+							<article class="book-card">
+								<a class="book-link" href="#" data-book-link>
+									<div class="book-cover">
+										<img src="imgs/placeholder.png" alt="Cover of The Quiet Between">
+									</div>
+									<div class="book-info">
+										<h3>The Quiet Between</h3>
+										<p class="book-author">Jordan Hale</p>
+										<p class="book-genre">Fiction</p>
+										<div class="book-meta"><span>2025</span><span>$9.00</span></div>
+									</div>
+								</a>
+							</article>
+
+							<article class="book-card">
+								<a class="book-link" href="#" data-book-link>
+									<div class="book-cover">
+										<img src="imgs/placeholder.png" alt="Cover of Salt and Ember">
+									</div>
+									<div class="book-info">
+										<h3>Salt and Ember</h3>
+										<p class="book-author">Jordan Hale</p>
+										<p class="book-genre">Fantasy</p>
+										<div class="book-meta"><span>2024</span><span>Pay what you want</span></div>
+									</div>
+								</a>
+							</article>
+
+							<article class="book-card">
+								<a class="book-link" href="#" data-book-link>
+									<div class="book-cover">
+										<img src="imgs/placeholder.png" alt="Cover of Field Notes on Leaving">
+									</div>
+									<div class="book-info">
+										<h3>Field Notes on Leaving</h3>
+										<p class="book-author">Jordan Hale</p>
+										<p class="book-genre">Non-fiction</p>
+										<div class="book-meta"><span>2023</span><span>Free</span></div>
+									</div>
+								</a>
+							</article>
+						</div>
+					</section>
+
+				</div>
+
+				<div class="profile-panel" data-profile-panel="purchases" hidden>
+
+					<section class="profile-block">
+						<h3 class="section-title">Subscriptions</h3>
+
+						<ul class="list">
+							<li class="list-row">
+								<img class="list-cover" src="imgs/placeholder.png" alt="Cover of Quiet Waters">
+								<div class="list-text">
+									<h4>Quiet Waters</h4>
+									<p class="book-author">Olivia Bennett</p>
+								</div>
+								<div class="list-detail">
+									<span>$3.00 / month</span>
+									<span class="list-note">Renews Nov 14, 2026</span>
+								</div>
+								<button class="button button-small" type="button">Manage</button>
+							</li>
+
+							<li class="list-row">
+								<img class="list-cover" src="imgs/placeholder.png" alt="Cover of Winter Letters">
+								<div class="list-text">
+									<h4>Winter Letters</h4>
+									<p class="book-author">Amelia Rose</p>
+								</div>
+								<div class="list-detail">
+									<span>$2.50 / month</span>
+									<span class="list-note">Renews Nov 20, 2026</span>
+								</div>
+								<button class="button button-small" type="button">Manage</button>
+							</li>
+						</ul>
+					</section>
+
+					<section class="profile-block">
+						<h3 class="section-title">Order history</h3>
+
+						<div class="table-wrap">
+							<table class="data-table">
+								<thead>
+									<tr>
+										<th>Date</th>
+										<th>Book</th>
+										<th>Type</th>
+										<th class="align-right">Amount</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Oct 28, 2026</td>
+										<td>The Silent Garden</td>
+										<td>Fixed price</td>
+										<td class="align-right">$12.00</td>
+									</tr>
+									<tr>
+										<td>Oct 20, 2026</td>
+										<td>Winter Letters</td>
+										<td>Subscription</td>
+										<td class="align-right">$2.50</td>
+									</tr>
+									<tr>
+										<td>Oct 14, 2026</td>
+										<td>Quiet Waters</td>
+										<td>Subscription</td>
+										<td class="align-right">$3.00</td>
+									</tr>
+									<tr>
+										<td>Oct 2, 2026</td>
+										<td>Things We Remember</td>
+										<td>Free</td>
+										<td class="align-right">$0.00</td>
+									</tr>
+									<tr>
+										<td>Sep 14, 2026</td>
+										<td>The Art of Being</td>
+										<td>Pay what you want</td>
+										<td class="align-right">$7.00</td>
+									</tr>
+									<tr>
+										<td>Aug 30, 2026</td>
+										<td>Letters to Tomorrow</td>
+										<td>Fixed price</td>
+										<td class="align-right">$8.50</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+
+					<section class="profile-block">
+						<h3 class="section-title">Payment method</h3>
+
+						<ul class="list">
+							<li class="list-row">
+								<div class="list-text">
+									<h4>Visa ending in 4242</h4>
+									<p class="book-author">Expires 08/28</p>
+								</div>
+								<button class="button button-small" type="button">Update</button>
+							</li>
+						</ul>
+					</section>
+
+				</div>
+
+				<div class="profile-panel" data-profile-panel="settings" hidden>
+
+					<form class="settings-form">
+
+						<section class="settings-section">
+							<h3 class="section-title">Profile details</h3>
+
+							<div class="settings-fields">
+								<div class="settings-avatar">
+									<img class="avatar avatar-medium" src="imgs/profile.jpg" alt="Current profile photo">
+									<button class="button button-small" type="button">Change photo</button>
+								</div>
+
+								<div class="field">
+									<label for="settings-name">Display name</label>
+									<input id="settings-name" type="text" value="Jordan Hale">
+								</div>
+
+								<div class="field">
+									<label for="settings-handle">Handle</label>
+									<input id="settings-handle" type="text" value="jordanhale">
+								</div>
+
+								<div class="field">
+									<label for="settings-bio">Bio</label>
+									<textarea id="settings-bio" rows="4">Writer of quiet, character-driven fiction and a reader of almost everything else.</textarea>
+								</div>
+
+								<div class="field">
+									<label for="settings-website">Website</label>
+									<input id="settings-website" type="text" value="jordanhale.com">
+								</div>
+							</div>
+						</section>
+
+						<section class="settings-section">
+							<h3 class="section-title">Account</h3>
+
+							<div class="settings-fields">
+								<div class="field">
+									<label for="settings-email">Email</label>
+									<input id="settings-email" type="email" value="jordan@example.com">
+								</div>
+
+								<div>
+									<button class="button" type="button">Change password</button>
+								</div>
+							</div>
+						</section>
+
+						<section class="settings-section">
+							<h3 class="section-title">Notifications</h3>
+
+							<div class="settings-fields">
+								<label class="checkbox-row">
+									<input type="checkbox" checked>
+									<span>New messages</span>
+								</label>
+
+								<label class="checkbox-row">
+									<input type="checkbox" checked>
+									<span>Subscription renewals</span>
+								</label>
+
+								<label class="checkbox-row">
+									<input type="checkbox">
+									<span>Product updates</span>
+								</label>
+							</div>
+						</section>
+
+						<div class="settings-actions">
+							<button class="button button-primary" type="submit">Save changes</button>
+						</div>
+
+					</form>
+
+				</div>
+
 			</section>
 
 		</main>

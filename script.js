@@ -1,6 +1,15 @@
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
+function setActiveTab(tabs, activeTab) {
+	tabs.forEach((tab) => {
+		const isActive = tab === activeTab;
+
+		tab.classList.toggle('active', isActive);
+		tab.setAttribute('aria-pressed', String(isActive));
+	});
+}
+
 const app = {
 	currentPage: 'browse',
 	pageBeforeDetail: 'browse',
@@ -60,7 +69,7 @@ function initNavigation() {
 }
 
 function initLibraryFilters() {
-	const tabs = $$('.library-tab');
+	const tabs = $$('[data-library-filter]');
 	const cards = $$('.library-grid .book-card');
 
 	function matchesFilter(card, filter) {
@@ -70,12 +79,7 @@ function initLibraryFilters() {
 	}
 
 	function setFilter(activeTab) {
-		tabs.forEach((tab) => {
-			const isActive = tab === activeTab;
-
-			tab.classList.toggle('active', isActive);
-			tab.setAttribute('aria-pressed', String(isActive));
-		});
+		setActiveTab(tabs, activeTab);
 
 		const filter = activeTab.dataset.libraryFilter;
 
@@ -88,8 +92,35 @@ function initLibraryFilters() {
 		tab.addEventListener('click', () => setFilter(tab));
 	});
 
-	const initialTab = $('.library-tab.active');
+	const initialTab = $('[data-library-filter].active');
 	if (initialTab) setFilter(initialTab);
+}
+
+function initProfile() {
+	const tabs = $$('[data-profile-tab]');
+	const panels = $$('[data-profile-panel]');
+	const tabLinks = $$('[data-profile-tab-link]');
+	const settingsForm = $('.settings-form');
+
+	function showTab(name) {
+		setActiveTab(tabs, tabs.find((tab) => tab.dataset.profileTab === name));
+
+		panels.forEach((panel) => {
+			panel.hidden = panel.dataset.profilePanel !== name;
+		});
+	}
+
+	tabs.forEach((tab) => {
+		tab.addEventListener('click', () => showTab(tab.dataset.profileTab));
+	});
+
+	tabLinks.forEach((link) => {
+		link.addEventListener('click', () => showTab(link.dataset.profileTabLink));
+	});
+
+	settingsForm.addEventListener('submit', (event) => event.preventDefault());
+
+	showTab('overview');
 }
 
 const chat = {
@@ -181,4 +212,5 @@ function initChat() {
 
 initNavigation();
 initLibraryFilters();
+initProfile();
 initChat();
