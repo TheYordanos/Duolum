@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Review upload &middot; Duolum</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/layout.css">
+	<link rel="stylesheet" href="styles/components.css">
+	<link rel="stylesheet" href="styles/prose.css">
+	<link rel="stylesheet" href="styles/review.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<div class="app-container">
+
+		<aside class="sidebar">
+			<div class="sidebar-header">
+				<a class="brand" href="index.html">Duolum</a>
+			</div>
+
+			<nav class="navigation" aria-label="Main navigation">
+				<a class="nav-item" href="index.html">Browse</a>
+				<a class="nav-item" href="library.html">Library</a>
+				<a class="nav-item" href="following.html">Following</a>
+				<a class="nav-item active" href="publication.html" aria-current="page">Publication</a>
+				<a class="nav-item" href="messages.html">Messages<span class="nav-dot" data-unread-dot><span class="visually-hidden">Unread messages</span></span></a>
+				<a class="nav-item" href="profile.html">Profile</a>
+			</nav>
+		</aside>
+
+		<main class="main-content" id="main" tabindex="-1">
+
+			<div class="page">
+
+				<a class="back-link" href="publication-new.html">&larr; Choose a different file</a>
+
+				<header class="page-header">
+					<h1>Review your upload</h1>
+					<p class="page-subtitle">We split your file into chapters. Check them over, then add your book details.</p>
+				</header>
+
+				<section class="upload-summary" aria-label="Uploaded file">
+					<div class="file-badge" aria-hidden="true" data-file-type>DOCX</div>
+					<div class="upload-summary-text">
+						<p class="file-name" data-file-name>the-silent-garden.docx</p>
+						<p class="file-meta"><span data-file-size>2.4 MB</span> &middot; <span id="summary-words">24,064</span> words &middot; <span id="summary-chapters">8</span> chapters</p>
+						<p class="file-note">We keep your original file, so you can import it again later.</p>
+					</div>
+				</section>
+
+				<section class="content-block" aria-labelledby="notes-title">
+					<h2 class="section-title" id="notes-title">Conversion notes</h2>
+
+					<ul class="notes">
+						<li><span class="note-label">Imported</span><span>4 images were imported. You can add descriptions for them later.</span></li>
+						<li><span class="note-label">Changed</span><span>Fonts, colors and page layout were removed so your book matches Duolum&rsquo;s reading style. Headings, italics, quotes, lists and tables were kept.</span></li>
+						<li><span class="note-label note-label-check">Check</span><span>One chapter is very short. If we split your file in the wrong place, you can merge it with its neighbor below.</span></li>
+					</ul>
+				</section>
+
+				<div class="tabs" role="tablist" aria-label="Review steps">
+					<button class="tab active" type="button" role="tab" id="review-tab-chapters" aria-selected="true" aria-controls="review-panel-chapters" data-step="chapters">1. Chapters</button>
+					<button class="tab" type="button" role="tab" id="review-tab-details" aria-selected="false" aria-controls="review-panel-details" data-step="details">2. Details</button>
+				</div>
+
+				<div id="review-panel-chapters" role="tabpanel" aria-labelledby="review-tab-chapters">
+
+					<div class="chapter-editor">
+
+						<ol class="chapter-list" id="chapter-list" aria-label="Chapters">
+							<li class="chapter-item" data-words="1240">
+								<button class="chapter-select" type="button" aria-current="true">
+									<span class="chapter-number">1</span>
+									<span class="chapter-text">
+										<span class="chapter-name">Prologue</span>
+										<span class="chapter-words">1,240 words</span>
+									</span>
+									<span class="chapter-flag" hidden>Short</span>
+								</button>
+								<div class="chapter-source" hidden>
+								<p>Before the house had a name, it had a garden, and before the garden there was only the wall.</p>
+								<p>Nobody remembers who built it. Everyone remembers who stopped speaking about it.</p>
+								</div>
+							</li>
+
+							<li class="chapter-item" data-words="4820">
+								<button class="chapter-select" type="button">
+									<span class="chapter-number">2</span>
+									<span class="chapter-text">
+										<span class="chapter-name">The House on Alder Lane</span>
+										<span class="chapter-words">4,820 words</span>
+									</span>
+									<span class="chapter-flag" hidden>Short</span>
+								</button>
+								<div class="chapter-source" hidden>
+								<p>Mara arrived on a Thursday, which she would later decide was the first mistake.</p>
+								<p>The key stuck, then gave, then stuck again. Inside, the air tasted of dust and cold tea.</p>
+								</div>
+							</li>
+
+							<li class="chapter-item" data-words="5310">
+								<button class="chapter-select" type="button">
+									<span class="chapter-number">3</span>
+									<span class="chapter-text">
+										<span class="chapter-name">The Garden Wall</span>
+										<span class="chapter-words">5,310 words</span>
+									</span>
+									<span class="chapter-flag" hidden>Short</span>
+								</button>
+								<div class="chapter-source" hidden>
+								<p>The wall had been there longer than the house. Mara could tell by the way the moss had settled into it.</p>
+								<blockquote><p>A garden is a promise you keep to a stranger.</p><cite>From Edmund Vale&rsquo;s notebook</cite></blockquote>
+								<p>She read it twice, then went to find a spade.</p>
+								</div>
+							</li>
+
+							<li class="chapter-item" data-words="4150">
+								<button class="chapter-select" type="button">
+									<span class="chapter-number">4</span>
+									<span class="chapter-text">
+										<span class="chapter-name">What the Gardener Left</span>
+										<span class="chapter-words">4,150 words</span>
+									</span>
+									<span class="chapter-flag" hidden>Short</span>
+								</button>
+								<div class="chapter-source" hidden>
+								<p>The trowel was rusted almost to the color of the soil.</p>
+								<figure><img src="imgs/placeholder.png" alt="A key wrapped in oilcloth" loading="lazy" decoding="async"><figcaption>The key, as found.</figcaption></figure>
+								<pre tabindex="0"><code>third stone from the gate
+seven steps toward the roses</code></pre>
+								</div>
+							</li>
+
+							<li class="chapter-item" data-words="3960">
+								<button class="chapter-select" type="button">
+									<span class="chapter-number">5</span>
+									<span class="chapter-text">
+										<span class="chapter-name">A Visitor After Dark</span>
+										<span class="chapter-words">3,960 words</span>
+									</span>
+									<span class="chapter-flag" hidden>Short</span>
+								</button>
+								<div class="chapter-source" hidden>
+								<p>The knock came at nine, three beats and a pause, like someone who had practiced.</p>
+								<p>Mara did not open the door. She watched the handle until it stopped moving.</p>
+								</div>
+							</li>
+
+							<li class="chapter-item" data-words="2870">
+								<button class="chapter-select" type="button">
+									<span class="chapter-number">6</span>
+									<span class="chapter-text">
+										<span class="chapter-name">The Letter</span>
+										<span class="chapter-words">2,870 words</span>
+									</span>
+									<span class="chapter-flag" hidden>Short</span>
+								</button>
+								<div class="chapter-source" hidden>
+								<p>It was addressed to her grandfather, and it was thirty years late.</p>
+								<ul><li>The paper was thin and smelled of smoke.</li><li>The ink had gone brown at the edges.</li></ul>
+								</div>
+							</li>
+
+							<li class="chapter-item" data-words="84">
+								<button class="chapter-select" type="button">
+									<span class="chapter-number">7</span>
+									<span class="chapter-text">
+										<span class="chapter-name">Interlude</span>
+										<span class="chapter-words">84 words</span>
+									</span>
+									<span class="chapter-flag" hidden>Short</span>
+								</button>
+								<div class="chapter-source" hidden>
+								<p>Somewhere, a clock that had been stopped was wound again.</p>
+								</div>
+							</li>
+
+							<li class="chapter-item" data-words="1630">
+								<button class="chapter-select" type="button">
+									<span class="chapter-number">8</span>
+									<span class="chapter-text">
+										<span class="chapter-name">The Orchard Road</span>
+										<span class="chapter-words">1,630 words</span>
+									</span>
+									<span class="chapter-flag" hidden>Short</span>
+								</button>
+								<div class="chapter-source" hidden>
+								<p>The orchard had been cut down, but the road to it was still worn into the grass.</p>
+								<p>She followed it anyway.</p>
+								</div>
+							</li>
+						</ol>
+
+						<section class="chapter-detail" aria-label="Selected chapter">
+							<div class="chapter-detail-top">
+								<div class="chapter-title-field field">
+									<label for="chapter-title">Chapter title</label>
+									<input class="input input-small" id="chapter-title" type="text" autocomplete="off">
+								</div>
+
+								<div class="chapter-actions">
+									<button class="button button-small" type="button" data-chapter-action="up">Move up</button>
+									<button class="button button-small" type="button" data-chapter-action="down">Move down</button>
+									<button class="button button-small" type="button" data-chapter-action="merge">Merge with next</button>
+									<button class="button button-small" type="button" data-chapter-action="remove">Remove</button>
+								</div>
+							</div>
+
+							<div class="chapter-preview" tabindex="0" aria-label="Chapter preview">
+								<div class="prose" id="chapter-prose"></div>
+							</div>
+						</section>
+
+					</div>
+
+					<p class="review-status" role="status">
+						<span id="review-status-text"></span>
+						<button class="text-button" type="button" id="review-undo" hidden>Undo</button>
+					</p>
+
+					<div class="step-actions">
+						<a class="button" href="publication.html">Cancel</a>
+						<button class="button button-primary" type="button" data-step-link="details">Next: book details</button>
+					</div>
+
+				</div>
+
+				<div id="review-panel-details" role="tabpanel" aria-labelledby="review-tab-details" hidden>
+
+					<form class="details-form" action="publication.html">
+
+						<div class="field">
+							<label for="book-title">Title</label>
+							<input class="input" id="book-title" name="title" type="text" value="The Silent Garden" required>
+						</div>
+
+						<div class="field">
+							<label for="book-description">Description</label>
+							<textarea class="input" id="book-description" name="description" rows="5"></textarea>
+							<p class="field-hint">Shown on your book&rsquo;s page. A few sentences about the story and who it&rsquo;s for.</p>
+						</div>
+
+						<div class="field-row">
+							<div class="field">
+								<label for="book-genre">Genre</label>
+								<select class="input" id="book-genre" name="genre">
+									<option>Fiction</option>
+									<option>Non-fiction</option>
+									<option>Fantasy</option>
+									<option>Romance</option>
+									<option selected>Mystery</option>
+									<option>Science fiction</option>
+								</select>
+							</div>
+
+							<div class="field">
+								<label for="book-language">Language</label>
+								<select class="input" id="book-language" name="language">
+									<option selected>English</option>
+									<option>Spanish</option>
+									<option>French</option>
+									<option>German</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="field">
+							<label for="book-cover">Cover</label>
+							<div class="cover-upload">
+								<img class="cover-preview" id="cover-preview" src="imgs/placeholder.png" alt="Cover preview">
+								<div class="cover-upload-text">
+									<label class="button button-small">
+										Choose image
+										<input class="visually-hidden" id="book-cover" name="cover" type="file" accept="image/*">
+									</label>
+									<p class="field-hint">Portrait, 2:3 ratio works best, for example 1600 by 2400 pixels.</p>
+								</div>
+							</div>
+						</div>
+
+						<fieldset class="fieldset">
+							<legend>Pricing</legend>
+
+							<div class="radio-list">
+								<label class="radio-row">
+									<input type="radio" name="pricing" value="fixed" checked>
+									<span>Fixed price<span class="radio-description">Readers pay one price and own the book.</span></span>
+								</label>
+
+								<label class="radio-row">
+									<input type="radio" name="pricing" value="free">
+									<span>Free<span class="radio-description">Anyone can read it.</span></span>
+								</label>
+
+								<label class="radio-row">
+									<input type="radio" name="pricing" value="pwyw">
+									<span>Pay what you want<span class="radio-description">Readers choose what to pay, above a minimum you set.</span></span>
+								</label>
+
+								<label class="radio-row">
+									<input type="radio" name="pricing" value="supporters">
+									<span>Supporters only<span class="radio-description">Only people who support you with a monthly payment can read it.</span></span>
+								</label>
+							</div>
+						</fieldset>
+
+						<div class="field" id="amount-field">
+							<label for="book-amount" id="amount-label">Price</label>
+							<div class="field-prefix">
+								<span aria-hidden="true">$</span>
+								<input class="input" id="book-amount" name="amount" type="number" min="0" step="0.50" value="12.00">
+							</div>
+						</div>
+
+						<div class="field" id="sample-field">
+							<label for="book-sample">Free sample</label>
+							<select class="input" id="book-sample" name="sample">
+								<option value="0">No sample</option>
+								<option value="1" selected>First chapter</option>
+								<option value="2">First 2 chapters</option>
+								<option value="3">First 3 chapters</option>
+								<option value="5">First 5 chapters</option>
+							</select>
+							<p class="field-hint">How much readers can read before they buy.</p>
+						</div>
+
+						<div class="step-actions">
+							<button class="button" type="button" data-step-link="chapters">Back to chapters</button>
+							<button class="button button-primary" type="submit">Save as draft</button>
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</main>
+
+	</div>
+
+	<script src="scripts/common.js" defer></script>
+	<script src="scripts/review.js" defer></script>
+</body>
+</html>

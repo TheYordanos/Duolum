@@ -144,6 +144,73 @@ textarea.input {
 	color: var(--foreground);
 }
 
+/* Form fields */
+.field label {
+	display: block;
+	margin-bottom: 8px;
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.field-hint {
+	margin-top: 8px;
+	color: var(--muted);
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.field-prefix {
+	position: relative;
+	max-width: 180px;
+}
+
+.field-prefix > span {
+	position: absolute;
+	top: 50%;
+	left: 14px;
+	color: var(--muted);
+	font-size: 13px;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+.field-prefix .input {
+	padding-left: 28px;
+}
+
+.checkbox-row,
+.radio-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.checkbox-row input,
+.radio-row input {
+	accent-color: var(--foreground);
+	cursor: pointer;
+}
+
+.fieldset legend {
+	margin-bottom: 8px;
+	padding: 0;
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.fieldset {
+	min-width: 0;
+	border: 0;
+}
+
+select.input {
+	padding-right: 10px;
+	background-color: var(--background);
+	cursor: pointer;
+}
+
 /* Avatars */
 .avatar {
 	flex: none;

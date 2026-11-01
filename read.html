@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="reader">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Garden Wall &middot; The Silent Garden &middot; Duolum</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/components.css">
+	<link rel="stylesheet" href="styles/prose.css">
+	<link rel="stylesheet" href="styles/reader.css">
+
+	<script>
+		(function () {
+			try {
+				var saved = JSON.parse(localStorage.getItem('duolum-reader')) || {};
+				var root = document.documentElement;
+				if (['light', 'sepia', 'dark'].indexOf(saved.theme) > -1) root.dataset.readerTheme = saved.theme;
+				if (['serif', 'sans'].indexOf(saved.font) > -1) root.dataset.readerFont = saved.font;
+				if (saved.size >= 15 && saved.size <= 26) root.style.setProperty('--reader-size', saved.size + 'px');
+			} catch (error) {}
+		})();
+	</script>
+</head>
+<body>
+
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="reader-bar">
+		<div class="reader-bar-inner">
+			<a class="reader-back" href="book.html">&larr; The Silent Garden</a>
+
+			<p class="reader-bar-title">Chapter 3 of 12</p>
+
+			<div class="reader-bar-actions">
+				<button class="button button-small" type="button" id="contents-toggle" aria-haspopup="dialog" aria-controls="contents-drawer">Contents</button>
+				<button class="button button-small" type="button" id="settings-toggle" aria-expanded="false" aria-controls="reader-settings">Aa<span class="visually-hidden"> Reading settings</span></button>
+			</div>
+		</div>
+
+		<div class="reader-progress" aria-hidden="true">
+			<div class="reader-progress-fill"></div>
+		</div>
+
+		<div class="reader-settings" id="reader-settings" role="group" aria-label="Reading settings" hidden>
+			<div>
+				<p class="reader-setting-label" id="size-label">Text size</p>
+				<div class="option-group" role="group" aria-labelledby="size-label">
+					<button class="option" type="button" data-size-step="-1" aria-label="Smaller text">A&minus;</button>
+					<span class="size-value" id="size-value" aria-live="polite">19</span>
+					<button class="option" type="button" data-size-step="1" aria-label="Larger text">A+</button>
+				</div>
+			</div>
+
+			<div>
+				<p class="reader-setting-label" id="font-label">Typeface</p>
+				<div class="option-group" role="group" aria-labelledby="font-label">
+					<button class="option" type="button" aria-pressed="true" data-font-option="serif">Serif</button>
+					<button class="option" type="button" aria-pressed="false" data-font-option="sans">Sans</button>
+				</div>
+			</div>
+
+			<div>
+				<p class="reader-setting-label" id="theme-label">Theme</p>
+				<div class="option-group" role="group" aria-labelledby="theme-label">
+					<button class="option" type="button" aria-pressed="true" data-theme-option="light">Light</button>
+					<button class="option" type="button" aria-pressed="false" data-theme-option="sepia">Sepia</button>
+					<button class="option" type="button" aria-pressed="false" data-theme-option="dark">Dark</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<dialog class="drawer" id="contents-drawer" aria-labelledby="contents-title">
+		<div class="drawer-header">
+			<h2 id="contents-title">Contents</h2>
+			<button class="button button-small" type="button" data-close-drawer>Close</button>
+		</div>
+
+		<ol class="toc">
+			<li><a href="read.html"><span class="toc-number">1</span><span>Prologue</span></a></li>
+			<li><a href="read.html"><span class="toc-number">2</span><span>The House on Alder Lane</span></a></li>
+			<li><a href="read.html" aria-current="page"><span class="toc-number">3</span><span>The Garden Wall</span></a></li>
+			<li><a href="read.html"><span class="toc-number">4</span><span>What the Gardener Left</span></a></li>
+			<li><a href="read.html"><span class="toc-number">5</span><span>A Visitor After Dark</span></a></li>
+			<li><a href="read.html"><span class="toc-number">6</span><span>The Letter</span></a></li>
+			<li><a href="read.html"><span class="toc-number">7</span><span>Interlude</span></a></li>
+			<li><a href="read.html"><span class="toc-number">8</span><span>The Orchard Road</span></a></li>
+			<li><a href="read.html"><span class="toc-number">9</span><span>Everything the Rain Knew</span></a></li>
+			<li><a href="read.html"><span class="toc-number">10</span><span>The Locked Room</span></a></li>
+			<li><a href="read.html"><span class="toc-number">11</span><span>Thaw</span></a></li>
+			<li><a href="read.html"><span class="toc-number">12</span><span>Epilogue</span></a></li>
+		</ol>
+	</dialog>
+
+	<main class="reader-main" id="main" tabindex="-1">
+
+		<article class="reader-article">
+
+			<header class="chapter-header">
+				<p class="chapter-kicker">Chapter 3 of 12</p>
+				<h1>The Garden Wall</h1>
+				<p class="chapter-meta">12 min read</p>
+			</header>
+
+			<div class="prose">
+				<p>The wall had been there longer than the house. Mara could tell by the way the moss had settled into it, filling every crack the way water fills a footprint, and by the stones themselves, which were the color of old bread.</p>
+
+				<p>She had come out at dawn because the kitchen felt <em>wrong</em>. Nothing had been moved and nothing was missing, but the whole room held its breath, the way a person does when they are pretending not to listen.</p>
+
+				<h2>What the gardener left</h2>
+
+				<p>Her grandfather had kept notebooks, dozens of them, stacked in the pantry behind the flour. Most were seed counts and weather. One page, folded into the back of the oldest, was different. It began with a line he had copied out in his small, upright hand:</p>
+
+				<blockquote>
+					<p>A garden is a promise you keep to a stranger. Whoever comes after you will inherit every decision you made on your knees.</p>
+					<cite>From Edmund Vale&rsquo;s notebook, 1974</cite>
+				</blockquote>
+
+				<p>Mara read it twice. Below it, in the same careful hand, was something that was not a quotation at all.</p>
+
+				<pre tabindex="0"><code>third stone from the gate
+seven steps toward the roses
+dig where the light stops</code></pre>
+
+				<p>She laughed, once, out loud, and the sound was strange in the empty garden. It was the kind of note a child writes when they want a treasure hunt. It was also, she realized, written in a hand that had never once been playful.</p>
+
+				<figure>
+					<img src="imgs/placeholder.png" alt="A mossy stone wall running along the edge of an overgrown garden" loading="lazy" decoding="async">
+					<figcaption>The north wall, photographed the week the house was sold.</figcaption>
+				</figure>
+
+				<p>So she did what anyone would do. She made a list in the back of her own notebook, and then she went to find a spade.</p>
+
+				<ol>
+					<li>Find the third stone from the gate.</li>
+					<li>Walk seven steps toward the roses.</li>
+					<li>Dig where the light stops.</li>
+				</ol>
+
+				<p>The third stone was easy. It was the only one with a small scar across its face, as if someone had once tried to split it and changed their mind. Seven steps took her into the old rose bed, where the bushes had grown so wild they leaned on each other for support.</p>
+
+				<p>She knelt. The earth was cold and smelled of iron. Within a few minutes the spade struck something that was not stone, and she set it aside and used her hands.</p>
+
+				<ul>
+					<li>A trowel, rusted almost to the color of the soil.</li>
+					<li>A key wrapped in oilcloth, still faintly greasy.</li>
+					<li>A photograph of a woman she did not recognize, standing exactly where Mara now knelt.</li>
+				</ul>
+
+				<p>On the back of the photograph there were three short lines, dated by someone who had clearly meant them to be found.</p>
+
+				<div class="table-scroll" tabindex="0" role="region" aria-label="Entries from the back of the photograph">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">Date</th>
+								<th scope="col">Entry</th>
+								<th scope="col">Weather</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>4 May</td>
+								<td>Planted the roses by the wall.</td>
+								<td>Clear</td>
+							</tr>
+							<tr>
+								<td>19 May</td>
+								<td>She has not come back.</td>
+								<td>Rain</td>
+							</tr>
+							<tr>
+								<td>2 June</td>
+								<td>Buried what she left. Told no one.</td>
+								<td>Fog</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<hr>
+
+				<p>By the time the sun cleared the roofline, Mara was sitting on the wall with the key in her lap and the photograph face down beside her, as though it might be embarrassed. Somewhere in the house a door opened and closed, softly, the way her grandfather used to close doors when he did not want to be noticed.</p>
+
+				<p>She had locked it behind her. She was almost sure of that.</p>
+			</div>
+
+		</article>
+
+		<section class="access-gate" data-access-gate="sample" hidden>
+			<h2>You&rsquo;ve reached the end of the sample</h2>
+			<p>Buy The Silent Garden to keep reading from here. It&rsquo;s yours to keep, and you can read it on any device.</p>
+			<div class="gate-actions">
+				<a class="button button-primary" href="book.html">Buy for $12.00</a>
+				<a class="button" href="book.html">Back to book</a>
+			</div>
+		</section>
+
+		<section class="access-gate" data-access-gate="supporters" hidden>
+			<h2>This book is for supporters</h2>
+			<p>Support James Anderson from $3.00 a month to read this book and other exclusive writing.</p>
+			<div class="gate-actions">
+				<a class="button button-primary" href="person.html">Support James Anderson</a>
+				<a class="button" href="book.html">Back to book</a>
+			</div>
+		</section>
+
+		<nav class="chapter-nav" aria-label="Chapter navigation">
+			<a class="chapter-nav-link" href="read.html" rel="prev">
+				<span class="chapter-nav-label">Previous</span>
+				<span class="chapter-nav-title">The House on Alder Lane</span>
+			</a>
+			<a class="chapter-nav-link" href="read.html" rel="next">
+				<span class="chapter-nav-label">Next</span>
+				<span class="chapter-nav-title">What the Gardener Left</span>
+			</a>
+		</nav>
+
+			<section class="book-end" aria-labelledby="book-end-title" data-book-end hidden>
+			<h2 id="book-end-title">You&rsquo;ve finished The Silent Garden</h2>
+			<p>Thanks for reading. Mark it as finished and it moves to the Finished tab in your library.</p>
+			<div class="gate-actions">
+				<button class="button button-primary" type="button" aria-pressed="false" data-finish-toggle>Mark as finished</button>
+				<a class="button" href="library.html">Back to library</a>
+			</div>
+
+			<div class="book-end-more">
+				<h3 class="section-title">More by James Anderson</h3>
+				<div class="book-grid">
+					<article class="book-card">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of The Hollow Hour" loading="lazy" decoding="async">
+							</div>
+							<div class="book-info">
+								<h4>The Hollow Hour</h4>
+								<p class="book-author">James Anderson</p>
+								<p class="book-genre">Mystery</p>
+								<div class="book-meta"><span>2023</span><span>Supporters only</span></div>
+							</div>
+						</a>
+					</article>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<script src="scripts/common.js" defer></script>
+	<script src="scripts/reader.js" defer></script>
+</body>
+</html>
