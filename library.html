@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Library &middot; Duolum</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/layout.css">
+	<link rel="stylesheet" href="styles/components.css">
+	<link rel="stylesheet" href="styles/library.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<div class="app-container">
+
+		<aside class="sidebar">
+			<div class="sidebar-header">
+				<a class="brand" href="index.html">Duolum</a>
+			</div>
+
+			<nav class="navigation" aria-label="Main navigation">
+				<a class="nav-item" href="index.html">Browse</a>
+				<a class="nav-item active" href="library.html" aria-current="page">Library</a>
+				<a class="nav-item" href="following.html">Following</a>
+				<a class="nav-item" href="publication.html">Publication</a>
+				<a class="nav-item" href="messages.html">Messages<span class="nav-dot" data-unread-dot><span class="visually-hidden">Unread messages</span></span></a>
+				<a class="nav-item" href="profile.html">Profile</a>
+			</nav>
+		</aside>
+
+		<main class="main-content" id="main" tabindex="-1">
+
+			<div class="page">
+
+				<header class="page-header">
+					<h1>Library</h1>
+				</header>
+
+				<section class="continue-reading" aria-labelledby="continue-reading-title">
+					<h2 class="section-title" id="continue-reading-title">Continue reading</h2>
+
+					<div class="continue-list">
+						<a class="continue-card" href="book.html">
+							<img src="imgs/placeholder.png" alt="Cover of The Silent Garden" loading="lazy" decoding="async">
+							<div class="continue-info">
+								<div>
+									<h3>The Silent Garden</h3>
+									<p class="book-author">James Anderson</p>
+								</div>
+								<div class="book-progress">
+									<div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62" aria-label="Reading progress">
+										<div class="progress-fill" style="width: 62%"></div>
+									</div>
+									<span>62%</span>
+								</div>
+							</div>
+						</a>
+
+						<a class="continue-card" href="book.html">
+							<img src="imgs/placeholder.png" alt="Cover of A Place Between" loading="lazy" decoding="async">
+							<div class="continue-info">
+								<div>
+									<h3>A Place Between</h3>
+									<p class="book-author">Ethan Cole</p>
+								</div>
+								<div class="book-progress">
+									<div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-label="Reading progress">
+										<div class="progress-fill" style="width: 80%"></div>
+									</div>
+									<span>80%</span>
+								</div>
+							</div>
+						</a>
+
+						<a class="continue-card" href="book.html">
+							<img src="imgs/placeholder.png" alt="Cover of Things We Remember" loading="lazy" decoding="async">
+							<div class="continue-info">
+								<div>
+									<h3>Things We Remember</h3>
+									<p class="book-author">Emily Carter</p>
+								</div>
+								<div class="book-progress">
+									<div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" aria-label="Reading progress">
+										<div class="progress-fill" style="width: 35%"></div>
+									</div>
+									<span>35%</span>
+								</div>
+							</div>
+						</a>
+
+						<a class="continue-card" href="book.html">
+							<img src="imgs/placeholder.png" alt="Cover of A Map of Small Things" loading="lazy" decoding="async">
+							<div class="continue-info">
+								<div>
+									<h3>A Map of Small Things</h3>
+									<p class="book-author">Nora Ellis</p>
+								</div>
+								<div class="book-progress">
+									<div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="12" aria-label="Reading progress">
+										<div class="progress-fill" style="width: 12%"></div>
+									</div>
+									<span>12%</span>
+								</div>
+							</div>
+						</a>
+					</div>
+				</section>
+
+				<div class="tabs" role="tablist" aria-label="Filter your library">
+					<button class="tab active" type="button" role="tab" id="library-tab-all" aria-selected="true" aria-controls="library-grid" data-filter="all" data-empty-title="Your library is empty" data-empty-text="Books you buy, get for free or save will show up here.">All <span>12</span></button>
+					<button class="tab" type="button" role="tab" id="library-tab-favorites" aria-selected="false" aria-controls="library-grid" data-filter="favorites" data-empty-title="No favorites yet" data-empty-text="Books you mark as favorites will show up here.">Favorites <span>6</span></button>
+					<button class="tab" type="button" role="tab" id="library-tab-reading" aria-selected="false" aria-controls="library-grid" data-filter="reading" data-empty-title="Nothing in progress" data-empty-text="Open a book and it will show up here.">Reading <span>4</span></button>
+					<button class="tab" type="button" role="tab" id="library-tab-finished" aria-selected="false" aria-controls="library-grid" data-filter="finished" data-empty-title="No finished books yet" data-empty-text="Books you finish reading will show up here.">Finished <span>4</span></button>
+					<button class="tab" type="button" role="tab" id="library-tab-want-to-read" aria-selected="false" aria-controls="library-grid" data-filter="want-to-read" data-empty-title="Your want-to-read list is empty" data-empty-text="Save books from Browse to read them later.">Want to Read <span>4</span></button>
+				</div>
+
+				<div class="book-grid" id="library-grid" role="tabpanel" aria-labelledby="library-tab-all">
+					<article class="book-card" data-book-status="reading" data-favorite="true">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of The Silent Garden" loading="lazy" decoding="async">
+								<span class="book-tag">Owned</span>
+							</div>
+							<div class="book-info">
+								<h3>The Silent Garden</h3>
+								<p class="book-author">James Anderson</p>
+								<p class="book-genre">Mystery</p>
+							</div>
+						</a>
+						<div class="book-footer">
+							<div class="book-progress">
+								<div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62" aria-label="Reading progress">
+									<div class="progress-fill" style="width: 62%"></div>
+								</div>
+								<span>62%</span>
+							</div>
+							<a class="button button-small" href="book.html">Continue</a>
+						</div>
+					</article>
+
+					<article class="book-card" data-book-status="finished" data-favorite="true">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of Letters to Tomorrow" loading="lazy" decoding="async">
+								<span class="book-tag">Owned</span>
+							</div>
+							<div class="book-info">
+								<h3>Letters to Tomorrow</h3>
+								<p class="book-author">Sarah Mitchell</p>
+								<p class="book-genre">Fiction</p>
+							</div>
+						</a>
+						<div class="book-footer">
+							<span class="book-status">Finished</span>
+						</div>
+					</article>
+
+					<article class="book-card" data-book-status="want-to-read" data-favorite="true">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of Beyond the Horizon" loading="lazy" decoding="async">
+							</div>
+							<div class="book-info">
+								<h3>Beyond the Horizon</h3>
+								<p class="book-author">Daniel Brooks</p>
+								<p class="book-genre">Science Fiction</p>
+							</div>
+						</a>
+						<div class="book-footer book-footer-row">
+							<span class="book-price">$15.00</span>
+							<a class="button button-small" href="book.html">Buy</a>
+						</div>
+					</article>
+
+					<article class="book-card" data-book-status="reading" data-favorite="false">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of Things We Remember" loading="lazy" decoding="async">
+								<span class="book-tag">Owned</span>
+							</div>
+							<div class="book-info">
+								<h3>Things We Remember</h3>
+								<p class="book-author">Emily Carter</p>
+								<p class="book-genre">Non-fiction</p>
+							</div>
+						</a>
+						<div class="book-footer">
+							<div class="book-progress">
+								<div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" aria-label="Reading progress">
+									<div class="progress-fill" style="width: 35%"></div>
+								</div>
+								<span>35%</span>
+							</div>
+							<a class="button button-small" href="book.html">Continue</a>
+						</div>
+					</article>
+
+					<article class="book-card" data-book-status="finished" data-favorite="true">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of The Art of Being" loading="lazy" decoding="async">
+								<span class="book-tag">Owned</span>
+							</div>
+							<div class="book-info">
+								<h3>The Art of Being</h3>
+								<p class="book-author">Michael Reed</p>
+								<p class="book-genre">Non-fiction</p>
+							</div>
+						</a>
+						<div class="book-footer">
+							<span class="book-status">Finished</span>
+						</div>
+					</article>
+
+					<article class="book-card" data-book-status="want-to-read" data-favorite="true">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of Quiet Waters" loading="lazy" decoding="async">
+							</div>
+							<div class="book-info">
+								<h3>Quiet Waters</h3>
+								<p class="book-author">Olivia Bennett</p>
+								<p class="book-genre">Romance</p>
+							</div>
+						</a>
+						<div class="book-footer book-footer-row">
+							<span class="book-price">Supporters only</span>
+							<a class="button button-small" href="person.html">Support</a>
+						</div>
+					</article>
+
+					<article class="book-card" data-book-status="reading" data-favorite="false">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of A Map of Small Things" loading="lazy" decoding="async">
+								<span class="book-tag">Owned</span>
+							</div>
+							<div class="book-info">
+								<h3>A Map of Small Things</h3>
+								<p class="book-author">Nora Ellis</p>
+								<p class="book-genre">Fantasy</p>
+							</div>
+						</a>
+						<div class="book-footer">
+							<div class="book-progress">
+								<div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="12" aria-label="Reading progress">
+									<div class="progress-fill" style="width: 12%"></div>
+								</div>
+								<span>12%</span>
+							</div>
+							<a class="button button-small" href="book.html">Continue</a>
+						</div>
+					</article>
+
+					<article class="book-card" data-book-status="finished" data-favorite="false">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of The Last Orchard" loading="lazy" decoding="async">
+								<span class="book-tag">Owned</span>
+							</div>
+							<div class="book-info">
+								<h3>The Last Orchard</h3>
+								<p class="book-author">Thomas Avery</p>
+								<p class="book-genre">Fiction</p>
+							</div>
+						</a>
+						<div class="book-footer">
+							<span class="book-status">Finished</span>
+						</div>
+					</article>
+
+					<article class="book-card" data-book-status="want-to-read" data-favorite="true">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of Notes from Elsewhere" loading="lazy" decoding="async">
+							</div>
+							<div class="book-info">
+								<h3>Notes from Elsewhere</h3>
+								<p class="book-author">Clara Morgan</p>
+								<p class="book-genre">Non-fiction</p>
+							</div>
+						</a>
+						<div class="book-footer book-footer-row">
+							<span class="book-price">Pay what you want</span>
+							<a class="button button-small" href="book.html">Buy</a>
+						</div>
+					</article>
+
+					<article class="book-card" data-book-status="reading" data-favorite="false">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of A Place Between" loading="lazy" decoding="async">
+								<span class="book-tag">Owned</span>
+							</div>
+							<div class="book-info">
+								<h3>A Place Between</h3>
+								<p class="book-author">Ethan Cole</p>
+								<p class="book-genre">Fantasy</p>
+							</div>
+						</a>
+						<div class="book-footer">
+							<div class="book-progress">
+								<div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-label="Reading progress">
+									<div class="progress-fill" style="width: 80%"></div>
+								</div>
+								<span>80%</span>
+							</div>
+							<a class="button button-small" href="book.html">Continue</a>
+						</div>
+					</article>
+
+					<article class="book-card" data-book-status="finished" data-favorite="false">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of Winter Letters" loading="lazy" decoding="async">
+								<span class="book-tag">Owned</span>
+							</div>
+							<div class="book-info">
+								<h3>Winter Letters</h3>
+								<p class="book-author">Amelia Rose</p>
+								<p class="book-genre">Romance</p>
+							</div>
+						</a>
+						<div class="book-footer">
+							<span class="book-status">Finished</span>
+						</div>
+					</article>
+
+					<article class="book-card" data-book-status="want-to-read" data-favorite="false">
+						<a class="book-link" href="book.html">
+							<div class="book-cover">
+								<img src="imgs/placeholder.png" alt="Cover of The Open Window" loading="lazy" decoding="async">
+							</div>
+							<div class="book-info">
+								<h3>The Open Window</h3>
+								<p class="book-author">Lucas Gray</p>
+								<p class="book-genre">Mystery</p>
+							</div>
+						</a>
+						<div class="book-footer book-footer-row">
+							<span class="book-price">Free</span>
+							<a class="button button-small" href="book.html">Get</a>
+						</div>
+					</article>
+				</div>
+
+				<div class="empty-state" data-empty hidden>
+					<h2 class="empty-state-title"></h2>
+					<p class="empty-state-text"></p>
+					<a class="button" href="index.html">Browse books</a>
+				</div>
+
+			</div>
+
+		</main>
+
+	</div>
+
+	<script src="scripts/common.js" defer></script>
+	<script src="scripts/library.js" defer></script>
+</body>
+</html>

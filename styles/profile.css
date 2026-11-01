@@ -1,0 +1,105 @@
+.table-wrap {
+	padding-bottom: 12px;
+	overflow-x: auto;
+}
+
+.data-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 13px;
+}
+
+.data-table th {
+	padding: 0 16px 10px 0;
+	border-bottom: 1px solid var(--border);
+	color: var(--muted);
+	font-size: 12px;
+	font-weight: 500;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.data-table td {
+	padding: 14px 16px 14px 0;
+	border-bottom: 1px solid var(--border);
+	white-space: nowrap;
+}
+
+.data-table .align-right {
+	padding-right: 0;
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+
+.settings-form {
+	max-width: 560px;
+}
+
+.settings-section {
+	margin-bottom: 28px;
+	padding-bottom: 28px;
+	border-bottom: 1px solid var(--border);
+}
+
+.settings-fields {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 18px;
+}
+
+.settings-fields > .field {
+	align-self: stretch;
+}
+
+.settings-avatar {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.field label {
+	display: block;
+	margin-bottom: 8px;
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.field-hint {
+	margin-top: 8px;
+	color: var(--muted);
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.field-prefix {
+	position: relative;
+	max-width: 180px;
+}
+
+.field-prefix > span {
+	position: absolute;
+	top: 50%;
+	left: 14px;
+	color: var(--muted);
+	font-size: 13px;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+.field-prefix .input {
+	padding-left: 28px;
+}
+
+.checkbox-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.checkbox-row input {
+	accent-color: var(--foreground);
+	cursor: pointer;
+}

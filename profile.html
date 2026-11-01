@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Profile &middot; Duolum</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/layout.css">
+	<link rel="stylesheet" href="styles/components.css">
+	<link rel="stylesheet" href="styles/profile.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<div class="app-container">
+
+		<aside class="sidebar">
+			<div class="sidebar-header">
+				<a class="brand" href="index.html">Duolum</a>
+			</div>
+
+			<nav class="navigation" aria-label="Main navigation">
+				<a class="nav-item" href="index.html">Browse</a>
+				<a class="nav-item" href="library.html">Library</a>
+				<a class="nav-item" href="following.html">Following</a>
+				<a class="nav-item" href="publication.html">Publication</a>
+				<a class="nav-item" href="messages.html">Messages<span class="nav-dot" data-unread-dot><span class="visually-hidden">Unread messages</span></span></a>
+				<a class="nav-item active" href="profile.html" aria-current="page">Profile</a>
+			</nav>
+		</aside>
+
+		<main class="main-content" id="main" tabindex="-1">
+
+			<div class="page">
+
+				<header class="page-header">
+					<h1>Profile</h1>
+				</header>
+
+				<section class="profile-header" aria-label="Your profile">
+					<img class="avatar avatar-large" src="imgs/profile.jpg" alt="Jordan Hale">
+
+					<div class="profile-identity">
+						<h2 class="profile-name">Jordan Hale</h2>
+						<p class="profile-handle">@jordanhale</p>
+						<p class="profile-bio">Writer of quiet, character-driven fiction and a reader of almost everything else.</p>
+
+						<ul class="profile-links">
+							<li>Joined October 2024</li>
+							<li>312 followers</li>
+							<li>48 supporters</li>
+							<li><a href="#">jordanhale.com</a></li>
+						</ul>
+					</div>
+
+					<button class="button" type="button" data-tab-link="settings">Edit profile</button>
+				</section>
+
+				<div class="tabs" role="tablist" aria-label="Profile sections">
+					<button class="tab active" type="button" role="tab" id="profile-tab-overview" aria-selected="true" aria-controls="profile-panel-overview" data-tab="overview">Overview</button>
+					<button class="tab" type="button" role="tab" id="profile-tab-payments" aria-selected="false" aria-controls="profile-panel-payments" data-tab="payments">Payments</button>
+					<button class="tab" type="button" role="tab" id="profile-tab-settings" aria-selected="false" aria-controls="profile-panel-settings" data-tab="settings">Settings</button>
+				</div>
+
+				<div id="profile-panel-overview" role="tabpanel" aria-labelledby="profile-tab-overview">
+
+					<section class="content-block">
+						<h2 class="section-title">Reading snapshot</h2>
+
+						<div class="stats">
+							<div class="stat-item">
+								<span class="stat-label">Books finished</span>
+								<span class="stat-value">4</span>
+							</div>
+
+							<div class="stat-item">
+								<span class="stat-label">Currently reading</span>
+								<span class="stat-value">4</span>
+							</div>
+
+							<div class="stat-item">
+								<span class="stat-label">Favorites</span>
+								<span class="stat-value">6</span>
+							</div>
+
+							<div class="stat-item">
+								<span class="stat-label">Books published</span>
+								<span class="stat-value">3</span>
+							</div>
+						</div>
+					</section>
+
+					<section class="content-block">
+						<h2 class="section-title">Published books</h2>
+
+						<div class="book-grid">
+							<article class="book-card">
+								<a class="book-link" href="book.html">
+									<div class="book-cover">
+										<img src="imgs/placeholder.png" alt="Cover of The Quiet Between" loading="lazy" decoding="async">
+									</div>
+									<div class="book-info">
+										<h3>The Quiet Between</h3>
+										<p class="book-author">Jordan Hale</p>
+										<p class="book-genre">Fiction</p>
+										<div class="book-meta"><span>2025</span><span>$9.00</span></div>
+									</div>
+								</a>
+							</article>
+
+							<article class="book-card">
+								<a class="book-link" href="book.html">
+									<div class="book-cover">
+										<img src="imgs/placeholder.png" alt="Cover of Salt and Ember" loading="lazy" decoding="async">
+									</div>
+									<div class="book-info">
+										<h3>Salt and Ember</h3>
+										<p class="book-author">Jordan Hale</p>
+										<p class="book-genre">Fantasy</p>
+										<div class="book-meta"><span>2024</span><span>Pay what you want</span></div>
+									</div>
+								</a>
+							</article>
+
+							<article class="book-card">
+								<a class="book-link" href="book.html">
+									<div class="book-cover">
+										<img src="imgs/placeholder.png" alt="Cover of Field Notes on Leaving" loading="lazy" decoding="async">
+									</div>
+									<div class="book-info">
+										<h3>Field Notes on Leaving</h3>
+										<p class="book-author">Jordan Hale</p>
+										<p class="book-genre">Non-fiction</p>
+										<div class="book-meta"><span>2023</span><span>Free</span></div>
+									</div>
+								</a>
+							</article>
+						</div>
+					</section>
+
+				</div>
+
+				<div id="profile-panel-payments" role="tabpanel" aria-labelledby="profile-tab-payments" hidden>
+
+					<section class="content-block">
+						<h2 class="section-title">Supporting</h2>
+
+						<ul class="list">
+							<li class="list-row">
+								<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+								<div class="list-text">
+									<h3>Olivia Bennett</h3>
+									<p class="book-author">@oliviabennett</p>
+								</div>
+								<div class="list-detail">
+									<span>$3.00 / month</span>
+									<span class="list-note">Renews Nov 14, 2026</span>
+								</div>
+								<button class="button button-small" type="button">Manage</button>
+							</li>
+
+							<li class="list-row">
+								<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+								<div class="list-text">
+									<h3>Amelia Rose</h3>
+									<p class="book-author">@ameliarose</p>
+								</div>
+								<div class="list-detail">
+									<span>$2.50 / month</span>
+									<span class="list-note">Renews Nov 20, 2026</span>
+								</div>
+								<button class="button button-small" type="button">Manage</button>
+							</li>
+						</ul>
+					</section>
+
+					<section class="content-block">
+						<h2 class="section-title">Order history</h2>
+
+						<div class="table-wrap">
+							<table class="data-table">
+								<caption class="visually-hidden">Order history</caption>
+								<thead>
+									<tr>
+										<th scope="col">Date</th>
+										<th scope="col">Item</th>
+										<th scope="col">Type</th>
+										<th scope="col" class="align-right">Amount</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Oct 28, 2026</td>
+										<td>The Silent Garden</td>
+										<td>Fixed price</td>
+										<td class="align-right">$12.00</td>
+									</tr>
+									<tr>
+										<td>Oct 20, 2026</td>
+										<td>Amelia Rose</td>
+										<td>Monthly support</td>
+										<td class="align-right">$2.50</td>
+									</tr>
+									<tr>
+										<td>Oct 14, 2026</td>
+										<td>Olivia Bennett</td>
+										<td>Monthly support</td>
+										<td class="align-right">$3.00</td>
+									</tr>
+									<tr>
+										<td>Oct 2, 2026</td>
+										<td>Things We Remember</td>
+										<td>Free</td>
+										<td class="align-right">$0.00</td>
+									</tr>
+									<tr>
+										<td>Sep 14, 2026</td>
+										<td>The Art of Being</td>
+										<td>Pay what you want</td>
+										<td class="align-right">$7.00</td>
+									</tr>
+									<tr>
+										<td>Aug 30, 2026</td>
+										<td>Letters to Tomorrow</td>
+										<td>Fixed price</td>
+										<td class="align-right">$8.50</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+
+					<section class="content-block">
+						<h2 class="section-title">Payment method</h2>
+
+						<ul class="list">
+							<li class="list-row">
+								<div class="list-text">
+									<h3>Visa ending in 4242</h3>
+									<p class="book-author">Expires 08/28</p>
+								</div>
+								<button class="button button-small" type="button">Update</button>
+							</li>
+						</ul>
+					</section>
+
+				</div>
+
+				<div id="profile-panel-settings" role="tabpanel" aria-labelledby="profile-tab-settings" hidden>
+
+					<form class="settings-form">
+
+						<section class="settings-section">
+							<h2 class="section-title">Profile details</h2>
+
+							<div class="settings-fields">
+								<div class="settings-avatar">
+									<img class="avatar avatar-medium" src="imgs/profile.jpg" alt="Current profile photo" loading="lazy" decoding="async">
+									<button class="button button-small" type="button">Change photo</button>
+								</div>
+
+								<div class="field">
+									<label for="settings-name">Display name</label>
+									<input class="input" id="settings-name" type="text" value="Jordan Hale">
+								</div>
+
+								<div class="field">
+									<label for="settings-handle">Handle</label>
+									<input class="input" id="settings-handle" type="text" value="jordanhale">
+								</div>
+
+								<div class="field">
+									<label for="settings-bio">Bio</label>
+									<textarea class="input" id="settings-bio" rows="4">Writer of quiet, character-driven fiction and a reader of almost everything else.</textarea>
+								</div>
+
+								<div class="field">
+									<label for="settings-website">Website</label>
+									<input class="input" id="settings-website" type="text" value="jordanhale.com">
+								</div>
+							</div>
+						</section>
+
+						<section class="settings-section">
+							<h2 class="section-title">Account</h2>
+
+							<div class="settings-fields">
+								<div class="field">
+									<label for="settings-email">Email</label>
+									<input class="input" id="settings-email" type="email" value="jordan@example.com">
+								</div>
+
+								<div>
+									<button class="button" type="button">Change password</button>
+								</div>
+							</div>
+						</section>
+
+						<section class="settings-section">
+							<h2 class="section-title">Supporters</h2>
+
+							<div class="settings-fields">
+								<label class="checkbox-row">
+									<input type="checkbox" checked>
+									<span>Let people support me with a monthly payment</span>
+								</label>
+
+								<div class="field">
+									<label for="settings-amount">Monthly amount</label>
+									<div class="field-prefix">
+										<span aria-hidden="true">$</span>
+										<input class="input" id="settings-amount" type="number" min="1" step="0.50" value="3.00">
+									</div>
+									<p class="field-hint">Shown on your profile. Supporters can cancel any time.</p>
+								</div>
+
+								<div class="field">
+									<label for="settings-perks">What supporters get</label>
+									<textarea class="input" id="settings-perks" rows="3">Early access to new books and exclusive short stories.</textarea>
+								</div>
+							</div>
+						</section>
+
+						<div class="settings-actions">
+							<button class="button button-primary" type="submit">Save changes</button>
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</main>
+
+	</div>
+
+	<script src="scripts/common.js" defer></script>
+	<script src="scripts/profile.js" defer></script>
+</body>
+</html>

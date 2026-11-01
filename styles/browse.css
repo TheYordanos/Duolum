@@ -1,0 +1,159 @@
+.segmented {
+	display: flex;
+	flex: none;
+	padding: 3px;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+}
+
+.segment {
+	display: inline-flex;
+	align-items: center;
+	height: 34px;
+	padding: 0 16px;
+	border-radius: 3px;
+	color: var(--muted);
+	font-size: 13px;
+	font-weight: 500;
+	text-decoration: none;
+	transition: background 150ms ease, color 150ms ease;
+}
+
+.segment:hover,
+.segment.active {
+	color: var(--foreground);
+}
+
+.segment.active {
+	background: var(--hover);
+	font-weight: 600;
+}
+
+.filters {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin-bottom: 28px;
+}
+
+.filter-options {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+}
+
+.clear-filters {
+	padding: 0 12px;
+	color: var(--muted);
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.clear-filters:hover {
+	color: var(--foreground);
+	text-decoration: underline;
+}
+
+.results-count {
+	margin-bottom: 20px;
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+	padding: 8px 0 24px;
+}
+
+.pagination-status {
+	color: var(--muted);
+	font-size: 12px;
+	font-variant-numeric: tabular-nums;
+}
+
+.person-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+	gap: 14px;
+	padding-bottom: 24px;
+}
+
+.person-card {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding: 16px;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	transition: background 150ms ease;
+}
+
+.person-card:hover {
+	background: var(--hover);
+}
+
+.person-link {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-width: 0;
+	text-decoration: none;
+}
+
+.person-link:focus-visible {
+	outline-offset: 4px;
+}
+
+.person-card .avatar {
+	width: 48px;
+	height: 48px;
+}
+
+.person-card-info {
+	min-width: 0;
+}
+
+.person-card-info h3 {
+	overflow: hidden;
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: -0.2px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.person-card-meta {
+	margin-top: 2px;
+	overflow: hidden;
+	color: var(--muted);
+	font-size: 12px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.person-card-bio {
+	display: -webkit-box;
+	flex: 1;
+	overflow: hidden;
+	color: var(--muted);
+	font-size: 12px;
+	line-height: 1.5;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+}
+
+.person-card .button {
+	width: 100%;
+}
+
+@media (max-width: 700px) {
+	.filter-options .select {
+		flex: 1;
+		min-width: 120px;
+	}
+}

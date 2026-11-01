@@ -1,0 +1,55 @@
+.support-card {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px 24px;
+	margin-bottom: 36px;
+	padding: 20px;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+}
+
+.support-card-text {
+	flex: 1 1 280px;
+	min-width: 0;
+}
+
+.support-card-text h2 {
+	margin-bottom: 6px;
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: -0.3px;
+}
+
+.support-card-text p {
+	max-width: 56ch;
+	color: var(--muted);
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+.support-card-action {
+	display: flex;
+	flex: none;
+	align-items: center;
+	gap: 16px;
+}
+
+.support-price {
+	font-size: 18px;
+	font-weight: 600;
+	letter-spacing: -0.4px;
+	white-space: nowrap;
+}
+
+.support-price small {
+	color: var(--muted);
+	font-size: 12px;
+	font-weight: 400;
+	letter-spacing: 0;
+}
+
+.support-card .button {
+	min-width: 110px;
+}

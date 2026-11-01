@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Following &middot; Duolum</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/layout.css">
+	<link rel="stylesheet" href="styles/components.css">
+	<link rel="stylesheet" href="styles/following.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<div class="app-container">
+
+		<aside class="sidebar">
+			<div class="sidebar-header">
+				<a class="brand" href="index.html">Duolum</a>
+			</div>
+
+			<nav class="navigation" aria-label="Main navigation">
+				<a class="nav-item" href="index.html">Browse</a>
+				<a class="nav-item" href="library.html">Library</a>
+				<a class="nav-item active" href="following.html" aria-current="page">Following</a>
+				<a class="nav-item" href="publication.html">Publication</a>
+				<a class="nav-item" href="messages.html">Messages<span class="nav-dot" data-unread-dot><span class="visually-hidden">Unread messages</span></span></a>
+				<a class="nav-item" href="profile.html">Profile</a>
+			</nav>
+		</aside>
+
+		<main class="main-content" id="main" tabindex="-1">
+
+			<div class="page-fill">
+
+				<header class="page-header">
+					<h1>Following</h1>
+				</header>
+
+				<div class="split-layout people-layout" id="people-layout">
+
+					<aside class="people-list" aria-label="People you follow">
+						<div class="people-list-top">
+							<button class="people-toggle" type="button" aria-label="Collapse list" aria-expanded="true" data-people-toggle><span aria-hidden="true">&lsaquo;</span></button>
+							<div class="people-search">
+								<input class="input input-small" type="search" placeholder="Search people..." aria-label="Search people you follow">
+							</div>
+						</div>
+
+						<ul class="people-items">
+							<li>
+								<button class="person-item active" type="button" title="All" aria-current="true" data-person="all">
+									<span class="person-all-icon" aria-hidden="true"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><rect x="1.5" y="1.5" width="5" height="5" rx="1"/><rect x="9.5" y="1.5" width="5" height="5" rx="1"/><rect x="1.5" y="9.5" width="5" height="5" rx="1"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/></svg></span>
+									<span class="person-name">All</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Sarah Mitchell" data-person="sarah">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="person-name">Sarah Mitchell</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="James Anderson" data-person="james">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="person-name">James Anderson</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Emily Carter" data-person="emily">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="person-name">Emily Carter</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Daniel Brooks" data-person="daniel">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="person-name">Daniel Brooks</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Olivia Bennett" data-person="olivia">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="person-name">Olivia Bennett</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Michael Reed" data-person="michael">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="person-name">Michael Reed</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Priya Nair" data-person="priya">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="person-name">Priya Nair</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="person-item" type="button" title="Tom Becker" data-person="tom">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="person-name">Tom Becker</span>
+								</button>
+							</li>
+						</ul>
+					</aside>
+
+					<div class="people-content">
+						<header class="people-content-header">
+							<div class="people-content-title">
+								<h2 id="people-content-title">New releases</h2>
+								<p id="people-content-count">8 books</p>
+							</div>
+
+							<div class="people-content-actions" id="people-content-actions" hidden>
+								<a class="button button-small" href="person.html">View profile</a>
+								<button class="button button-small" type="button" data-unfollow>Unfollow</button>
+							</div>
+						</header>
+
+						<div class="people-content-body">
+							<div class="book-grid following-grid">
+								<article class="book-card" data-person="daniel">
+									<a class="book-link" href="book.html">
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of Beyond the Horizon" loading="lazy" decoding="async">
+										</div>
+										<div class="book-info">
+											<h3>Beyond the Horizon</h3>
+											<p class="book-author">Daniel Brooks</p>
+											<p class="book-genre">Science Fiction</p>
+											<div class="book-meta"><span>2026</span><span>$15.00</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="james">
+									<a class="book-link" href="book.html">
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of The Silent Garden" loading="lazy" decoding="async">
+											<span class="book-tag">Owned</span>
+										</div>
+										<div class="book-info">
+											<h3>The Silent Garden</h3>
+											<p class="book-author">James Anderson</p>
+											<p class="book-genre">Mystery</p>
+											<div class="book-meta"><span>2025</span><span>$12.00</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="michael">
+									<a class="book-link" href="book.html">
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of The Art of Being" loading="lazy" decoding="async">
+											<span class="book-tag">Owned</span>
+										</div>
+										<div class="book-info">
+											<h3>The Art of Being</h3>
+											<p class="book-author">Michael Reed</p>
+											<p class="book-genre">Non-fiction</p>
+											<div class="book-meta"><span>2025</span><span>Pay what you want</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="sarah">
+									<a class="book-link" href="book.html">
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of Letters to Tomorrow" loading="lazy" decoding="async">
+											<span class="book-tag">Owned</span>
+										</div>
+										<div class="book-info">
+											<h3>Letters to Tomorrow</h3>
+											<p class="book-author">Sarah Mitchell</p>
+											<p class="book-genre">Fiction</p>
+											<div class="book-meta"><span>2024</span><span>$8.50</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="olivia">
+									<a class="book-link" href="book.html">
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of Quiet Waters" loading="lazy" decoding="async">
+										</div>
+										<div class="book-info">
+											<h3>Quiet Waters</h3>
+											<p class="book-author">Olivia Bennett</p>
+											<p class="book-genre">Romance</p>
+											<div class="book-meta"><span>2024</span><span>Supporters only</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="emily">
+									<a class="book-link" href="book.html">
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of Things We Remember" loading="lazy" decoding="async">
+											<span class="book-tag">Owned</span>
+										</div>
+										<div class="book-info">
+											<h3>Things We Remember</h3>
+											<p class="book-author">Emily Carter</p>
+											<p class="book-genre">Non-fiction</p>
+											<div class="book-meta"><span>2023</span><span>Free</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="james">
+									<a class="book-link" href="book.html">
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of The Hollow Hour" loading="lazy" decoding="async">
+										</div>
+										<div class="book-info">
+											<h3>The Hollow Hour</h3>
+											<p class="book-author">James Anderson</p>
+											<p class="book-genre">Mystery</p>
+											<div class="book-meta"><span>2023</span><span>Supporters only</span></div>
+										</div>
+									</a>
+								</article>
+
+								<article class="book-card" data-person="sarah">
+									<a class="book-link" href="book.html">
+										<div class="book-cover">
+											<img src="imgs/placeholder.png" alt="Cover of Small Hours" loading="lazy" decoding="async">
+										</div>
+										<div class="book-info">
+											<h3>Small Hours</h3>
+											<p class="book-author">Sarah Mitchell</p>
+											<p class="book-genre">Fiction</p>
+											<div class="book-meta"><span>2022</span><span>$6.00</span></div>
+										</div>
+									</a>
+								</article>
+							</div>
+
+							<div class="empty-state" id="people-empty" hidden>
+								<h3 class="empty-state-title"></h3>
+								<p class="empty-state-text"></p>
+								<a class="button" href="people.html" data-empty-action="find" hidden>Find people</a>
+								<a class="button" href="messages.html" data-empty-action="message" hidden>Message</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</main>
+
+	</div>
+
+	<script src="scripts/common.js" defer></script>
+	<script src="scripts/following.js" defer></script>
+</body>
+</html>

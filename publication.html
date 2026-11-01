@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Publication &middot; Duolum</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/layout.css">
+	<link rel="stylesheet" href="styles/components.css">
+	<link rel="stylesheet" href="styles/publication.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<div class="app-container">
+
+		<aside class="sidebar">
+			<div class="sidebar-header">
+				<a class="brand" href="index.html">Duolum</a>
+			</div>
+
+			<nav class="navigation" aria-label="Main navigation">
+				<a class="nav-item" href="index.html">Browse</a>
+				<a class="nav-item" href="library.html">Library</a>
+				<a class="nav-item" href="following.html">Following</a>
+				<a class="nav-item active" href="publication.html" aria-current="page">Publication</a>
+				<a class="nav-item" href="messages.html">Messages<span class="nav-dot" data-unread-dot><span class="visually-hidden">Unread messages</span></span></a>
+				<a class="nav-item" href="profile.html">Profile</a>
+			</nav>
+		</aside>
+
+		<main class="main-content" id="main" tabindex="-1">
+
+			<div class="page">
+
+				<header class="page-header page-header-split">
+					<h1>Publication</h1>
+					<a class="button button-primary" href="publication-new.html">New book</a>
+				</header>
+
+				<div class="stats content-block">
+					<div class="stat-item">
+						<span class="stat-label">Published</span>
+						<span class="stat-value">3</span>
+					</div>
+
+					<div class="stat-item">
+						<span class="stat-label">Drafts</span>
+						<span class="stat-value">2</span>
+					</div>
+
+					<div class="stat-item">
+						<span class="stat-label">Supporters</span>
+						<span class="stat-value">48</span>
+					</div>
+
+					<div class="stat-item">
+						<span class="stat-label">Total readers</span>
+						<span class="stat-value">1,248</span>
+					</div>
+
+					<div class="stat-item">
+						<span class="stat-label">Earnings this month</span>
+						<span class="stat-value">$184.20</span>
+					</div>
+				</div>
+
+				<h2 class="visually-hidden">Your books</h2>
+
+				<div class="tabs" role="tablist" aria-label="Filter your publications">
+					<button class="tab active" type="button" role="tab" id="publication-tab-all" aria-selected="true" aria-controls="publication-list" data-filter="all" data-empty-title="You haven't published anything yet" data-empty-text="Start a new book and it will show up here.">All <span>5</span></button>
+					<button class="tab" type="button" role="tab" id="publication-tab-published" aria-selected="false" aria-controls="publication-list" data-filter="published" data-empty-title="Nothing published yet" data-empty-text="Publish a draft to share it with readers.">Published <span>3</span></button>
+					<button class="tab" type="button" role="tab" id="publication-tab-draft" aria-selected="false" aria-controls="publication-list" data-filter="draft" data-empty-title="No drafts" data-empty-text="Books you're still working on will show up here.">Drafts <span>2</span></button>
+				</div>
+
+				<div id="publication-list" role="tabpanel" aria-labelledby="publication-tab-all">
+					<ul class="list">
+						<li class="list-row" data-status="published">
+							<img class="list-cover" src="imgs/placeholder.png" alt="Cover of The Quiet Between" loading="lazy" decoding="async">
+							<div class="list-text">
+								<h3>The Quiet Between</h3>
+								<p class="book-author">Fiction &middot; 12 chapters &middot; Updated Oct 24, 2026</p>
+							</div>
+							<span class="status status-published">Published</span>
+							<div class="list-detail">
+								<span>$9.00</span>
+								<span class="list-note">482 readers</span>
+							</div>
+							<div class="row-actions">
+								<button class="button button-small" type="button">Edit</button>
+								<a class="button button-small" href="book.html">View</a>
+							</div>
+						</li>
+
+						<li class="list-row" data-status="published">
+							<img class="list-cover" src="imgs/placeholder.png" alt="Cover of Salt and Ember" loading="lazy" decoding="async">
+							<div class="list-text">
+								<h3>Salt and Ember</h3>
+								<p class="book-author">Fantasy &middot; 24 chapters &middot; Updated Aug 3, 2026</p>
+							</div>
+							<span class="status status-published">Published</span>
+							<div class="list-detail">
+								<span>Pay what you want</span>
+								<span class="list-note">631 readers</span>
+							</div>
+							<div class="row-actions">
+								<button class="button button-small" type="button">Edit</button>
+								<a class="button button-small" href="book.html">View</a>
+							</div>
+						</li>
+
+						<li class="list-row" data-status="published">
+							<img class="list-cover" src="imgs/placeholder.png" alt="Cover of Field Notes on Leaving" loading="lazy" decoding="async">
+							<div class="list-text">
+								<h3>Field Notes on Leaving</h3>
+								<p class="book-author">Non-fiction &middot; 9 chapters &middot; Updated Jun 12, 2026</p>
+							</div>
+							<span class="status status-published">Published</span>
+							<div class="list-detail">
+								<span>Free</span>
+								<span class="list-note">135 readers</span>
+							</div>
+							<div class="row-actions">
+								<button class="button button-small" type="button">Edit</button>
+								<a class="button button-small" href="book.html">View</a>
+							</div>
+						</li>
+
+						<li class="list-row" data-status="draft">
+							<img class="list-cover" src="imgs/placeholder.png" alt="Cover of The Lantern Keeper" loading="lazy" decoding="async">
+							<div class="list-text">
+								<h3>The Lantern Keeper</h3>
+								<p class="book-author">Fantasy &middot; 8 chapters &middot; Updated Oct 29, 2026</p>
+							</div>
+							<span class="status">Draft</span>
+							<div class="list-detail">
+								<span>Supporters only</span>
+								<span class="list-note">Not published</span>
+							</div>
+							<div class="row-actions">
+								<button class="button button-small" type="button">Edit</button>
+								<button class="button button-small button-primary" type="button">Publish</button>
+							</div>
+						</li>
+
+						<li class="list-row" data-status="draft">
+							<img class="list-cover" src="imgs/placeholder.png" alt="Cover of Letters I Never Sent" loading="lazy" decoding="async">
+							<div class="list-text">
+								<h3>Letters I Never Sent</h3>
+								<p class="book-author">Non-fiction &middot; 6 chapters &middot; Updated Oct 21, 2026</p>
+							</div>
+							<span class="status">Draft</span>
+							<div class="list-detail">
+								<span>$7.00</span>
+								<span class="list-note">Not published</span>
+							</div>
+							<div class="row-actions">
+								<button class="button button-small" type="button">Edit</button>
+								<button class="button button-small button-primary" type="button">Publish</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="empty-state" data-empty hidden>
+					<h2 class="empty-state-title"></h2>
+					<p class="empty-state-text"></p>
+					<a class="button" href="publication-new.html">New book</a>
+				</div>
+
+			</div>
+
+		</main>
+
+	</div>
+
+	<script src="scripts/common.js" defer></script>
+	<script src="scripts/publication.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Messages &middot; Duolum</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/layout.css">
+	<link rel="stylesheet" href="styles/components.css">
+	<link rel="stylesheet" href="styles/messages.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<div class="app-container">
+
+		<aside class="sidebar">
+			<div class="sidebar-header">
+				<a class="brand" href="index.html">Duolum</a>
+			</div>
+
+			<nav class="navigation" aria-label="Main navigation">
+				<a class="nav-item" href="index.html">Browse</a>
+				<a class="nav-item" href="library.html">Library</a>
+				<a class="nav-item" href="following.html">Following</a>
+				<a class="nav-item" href="publication.html">Publication</a>
+				<a class="nav-item active" href="messages.html" aria-current="page">Messages<span class="nav-dot" data-unread-dot><span class="visually-hidden">Unread messages</span></span></a>
+				<a class="nav-item" href="profile.html">Profile</a>
+			</nav>
+		</aside>
+
+		<main class="main-content" id="main" tabindex="-1">
+
+			<div class="page-fill">
+
+				<header class="page-header">
+					<h1>Messages</h1>
+				</header>
+
+				<div class="split-layout chat-layout" id="chat-layout">
+
+					<aside class="chat-list" aria-label="Conversations">
+						<div class="chat-list-view" data-chat-list-view="conversations">
+							<div class="chat-list-search">
+								<input class="input input-small" type="search" placeholder="Search messages..." aria-label="Search conversations">
+							</div>
+
+							<button class="chat-requests-entry" type="button" data-chat-list-link="requests">
+								<span>Message requests</span>
+								<span class="count-badge" id="requests-count">2</span>
+							</button>
+
+							<ul class="chat-list-items">
+							<li>
+								<button class="chat-list-item active" type="button" aria-current="true" data-conversation="sarah">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Sarah Mitchell</span>
+											<span class="chat-list-time">10:42</span>
+										</span>
+										<span class="chat-list-preview">Thank you! I'll send the revised chapter tonight.</span>
+									</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="chat-list-item unread" type="button" data-conversation="james">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">James Anderson</span>
+											<span class="chat-list-time">9:15</span>
+										</span>
+										<span class="chat-list-preview">Would you be open to a signed copy giveaway?</span>
+									</span>
+									<span class="unread-dot"><span class="visually-hidden">Unread</span></span>
+								</button>
+							</li>
+
+							<li>
+								<button class="chat-list-item" type="button" data-conversation="emily">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Emily Carter</span>
+											<span class="chat-list-time">Yesterday</span>
+										</span>
+										<span class="chat-list-preview">The cover draft looks great to me.</span>
+									</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="chat-list-item" type="button" data-conversation="daniel">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Daniel Brooks</span>
+											<span class="chat-list-time">Tue</span>
+										</span>
+										<span class="chat-list-preview">Pre-orders open on the 12th, I'll let you know.</span>
+									</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="chat-list-item" type="button" data-conversation="olivia">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Olivia Bennett</span>
+											<span class="chat-list-time">Oct 24</span>
+										</span>
+										<span class="chat-list-preview">Loved the ending. Any plans for a sequel?</span>
+									</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="chat-list-item" type="button" data-conversation="michael">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Michael Reed</span>
+											<span class="chat-list-time">Oct 19</span>
+										</span>
+										<span class="chat-list-preview">Sounds good, talk next week.</span>
+									</span>
+								</button>
+							</li>
+							</ul>
+						</div>
+
+						<div class="chat-list-view" data-chat-list-view="requests" hidden>
+							<div class="chat-list-heading">
+								<button class="list-back" type="button" aria-label="Back to conversations" data-chat-list-link="conversations">&larr;</button>
+								<h2>Message requests</h2>
+							</div>
+
+							<ul class="chat-list-items">
+							<li>
+								<button class="chat-list-item" type="button" data-conversation="ava">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Ava Morrison</span>
+											<span class="chat-list-time">8:30</span>
+										</span>
+										<span class="chat-list-preview">Hi! I saw we both loved Quiet Waters. Any books like it?</span>
+									</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="chat-list-item" type="button" data-conversation="marcus">
+									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+									<span class="chat-list-text">
+										<span class="chat-list-top">
+											<span class="chat-list-name">Marcus Webb</span>
+											<span class="chat-list-time">Thu</span>
+										</span>
+										<span class="chat-list-preview">Hello! I loved Salt and Ember. Could I ask you a few questions?</span>
+									</span>
+								</button>
+							</li>
+							</ul>
+						</div>
+					</aside>
+
+					<div class="chat-window">
+
+						<div class="chat-thread" data-thread="sarah">
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+								<div class="chat-thread-title">
+									<h2>Sarah Mitchell</h2>
+									<p class="is-online">Online</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Today</div>
+
+								<div class="message received">
+									<p>Hi! I just finished Letters to Tomorrow. Honestly one of my favorites this year.</p>
+									<span class="message-time">10:21</span>
+								</div>
+
+								<div class="message sent">
+									<p>That means a lot, thank you! Did you have a favorite chapter?</p>
+									<span class="message-time">10:28</span>
+								</div>
+
+								<div class="message received">
+									<p>Chapter 7 for sure. I noticed a couple of typos in it though, happy to send them over.</p>
+									<span class="message-time">10:35</span>
+								</div>
+
+								<div class="message sent">
+									<p>Please do! I'm preparing a revised edition.</p>
+									<span class="message-time">10:40</span>
+								</div>
+
+								<div class="message received">
+									<p>Thank you! I'll send the revised chapter tonight.</p>
+									<span class="message-time">10:42</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="chat-thread" data-thread="james" hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+								<div class="chat-thread-title">
+									<h2>James Anderson</h2>
+									<p>Last seen today at 9:15</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Today</div>
+
+								<div class="message received">
+									<p>Hello! I saw The Silent Garden is in your reading list. Thanks for the support.</p>
+									<span class="message-time">9:02</span>
+								</div>
+
+								<div class="message sent">
+									<p>I'm about halfway through and can't put it down.</p>
+									<span class="message-time">9:10</span>
+								</div>
+
+								<div class="message received">
+									<p>Would you be open to a signed copy giveaway?</p>
+									<span class="message-time">9:15</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="chat-thread" data-thread="emily" hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+								<div class="chat-thread-title">
+									<h2>Emily Carter</h2>
+									<p>Last seen yesterday at 16:48</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Yesterday</div>
+
+								<div class="message sent">
+									<p>Hi Emily, here's the cover draft for the new edition.</p>
+									<span class="message-time">14:05</span>
+								</div>
+
+								<div class="message received">
+									<p>The cover draft looks great to me.</p>
+									<span class="message-time">16:48</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="chat-thread" data-thread="daniel" hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+								<div class="chat-thread-title">
+									<h2>Daniel Brooks</h2>
+									<p>Last seen Tuesday at 12:02</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Tuesday</div>
+
+								<div class="message sent">
+									<p>When does Beyond the Horizon go on sale?</p>
+									<span class="message-time">11:30</span>
+								</div>
+
+								<div class="message received">
+									<p>Pre-orders open on the 12th, I'll let you know.</p>
+									<span class="message-time">12:02</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="chat-thread" data-thread="olivia" hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+								<div class="chat-thread-title">
+									<h2>Olivia Bennett</h2>
+									<p>Last seen Oct 24</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">October 24</div>
+
+								<div class="message sent">
+									<p>Just finished Quiet Waters. That ending!</p>
+									<span class="message-time">20:12</span>
+								</div>
+
+								<div class="message received">
+									<p>Loved the ending. Any plans for a sequel?</p>
+									<span class="message-time">20:40</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="chat-thread" data-thread="michael" hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+								<div class="chat-thread-title">
+									<h2>Michael Reed</h2>
+									<p>Last seen Oct 19</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">October 19</div>
+
+								<div class="message received">
+									<p>Shall we schedule the interview for next week?</p>
+									<span class="message-time">15:20</span>
+								</div>
+
+								<div class="message sent">
+									<p>Sounds good, talk next week.</p>
+									<span class="message-time">15:45</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="chat-thread" data-thread="ava" data-request hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+								<div class="chat-thread-title">
+									<h2>Ava Morrison</h2>
+									<p>Wants to message you</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Today</div>
+
+								<div class="message received">
+									<p>Hi! I saw we both loved Quiet Waters. Any books like it?</p>
+									<span class="message-time">8:30</span>
+								</div>
+							</div>
+
+							<div class="request-bar">
+								<p>Ava isn't in your conversations yet. Accept to start chatting, or decline to remove this request.</p>
+								<div class="request-actions">
+									<button class="button" type="button" data-request-action="decline">Decline</button>
+									<button class="button button-primary" type="button" data-request-action="accept">Accept</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="chat-thread" data-thread="marcus" data-request hidden>
+							<header class="chat-thread-header">
+								<button class="chat-back" type="button" aria-label="Back to conversations">&larr;</button>
+								<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
+								<div class="chat-thread-title">
+									<h2>Marcus Webb</h2>
+									<p>Wants to message you</p>
+								</div>
+							</header>
+
+							<div class="chat-messages">
+								<div class="chat-day">Thursday</div>
+
+								<div class="message received">
+									<p>Hello! I loved Salt and Ember. Could I ask you a few questions?</p>
+									<span class="message-time">19:14</span>
+								</div>
+							</div>
+
+							<div class="request-bar">
+								<p>Marcus isn't in your conversations yet. Accept to start chatting, or decline to remove this request.</p>
+								<div class="request-actions">
+									<button class="button" type="button" data-request-action="decline">Decline</button>
+									<button class="button button-primary" type="button" data-request-action="accept">Accept</button>
+								</div>
+							</div>
+						</div>
+
+						<form class="chat-composer" id="chat-composer">
+							<input class="input" type="text" placeholder="Write a message..." aria-label="Message" autocomplete="off">
+							<button class="button button-primary" type="submit">Send</button>
+						</form>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</main>
+
+	</div>
+
+	<script src="scripts/common.js" defer></script>
+	<script src="scripts/messages.js" defer></script>
+</body>
+</html>
