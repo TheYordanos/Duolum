@@ -31,4 +31,19 @@
 	});
 
 	$('.settings-form').addEventListener('submit', (event) => event.preventDefault());
+
+	// Demo of a brand-new account until there is real data: add ?empty to the address
+	if (new URLSearchParams(location.search).has('empty')) {
+		$$('[data-filled]').forEach((element) => {
+			element.hidden = true;
+		});
+
+		$$('[data-empty]').forEach((element) => {
+			element.hidden = false;
+		});
+
+		$$('.stat-value').forEach((element) => {
+			element.textContent = '0';
+		});
+	}
 })();
