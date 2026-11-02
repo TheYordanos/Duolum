@@ -7,6 +7,8 @@
 }
 
 .sidebar {
+	display: flex;
+	flex-direction: column;
 	padding: 32px 20px;
 	border-right: 1px solid var(--border);
 	overflow-y: auto;
@@ -68,6 +70,11 @@
 	height: 8px;
 	border-radius: 50%;
 	background: var(--foreground);
+}
+
+.sidebar-footer {
+	margin-top: auto;
+	padding-top: 24px;
 }
 
 .main-content {
@@ -146,6 +153,10 @@
 
 	.sidebar-header {
 		margin-bottom: 18px;
+	}
+
+	.sidebar-footer {
+		padding-top: 4px;
 	}
 
 	.navigation {

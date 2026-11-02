@@ -1,0 +1,31 @@
+.legal-notice {
+	max-width: 680px;
+	margin-bottom: 28px;
+	padding: 10px 12px;
+	border: 1px dashed var(--border-strong);
+	border-radius: var(--radius);
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.legal-panel {
+	max-width: 680px;
+}
+
+.legal-panel:focus-visible {
+	outline-offset: 6px;
+}
+
+.legal-panel .prose {
+	font-size: 14px;
+	line-height: 1.75;
+}
+
+.legal-panel .prose h2 {
+	margin-top: 2em;
+	font-size: 16px;
+}
+
+.legal-panel .prose h2:first-child {
+	margin-top: 0;
+}
