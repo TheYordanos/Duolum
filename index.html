@@ -89,10 +89,10 @@
 					</div>
 				</form>
 
-				<p class="results-count" aria-live="polite">24 books</p>
+				<p class="results-count" aria-live="polite" data-count data-noun="book">24 books</p>
 
-				<h2 class="visually-hidden">Books</h2>
-				<div class="book-grid">
+				<h2 class="visually-hidden" data-results>Books</h2>
+				<div class="book-grid" data-results>
 						<article class="book-card">
 							<a class="book-link" href="book.html">
 								<div class="book-cover">
@@ -182,7 +182,13 @@
 						</article>
 				</div>
 
-				<nav class="pagination" aria-label="Pagination">
+				<div class="empty-state" data-empty hidden>
+					<h2 class="empty-state-title"></h2>
+					<p class="empty-state-text"></p>
+					<a class="button" href="index.html" data-empty-clear hidden></a>
+				</div>
+
+				<nav class="pagination" aria-label="Pagination" data-results>
 					<span class="button button-small is-disabled" aria-disabled="true">Previous</span>
 					<span class="pagination-status">Page 1 of 4</span>
 					<a class="button button-small" href="index.html?page=2" rel="next">Next</a>

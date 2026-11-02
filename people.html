@@ -56,10 +56,10 @@
 					<noscript><button class="button" type="submit">Search</button></noscript>
 				</form>
 
-				<p class="results-count" aria-live="polite">24 people</p>
+				<p class="results-count" aria-live="polite" data-count data-noun="people">24 people</p>
 
-				<h2 class="visually-hidden">People</h2>
-				<div class="person-grid">
+				<h2 class="visually-hidden" data-results>People</h2>
+				<div class="person-grid" data-results>
 						<article class="person-card">
 							<a class="person-link" href="person.html">
 								<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
@@ -157,7 +157,13 @@
 						</article>
 				</div>
 
-				<nav class="pagination" aria-label="Pagination">
+				<div class="empty-state" data-empty hidden>
+					<h2 class="empty-state-title"></h2>
+					<p class="empty-state-text"></p>
+					<a class="button" href="people.html" data-empty-clear hidden></a>
+				</div>
+
+				<nav class="pagination" aria-label="Pagination" data-results>
 					<span class="button button-small is-disabled" aria-disabled="true">Previous</span>
 					<span class="pagination-status">Page 1 of 3</span>
 					<a class="button button-small" href="people.html?page=2" rel="next">Next</a>
