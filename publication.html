@@ -45,7 +45,7 @@
 
 				<header class="page-header page-header-split">
 					<h1>Publication</h1>
-					<a class="button button-primary" href="publication-new.html">New book</a>
+					<button class="button button-primary" type="button" data-open-new-book>New book</button>
 				</header>
 
 				<div class="stats content-block">
@@ -175,7 +175,7 @@
 				<div class="empty-state" data-empty hidden>
 					<h2 class="empty-state-title"></h2>
 					<p class="empty-state-text"></p>
-					<a class="button" href="publication-new.html">New book</a>
+					<button class="button" type="button" data-open-new-book>New book</button>
 				</div>
 
 			</div>
@@ -183,6 +183,54 @@
 		</main>
 
 	</div>
+
+	<dialog class="modal" id="new-book-dialog" aria-labelledby="new-book-title" data-new-book-dialog>
+		<div class="modal-header">
+			<div>
+				<h2 id="new-book-title">New book</h2>
+				<p class="modal-subtitle">Choose how you want to add your work.</p>
+			</div>
+			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+		</div>
+
+		<div class="option-grid">
+			<section class="option-card">
+				<h3>Write in Duolum</h3>
+				<p>Write your book directly on the site using CommonMark Markdown, one chapter at a time.</p>
+
+				<pre class="markdown-sample"># Chapter One
+
+The house was **quiet**, the way houses are
+when someone has just left.</pre>
+
+				<div class="option-actions">
+					<button class="button button-primary" type="button">Start writing</button>
+				</div>
+			</section>
+
+			<section class="option-card">
+				<h3>Upload a manuscript</h3>
+				<p>Already written your book somewhere else? Upload it and we'll split it into chapters for you to review before publishing.</p>
+
+				<div class="dropzone">
+					<span>Choose a file from your device</span>
+
+					<label class="button">
+						Choose file
+						<input class="visually-hidden" type="file" accept=".docx,.epub,.md,.markdown,.txt" data-upload-input>
+					</label>
+
+					<p class="dropzone-error" id="upload-error" role="alert" hidden></p>
+					<ul class="format-list" aria-label="Accepted formats">
+						<li>DOCX</li>
+						<li>EPUB</li>
+						<li>Markdown</li>
+						<li>TXT</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</dialog>
 
 	<script src="scripts/common.js" defer></script>
 	<script src="scripts/publication.js" defer></script>
