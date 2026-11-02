@@ -13,19 +13,42 @@
 	const emptyFind = $('[data-empty-action="find"]', empty);
 	const emptyMessage = $('[data-empty-action="message"]', empty);
 	const unfollowed = new Set();
+
+	// Demo of following nobody until there is real data: add ?empty to the address
+	if (new URLSearchParams(location.search).has('empty')) {
+		items.forEach((item) => {
+			if (item.dataset.person !== 'all') unfollowed.add(item.dataset.person);
+		});
+	}
 	let selected = 'all';
 
 	const nameOf = (item) => $('.person-name', item).textContent.trim();
 
 	function refreshList() {
 		const query = search.value.trim().toLowerCase();
+		const note = $('[data-list-note]');
+		let followed = 0;
+		let shown = 0;
 
 		items.forEach((item) => {
 			const id = item.dataset.person;
 			if (id === 'all') return;
 
-			item.closest('li').hidden = unfollowed.has(id) || !nameOf(item).toLowerCase().includes(query);
+			const isFollowed = !unfollowed.has(id);
+			const matches = nameOf(item).toLowerCase().includes(query);
+
+			if (isFollowed) followed += 1;
+			if (isFollowed && matches) shown += 1;
+
+			item.closest('li').hidden = !isFollowed || !matches;
 		});
+
+		search.disabled = followed === 0;
+
+		note.hidden = shown > 0;
+		note.textContent = followed === 0
+			? "You're not following anyone yet."
+			: 'No one you follow matches \u201c' + search.value.trim() + '\u201d.';
 	}
 
 	function showPerson(id) {
@@ -84,5 +107,6 @@
 		toggle.setAttribute('aria-label', isCollapsed ? 'Expand list' : 'Collapse list');
 	});
 
+	refreshList();
 	showPerson('all');
 })();

@@ -51,7 +51,7 @@
 }
 
 .people-items {
-	flex: 1;
+	flex: 0 1 auto;
 	min-height: 0;
 	padding: 8px;
 	list-style: none;
@@ -111,6 +111,13 @@
 	background: var(--background);
 }
 
+.people-list-note {
+	padding: 0 20px 24px;
+	color: var(--muted);
+	font-size: 12px;
+	line-height: 1.6;
+}
+
 .people-content {
 	display: flex;
 	flex-direction: column;
@@ -158,6 +165,7 @@
 	}
 
 	.people-layout.collapsed .people-search,
+	.people-layout.collapsed .people-list-note,
 	.people-layout.collapsed .person-name {
 		display: none;
 	}
@@ -192,7 +200,8 @@
 		border-bottom: 1px solid var(--border);
 	}
 
-	.people-list-top {
+	.people-list-top,
+	.people-list-note {
 		display: none;
 	}
 
