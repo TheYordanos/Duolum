@@ -6,8 +6,24 @@
 	const requestsCount = $('#requests-count');
 	const navDot = $('[data-unread-dot]');
 	const listViews = $$('[data-chat-list-view]');
+	// Demo of an account with no messages until there is real data:
+	// ?empty has no conversations or requests, ?empty=requests has requests only
+	const emptyDemo = new URLSearchParams(location.search).get('empty');
+
+	if (emptyDemo !== null) {
+		const scope = emptyDemo === 'requests' ? '[data-chat-list-view="conversations"]' : '.chat-list';
+		const ids = $$('.chat-list-item', $(scope)).map((item) => item.dataset.conversation);
+
+		$$('.chat-list-item', $(scope)).forEach((item) => item.closest('li').remove());
+		ids.forEach((id) => $('[data-thread="' + id + '"]').remove());
+	}
+
 	let items = $$('.chat-list-item');
 	let threads = $$('.chat-thread');
+	const conversationList = $('[data-chat-list-view="conversations"]');
+	const search = $('.chat-list-search input');
+	const listNote = $('[data-list-note]');
+	const emptyWindow = $('[data-chat-empty]');
 
 	const getActiveThread = () => threads.find((thread) => !thread.hidden);
 	const countRequests = () => threads.filter((thread) => thread.hasAttribute('data-request')).length;
@@ -22,6 +38,42 @@
 		if (navDot) navDot.hidden = !hasUnread;
 
 		return requests;
+	}
+
+	function refreshList() {
+		const query = search.value.trim().toLowerCase();
+		const rows = $$('.chat-list-item', conversationList);
+		let shown = 0;
+
+		rows.forEach((item) => {
+			const matches = item.textContent.toLowerCase().includes(query);
+
+			item.closest('li').hidden = !matches;
+			if (matches) shown += 1;
+		});
+
+		search.disabled = rows.length === 0;
+		$('[data-list-find]').hidden = rows.length > 0 || countRequests() > 0;
+		listNote.hidden = shown > 0;
+		listNote.textContent = rows.length === 0
+			? 'No conversations yet.'
+			: 'No conversations match \u201c' + search.value.trim() + '\u201d.';
+	}
+
+	function refreshWindow() {
+		const thread = getActiveThread();
+		const requests = countRequests();
+
+		emptyWindow.hidden = Boolean(thread);
+		composer.hidden = !thread || thread.hasAttribute('data-request');
+
+		if (thread) return;
+
+		$('.empty-state-title', emptyWindow).textContent = requests > 0 ? 'No conversations yet' : 'No messages yet';
+		$('.empty-state-text', emptyWindow).textContent = requests > 0
+			? 'Open Message requests to see who wants to talk to you.'
+			: 'Message someone from their profile to start a conversation.';
+		$('[data-chat-empty-action]', emptyWindow).hidden = requests > 0;
 	}
 
 	function scrollActiveThreadToBottom() {
@@ -52,10 +104,9 @@
 			thread.hidden = thread.dataset.thread !== id;
 		});
 
-		const thread = getActiveThread();
-		composer.hidden = !thread || thread.hasAttribute('data-request');
-
 		updateUnreadIndicators();
+		refreshList();
+		refreshWindow();
 		scrollActiveThreadToBottom();
 	}
 
@@ -91,7 +142,13 @@
 		layout.classList.remove('chat-open');
 
 		const first = $('[data-chat-list-view="conversations"] .chat-list-item');
-		if (first) selectConversation(first.dataset.conversation);
+
+		if (first) {
+			selectConversation(first.dataset.conversation);
+		} else {
+			refreshList();
+			refreshWindow();
+		}
 	}
 
 	function formatTime(date) {
@@ -146,6 +203,10 @@
 		scrollActiveThreadToBottom();
 	});
 
+	search.addEventListener('input', refreshList);
+
 	updateUnreadIndicators();
+	refreshList();
+	refreshWindow();
 	scrollActiveThreadToBottom();
 })();

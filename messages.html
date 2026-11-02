@@ -140,6 +140,9 @@
 								</button>
 							</li>
 							</ul>
+
+							<p class="chat-list-note" role="status" data-list-note hidden></p>
+							<a class="button chat-list-find" href="people.html" data-list-find hidden>Find people</a>
 						</div>
 
 						<div class="chat-list-view" data-chat-list-view="requests" hidden>
@@ -179,6 +182,12 @@
 					</aside>
 
 					<div class="chat-window">
+
+						<div class="empty-state chat-empty" data-chat-empty hidden>
+							<h2 class="empty-state-title"></h2>
+							<p class="empty-state-text"></p>
+							<a class="button" href="people.html" data-chat-empty-action hidden>Find people</a>
+						</div>
 
 						<div class="chat-thread" data-thread="sarah">
 							<header class="chat-thread-header">

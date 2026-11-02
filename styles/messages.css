@@ -93,10 +93,24 @@
 }
 
 .chat-list-items {
-	flex: 1;
+	flex: 0 1 auto;
 	min-height: 0;
 	list-style: none;
 	overflow-y: auto;
+}
+
+.chat-list-find {
+	align-self: flex-start;
+	margin: 0 20px;
+}
+
+.chat-list-note {
+	padding: 4px 20px 24px;
+	color: var(--muted);
+	font-size: 12px;
+	line-height: 1.6;
+	text-align: center;
+	margin-block: auto;
 }
 
 .chat-list-item {
@@ -185,6 +199,11 @@
 	flex-direction: column;
 	min-width: 0;
 	min-height: 0;
+}
+
+.chat-empty {
+	flex: 1;
+	justify-content: center;
 }
 
 .chat-thread {
@@ -307,6 +326,12 @@
 	flex: none;
 	height: 42px;
 	padding: 0 20px;
+}
+
+@media (min-width: 701px) {
+	.chat-list-find {
+		display: none;
+	}
 }
 
 @media (max-width: 700px) {
