@@ -15,147 +15,125 @@
 	<link rel="stylesheet" href="styles/prose.css">
 	<link rel="stylesheet" href="styles/legal.css">
 </head>
-<body>
+<body class="legal-page">
 
 	<a class="skip-link" href="#main">Skip to content</a>
 
-	<div class="app-container">
+	<header class="legal-bar">
+		<a class="brand" href="index.html">Duolum</a>
+		<a class="legal-back" href="index.html" data-back>&larr; Back</a>
+	</header>
 
-		<aside class="sidebar">
-			<div class="sidebar-header">
-				<a class="brand" href="index.html">Duolum</a>
+	<main class="legal-main" id="main" tabindex="-1">
+
+		<header class="page-header">
+			<h1>Legal</h1>
+			<p class="page-subtitle">Last updated 2 November 2026</p>
+		</header>
+
+		<p class="legal-notice">Draft text for development. Replace it with wording reviewed by a lawyer before Duolum launches.</p>
+
+		<div class="tabs" role="tablist" aria-label="Legal documents">
+			<button class="tab active" type="button" role="tab" id="legal-tab-terms" aria-selected="true" aria-controls="legal-panel-terms" data-tab="terms">Terms of Service</button>
+			<button class="tab" type="button" role="tab" id="legal-tab-privacy" aria-selected="false" aria-controls="legal-panel-privacy" data-tab="privacy">Privacy Policy</button>
+			<button class="tab" type="button" role="tab" id="legal-tab-content" aria-selected="false" aria-controls="legal-panel-content" data-tab="content">Content and copyright</button>
+			<button class="tab" type="button" role="tab" id="legal-tab-payments" aria-selected="false" aria-controls="legal-panel-payments" data-tab="payments">Payments and refunds</button>
+			<button class="tab" type="button" role="tab" id="legal-tab-cookies" aria-selected="false" aria-controls="legal-panel-cookies" data-tab="cookies">Cookies</button>
+		</div>
+
+		<div class="legal-panel" id="legal-panel-terms" role="tabpanel" aria-labelledby="legal-tab-terms" tabindex="0">
+			<h2 class="visually-hidden">Terms of Service</h2>
+			<div class="prose">
+				<h2>Accepting these terms</h2>
+				<p>By creating an account or using Duolum you agree to these terms. If you don&rsquo;t agree, please don&rsquo;t use the site. You must be old enough to enter a binding contract where you live, and at least 16 years old.</p>
+				<h2>Your account</h2>
+				<p>You&rsquo;re responsible for your account and for keeping your password safe. Give us accurate information, and tell us straight away if you think someone else has accessed your account. One account can read, write and publish.</p>
+				<h2>Your content</h2>
+				<p>You keep ownership of everything you publish on Duolum. You give us a limited licence to host, display, copy and deliver your work so we can run the service: showing it to readers, offering free samples, and delivering it to people who buy it. This licence ends when you remove your work, except for copies readers have already bought.</p>
+				<p>You promise that you own what you publish, or have permission to publish it, and that it follows the Content and copyright rules.</p>
+				<h2>Acceptable use</h2>
+				<p>Don&rsquo;t use Duolum to break the law, harass others, send spam, scrape the site, interfere with its security, or pretend to be someone else. Messages are for people who want to hear from each other.</p>
+				<h2>Ending your account</h2>
+				<p>You can delete your account at any time. We may suspend or remove accounts or content that break these terms. If we do, we&rsquo;ll tell you why unless the law prevents us.</p>
+				<h2>Disclaimers and liability</h2>
+				<p>Duolum is provided &ldquo;as is&rdquo;. We work hard to keep it running but can&rsquo;t promise it will always be available or error-free. To the extent the law allows, we aren&rsquo;t liable for indirect or consequential losses.</p>
+				<h2>Changes to these terms</h2>
+				<p>We may update these terms from time to time. If a change matters, we&rsquo;ll tell you before it takes effect. Continuing to use Duolum afterwards means you accept the new terms.</p>
 			</div>
-
-			<nav class="navigation" aria-label="Main navigation">
-				<a class="nav-item" href="index.html">Browse</a>
-				<a class="nav-item" href="library.html">Library</a>
-				<a class="nav-item" href="following.html">Following</a>
-				<a class="nav-item" href="publication.html">Publication</a>
-				<a class="nav-item" href="messages.html">Messages<span class="nav-dot" data-unread-dot><span class="visually-hidden">Unread messages</span></span></a>
-				<a class="nav-item" href="profile.html">Profile</a>
-			</nav>
-
-			<div class="sidebar-footer">
-				<a class="nav-item active" href="legal.html" aria-current="page">Legal</a>
+		</div>
+		<div class="legal-panel" id="legal-panel-privacy" role="tabpanel" aria-labelledby="legal-tab-privacy" tabindex="0" hidden>
+			<h2 class="visually-hidden">Privacy Policy</h2>
+			<div class="prose">
+				<h2>What we collect</h2>
+				<p>We collect what you give us: your name, handle, email, profile details, the books you publish, and your messages. We also collect what happens as you use Duolum, such as books you buy, add to your list or read, who you follow and support, and basic technical data like your device and browser.</p>
+				<h2>How we use it</h2>
+				<ul>
+					<li>To run Duolum: show your library, deliver books, save your reading position and send messages.</li>
+					<li>To process payments and send receipts.</li>
+					<li>To keep the site safe and prevent fraud.</li>
+					<li>To suggest books and people you might like, and to email you about things you&rsquo;ve asked to hear about.</li>
+				</ul>
+				<h2>What other people see</h2>
+				<p>Your name, handle, photo, bio and published books are public. Your library, reading activity and who you follow or support are private unless you choose otherwise in your settings.</p>
+				<h2>Who we share it with</h2>
+				<p>We don&rsquo;t sell your personal information. We share it with service providers who help us run Duolum, such as payment processing, email delivery and hosting, and only as much as they need. We may also share information if the law requires it or to protect people&rsquo;s safety.</p>
+				<h2>How long we keep it</h2>
+				<p>We keep your information while your account is open. When you delete your account we remove your profile, library and messages, and keep only what we must, such as payment records required for tax purposes.</p>
+				<h2>Your rights</h2>
+				<p>You can see and edit your details in your profile and delete your account at any time. Depending on where you live, you may also be able to ask us to correct, restrict or transfer your data. Contact us to use these rights.</p>
+				<h2>Children</h2>
+				<p>Duolum isn&rsquo;t for children under 16. If you think a child has given us personal information, contact us and we&rsquo;ll delete it.</p>
 			</div>
-		</aside>
-
-		<main class="main-content" id="main" tabindex="-1">
-
-			<div class="page">
-
-				<header class="page-header">
-					<h1>Legal</h1>
-					<p class="page-subtitle">Last updated 2 November 2026</p>
-				</header>
-
-				<p class="legal-notice">Draft text for development. Replace it with wording reviewed by a lawyer before Duolum launches.</p>
-
-				<div class="tabs" role="tablist" aria-label="Legal documents">
-					<button class="tab active" type="button" role="tab" id="legal-tab-terms" aria-selected="true" aria-controls="legal-panel-terms" data-tab="terms">Terms of Service</button>
-					<button class="tab" type="button" role="tab" id="legal-tab-privacy" aria-selected="false" aria-controls="legal-panel-privacy" data-tab="privacy">Privacy Policy</button>
-					<button class="tab" type="button" role="tab" id="legal-tab-content" aria-selected="false" aria-controls="legal-panel-content" data-tab="content">Content and copyright</button>
-					<button class="tab" type="button" role="tab" id="legal-tab-payments" aria-selected="false" aria-controls="legal-panel-payments" data-tab="payments">Payments and refunds</button>
-					<button class="tab" type="button" role="tab" id="legal-tab-cookies" aria-selected="false" aria-controls="legal-panel-cookies" data-tab="cookies">Cookies</button>
-				</div>
-
-				<div class="legal-panel" id="legal-panel-terms" role="tabpanel" aria-labelledby="legal-tab-terms" tabindex="0">
-				    <h2 class="visually-hidden">Terms of Service</h2>
-				    <div class="prose">
-						<h2>Accepting these terms</h2>
-						<p>By creating an account or using Duolum you agree to these terms. If you don&rsquo;t agree, please don&rsquo;t use the site. You must be old enough to enter a binding contract where you live, and at least 16 years old.</p>
-						<h2>Your account</h2>
-						<p>You&rsquo;re responsible for your account and for keeping your password safe. Give us accurate information, and tell us straight away if you think someone else has accessed your account. One account can read, write and publish.</p>
-						<h2>Your content</h2>
-						<p>You keep ownership of everything you publish on Duolum. You give us a limited licence to host, display, copy and deliver your work so we can run the service: showing it to readers, offering free samples, and delivering it to people who buy it. This licence ends when you remove your work, except for copies readers have already bought.</p>
-						<p>You promise that you own what you publish, or have permission to publish it, and that it follows the Content and copyright rules.</p>
-						<h2>Acceptable use</h2>
-						<p>Don&rsquo;t use Duolum to break the law, harass others, send spam, scrape the site, interfere with its security, or pretend to be someone else. Messages are for people who want to hear from each other.</p>
-						<h2>Ending your account</h2>
-						<p>You can delete your account at any time. We may suspend or remove accounts or content that break these terms. If we do, we&rsquo;ll tell you why unless the law prevents us.</p>
-						<h2>Disclaimers and liability</h2>
-						<p>Duolum is provided &ldquo;as is&rdquo;. We work hard to keep it running but can&rsquo;t promise it will always be available or error-free. To the extent the law allows, we aren&rsquo;t liable for indirect or consequential losses.</p>
-						<h2>Changes to these terms</h2>
-						<p>We may update these terms from time to time. If a change matters, we&rsquo;ll tell you before it takes effect. Continuing to use Duolum afterwards means you accept the new terms.</p>
-				    </div>
-				</div>
-				<div class="legal-panel" id="legal-panel-privacy" role="tabpanel" aria-labelledby="legal-tab-privacy" tabindex="0" hidden>
-				    <h2 class="visually-hidden">Privacy Policy</h2>
-				    <div class="prose">
-						<h2>What we collect</h2>
-						<p>We collect what you give us: your name, handle, email, profile details, the books you publish, and your messages. We also collect what happens as you use Duolum, such as books you buy, add to your list or read, who you follow and support, and basic technical data like your device and browser.</p>
-						<h2>How we use it</h2>
-						<ul>
-						    <li>To run Duolum: show your library, deliver books, save your reading position and send messages.</li>
-						    <li>To process payments and send receipts.</li>
-						    <li>To keep the site safe and prevent fraud.</li>
-						    <li>To suggest books and people you might like, and to email you about things you&rsquo;ve asked to hear about.</li>
-						</ul>
-						<h2>What other people see</h2>
-						<p>Your name, handle, photo, bio and published books are public. Your library, reading activity and who you follow or support are private unless you choose otherwise in your settings.</p>
-						<h2>Who we share it with</h2>
-						<p>We don&rsquo;t sell your personal information. We share it with service providers who help us run Duolum, such as payment processing, email delivery and hosting, and only as much as they need. We may also share information if the law requires it or to protect people&rsquo;s safety.</p>
-						<h2>How long we keep it</h2>
-						<p>We keep your information while your account is open. When you delete your account we remove your profile, library and messages, and keep only what we must, such as payment records required for tax purposes.</p>
-						<h2>Your rights</h2>
-						<p>You can see and edit your details in your profile and delete your account at any time. Depending on where you live, you may also be able to ask us to correct, restrict or transfer your data. Contact us to use these rights.</p>
-						<h2>Children</h2>
-						<p>Duolum isn&rsquo;t for children under 16. If you think a child has given us personal information, contact us and we&rsquo;ll delete it.</p>
-				    </div>
-				</div>
-				<div class="legal-panel" id="legal-panel-content" role="tabpanel" aria-labelledby="legal-tab-content" tabindex="0" hidden>
-				    <h2 class="visually-hidden">Content and copyright</h2>
-				    <div class="prose">
-						<h2>Publish only what&rsquo;s yours</h2>
-						<p>Only publish work you wrote, or have the right to publish. Don&rsquo;t upload someone else&rsquo;s book, translation or cover art without permission, and don&rsquo;t pass off other people&rsquo;s writing as your own.</p>
-						<h2>What isn&rsquo;t allowed</h2>
-						<ul>
-						    <li>Content that sexualises children, or that incites or glorifies violence against real people.</li>
-						    <li>Harassment, hate directed at people for who they are, or publishing private information.</li>
-						    <li>Scams, malware, or misleading books built to trick readers into paying.</li>
-						    <li>Material that infringes copyright or other rights.</li>
-						    <li>Spam, including mass-produced books with little or no original work.</li>
-						</ul>
-						<h2>Mature fiction</h2>
-						<p>Fiction can explore dark and difficult subjects. Mark books that contain mature themes so readers know what to expect, and keep within the limits above.</p>
-						<h2>Reporting a book or person</h2>
-						<p>If you see something that breaks these rules, use the report option on the book or profile. We review reports as quickly as we can and may remove content or accounts.</p>
-						<h2>Copyright complaints</h2>
-						<p>If you believe your work has been published here without your permission, send us a notice with the link to the book, proof that you own the rights, and your contact details. We&rsquo;ll review it and may remove the book while we do. Authors can reply to a notice if they believe it&rsquo;s a mistake.</p>
-						<h2>What happens next</h2>
-						<p>Depending on how serious a problem is, we may ask you to change something, remove the content, pause publishing or close the account. If you think we&rsquo;ve made a mistake, reply to our message and we&rsquo;ll take another look.</p>
-				    </div>
-				</div>
-				<div class="legal-panel" id="legal-panel-payments" role="tabpanel" aria-labelledby="legal-tab-payments" tabindex="0" hidden>
-				    <h2 class="visually-hidden">Payments and refunds</h2>
-				    <div class="prose">
-						<h2>Buying books</h2>
-						<p>When you buy a book you get a personal, non-transferable right to read it. Authors set their own prices, including free, pay what you want and supporters-only books. Purchases are digital and final once the book is in your library, unless the file is faulty or the law says otherwise.</p>
-						<h2>Supporting writers</h2>
-						<p>Supporting a writer is a monthly payment that renews until you cancel. You can cancel at any time; you keep access until the end of the period you&rsquo;ve paid for. Supporter payments aren&rsquo;t refundable except where the law requires it.</p>
-						<h2>Fees and payouts</h2>
-						<p>Payments are handled by a third-party payment provider. Duolum keeps a percentage of each sale and supporter payment, and authors receive the rest after payment-provider fees and any taxes.</p>
-						<h2>Problems with an order</h2>
-						<p>If a book doesn&rsquo;t open, is missing chapters, or you were charged by mistake, contact us and we&rsquo;ll fix it or refund you.</p>
-				    </div>
-				</div>
-				<div class="legal-panel" id="legal-panel-cookies" role="tabpanel" aria-labelledby="legal-tab-cookies" tabindex="0" hidden>
-				    <h2 class="visually-hidden">Cookies</h2>
-				    <div class="prose">
-						<h2>What we use</h2>
-						<p>We use a small number of cookies and browser storage to keep you logged in and to remember settings such as your reading theme and text size. These are needed for Duolum to work properly.</p>
-						<h2>What we don&rsquo;t use</h2>
-						<p>We don&rsquo;t use advertising or cross-site tracking cookies.</p>
-						<h2>Managing them</h2>
-						<p>You can clear or block cookies in your browser settings. If you do, you may need to log in again and your reading preferences will reset.</p>
-				    </div>
-				</div>
-
+		</div>
+		<div class="legal-panel" id="legal-panel-content" role="tabpanel" aria-labelledby="legal-tab-content" tabindex="0" hidden>
+			<h2 class="visually-hidden">Content and copyright</h2>
+			<div class="prose">
+				<h2>Publish only what&rsquo;s yours</h2>
+				<p>Only publish work you wrote, or have the right to publish. Don&rsquo;t upload someone else&rsquo;s book, translation or cover art without permission, and don&rsquo;t pass off other people&rsquo;s writing as your own.</p>
+				<h2>What isn&rsquo;t allowed</h2>
+				<ul>
+					<li>Content that sexualises children, or that incites or glorifies violence against real people.</li>
+					<li>Harassment, hate directed at people for who they are, or publishing private information.</li>
+					<li>Scams, malware, or misleading books built to trick readers into paying.</li>
+					<li>Material that infringes copyright or other rights.</li>
+					<li>Spam, including mass-produced books with little or no original work.</li>
+				</ul>
+				<h2>Mature fiction</h2>
+				<p>Fiction can explore dark and difficult subjects. Mark books that contain mature themes so readers know what to expect, and keep within the limits above.</p>
+				<h2>Reporting a book or person</h2>
+				<p>If you see something that breaks these rules, use the report option on the book or profile. We review reports as quickly as we can and may remove content or accounts.</p>
+				<h2>Copyright complaints</h2>
+				<p>If you believe your work has been published here without your permission, send us a notice with the link to the book, proof that you own the rights, and your contact details. We&rsquo;ll review it and may remove the book while we do. Authors can reply to a notice if they believe it&rsquo;s a mistake.</p>
+				<h2>What happens next</h2>
+				<p>Depending on how serious a problem is, we may ask you to change something, remove the content, pause publishing or close the account. If you think we&rsquo;ve made a mistake, reply to our message and we&rsquo;ll take another look.</p>
 			</div>
+		</div>
+		<div class="legal-panel" id="legal-panel-payments" role="tabpanel" aria-labelledby="legal-tab-payments" tabindex="0" hidden>
+			<h2 class="visually-hidden">Payments and refunds</h2>
+			<div class="prose">
+				<h2>Buying books</h2>
+				<p>When you buy a book you get a personal, non-transferable right to read it. Authors set their own prices, including free, pay what you want and supporters-only books. Purchases are digital and final once the book is in your library, unless the file is faulty or the law says otherwise.</p>
+				<h2>Supporting writers</h2>
+				<p>Supporting a writer is a monthly payment that renews until you cancel. You can cancel at any time; you keep access until the end of the period you&rsquo;ve paid for. Supporter payments aren&rsquo;t refundable except where the law requires it.</p>
+				<h2>Fees and payouts</h2>
+				<p>Payments are handled by a third-party payment provider. Duolum keeps a percentage of each sale and supporter payment, and authors receive the rest after payment-provider fees and any taxes.</p>
+				<h2>Problems with an order</h2>
+				<p>If a book doesn&rsquo;t open, is missing chapters, or you were charged by mistake, contact us and we&rsquo;ll fix it or refund you.</p>
+			</div>
+		</div>
+		<div class="legal-panel" id="legal-panel-cookies" role="tabpanel" aria-labelledby="legal-tab-cookies" tabindex="0" hidden>
+			<h2 class="visually-hidden">Cookies</h2>
+			<div class="prose">
+				<h2>What we use</h2>
+				<p>We use a small number of cookies and browser storage to keep you logged in and to remember settings such as your reading theme and text size. These are needed for Duolum to work properly.</p>
+				<h2>What we don&rsquo;t use</h2>
+				<p>We don&rsquo;t use advertising or cross-site tracking cookies.</p>
+				<h2>Managing them</h2>
+				<p>You can clear or block cookies in your browser settings. If you do, you may need to log in again and your reading preferences will reset.</p>
+			</div>
+		</div>
 
-		</main>
-
-	</div>
+	</main>
 
 	<script src="scripts/common.js" defer></script>
 	<script src="scripts/legal.js" defer></script>
