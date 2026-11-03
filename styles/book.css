@@ -24,7 +24,7 @@
 	font-size: 13px;
 }
 
-.book-detail-purchase {
+.book-detail-actions {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -33,20 +33,6 @@
 	padding: 20px 0;
 	border-top: 1px solid var(--border);
 	border-bottom: 1px solid var(--border);
-}
-
-.book-detail-price {
-	margin-right: 8px;
-	font-size: 20px;
-	font-weight: 600;
-	letter-spacing: -0.5px;
-}
-
-.book-detail-support {
-	margin-bottom: 32px;
-	color: var(--muted);
-	font-size: 13px;
-	line-height: 1.6;
 }
 
 .book-detail-description p {

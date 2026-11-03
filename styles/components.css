@@ -341,19 +341,6 @@ select.input {
 	opacity: 0.88;
 }
 
-.book-tag {
-	position: absolute;
-	top: 8px;
-	right: 8px;
-	padding: 3px 7px;
-	border-radius: var(--radius);
-	background: var(--foreground);
-	color: var(--background);
-	font-size: 10px;
-	font-weight: 600;
-	letter-spacing: 0.2px;
-}
-
 .book-info {
 	padding-top: 12px;
 }

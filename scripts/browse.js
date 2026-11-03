@@ -26,7 +26,7 @@
 	if (!empty || !params.has('empty')) return;
 
 	const noun = $('[data-count]').dataset.noun === 'book' ? 'books' : 'people';
-	const filterNames = ['q', 'genre', 'price'];
+	const filterNames = ['q', 'genre'];
 	const isFiltered = filterNames.some((name) => params.get(name));
 	const clear = $('[data-empty-clear]', empty);
 

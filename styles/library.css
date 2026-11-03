@@ -74,7 +74,6 @@
 	width: auto;
 }
 
-.book-price,
 .book-status {
 	color: var(--muted);
 	font-size: 12px;

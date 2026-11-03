@@ -277,35 +277,7 @@ html[data-reader-font="sans"] {
 	line-height: 1.8;
 }
 
-.reader-article.is-gated .prose {
-	-webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 220px), transparent);
-	mask-image: linear-gradient(to bottom, #000 calc(100% - 220px), transparent);
-}
-
-.access-gate {
-	max-width: 680px;
-	margin: 32px auto 0;
-	padding: 28px;
-	border: 1px solid var(--border);
-	border-radius: var(--radius);
-	text-align: center;
-}
-
-.access-gate h2 {
-	font-size: 17px;
-	font-weight: 600;
-	letter-spacing: -0.3px;
-}
-
-.access-gate p {
-	max-width: 44ch;
-	margin: 8px auto 0;
-	color: var(--muted);
-	font-size: 13px;
-	line-height: 1.6;
-}
-
-.gate-actions {
+.book-end-actions {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -398,9 +370,5 @@ html[data-reader-font="sans"] {
 
 	.chapter-header h1 {
 		font-size: 1.7em;
-	}
-
-	.access-gate {
-		padding: 22px 18px;
 	}
 }

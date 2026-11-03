@@ -264,28 +264,6 @@
 	gap: 8px;
 }
 
-.radio-list {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-}
-
-.radio-row {
-	align-items: flex-start;
-}
-
-.radio-row input {
-	margin-top: 2px;
-}
-
-.radio-description {
-	display: block;
-	margin-top: 2px;
-	color: var(--muted);
-	font-size: 12px;
-	line-height: 1.5;
-}
-
 @media (max-width: 700px) {
 	.chapter-editor {
 		grid-template-columns: minmax(0, 1fr);
