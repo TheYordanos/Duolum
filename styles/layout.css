@@ -19,6 +19,17 @@
 	padding: 0 10px;
 }
 
+.sidebar-menu {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-height: 0;
+}
+
+.menu-toggle {
+	display: none;
+}
+
 .brand {
 	display: block;
 	font-size: 22px;
@@ -144,31 +155,89 @@
 		grid-template-rows: auto minmax(0, 1fr);
 	}
 
+	/* A slim top bar: the name and a menu button. The links open in a panel below it. */
 	.sidebar {
-		padding: 20px;
+		position: relative;
+		z-index: 30;
+		padding: 0;
 		border-right: none;
 		border-bottom: 1px solid var(--border);
+		background: var(--background);
 		overflow: visible;
 	}
 
 	.sidebar-header {
-		margin-bottom: 18px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 56px;
+		margin-bottom: 0;
+		padding: 0 20px;
 	}
 
-	.sidebar-footer {
-		padding-top: 4px;
+	.brand {
+		font-size: 20px;
+	}
+
+	.menu-toggle {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		height: 34px;
+		padding: 0 14px;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		background: transparent;
+		color: var(--foreground);
+		font-size: 13px;
+		font-weight: 500;
+		cursor: pointer;
+		transition: background 150ms ease;
+	}
+
+	.menu-toggle:hover,
+	.menu-toggle[aria-expanded="true"] {
+		background: var(--hover);
+	}
+
+	/* A dot on the button while there are unread messages and the menu is closed */
+	.sidebar:has([data-unread-dot]:not([hidden])) .menu-toggle[aria-expanded="false"]::after {
+		content: "";
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: var(--foreground);
+	}
+
+	.sidebar-menu {
+		display: none;
+	}
+
+	.sidebar.menu-open .sidebar-menu {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		left: 0;
+		display: flex;
+		flex: none;
+		padding: 8px 20px 12px;
+		border-bottom: 1px solid var(--border);
+		background: var(--background);
+		box-shadow: 0 12px 24px rgba(37, 37, 33, 0.12);
 	}
 
 	.navigation {
-		flex-direction: row;
-		gap: 4px;
-		overflow-x: auto;
+		gap: 2px;
 	}
 
 	.nav-item {
-		justify-content: flex-start;
-		width: auto;
-		padding: 9px 10px;
-		white-space: nowrap;
+		padding: 13px 10px;
+	}
+
+	.sidebar-footer {
+		margin-top: 6px;
+		padding-top: 6px;
+		border-top: 1px solid var(--border);
 	}
 }

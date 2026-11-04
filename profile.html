@@ -25,19 +25,22 @@
 		<aside class="sidebar">
 			<div class="sidebar-header">
 				<a class="brand" href="index.html">Duolum</a>
+				<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>Menu</button>
 			</div>
 
-			<nav class="navigation" aria-label="Main navigation">
-				<a class="nav-item" href="browse.html">Browse</a>
-				<a class="nav-item" href="library.html">Library</a>
-				<a class="nav-item" href="following.html">Following</a>
-				<a class="nav-item" href="publication.html">Publication</a>
-				<a class="nav-item" href="messages.html">Messages<span class="nav-dot" data-unread-dot><span class="visually-hidden">Unread messages</span></span></a>
-				<a class="nav-item active" href="profile.html" aria-current="page">Profile</a>
-			</nav>
+			<div class="sidebar-menu" id="site-menu">
+				<nav class="navigation" aria-label="Main navigation">
+					<a class="nav-item" href="browse.html">Browse</a>
+					<a class="nav-item" href="library.html">Library</a>
+					<a class="nav-item" href="following.html">Following</a>
+					<a class="nav-item" href="publication.html">Publication</a>
+					<a class="nav-item" href="messages.html">Messages<span class="nav-dot" data-unread-dot><span class="visually-hidden">Unread messages</span></span></a>
+					<a class="nav-item active" href="profile.html" aria-current="page">Profile</a>
+				</nav>
 
-			<div class="sidebar-footer">
-				<a class="nav-item" href="legal.html">Legal</a>
+				<div class="sidebar-footer">
+					<a class="nav-item" href="legal.html">Legal</a>
+				</div>
 			</div>
 		</aside>
 

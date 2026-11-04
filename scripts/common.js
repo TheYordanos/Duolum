@@ -99,6 +99,7 @@ function announce(message) {
 	if (!region) {
 		region = document.createElement('p');
 		region.className = 'visually-hidden';
+		// Fixed to the top-left so it can never add scrollable height at the bottom of the page
 		region.style.cssText = 'position:fixed;top:0;left:0';
 		region.setAttribute('role', 'status');
 		region.setAttribute('data-live-region', '');
@@ -130,3 +131,33 @@ document.addEventListener('click', async (event) => {
 		delete button.dataset.shareTimer;
 	}, 1800));
 });
+
+// Small screens: the sidebar becomes a slim bar whose Menu button opens the links
+(() => {
+	const toggle = $('[data-menu-toggle]');
+	if (!toggle) return;
+
+	const sidebar = toggle.closest('.sidebar');
+	const wide = window.matchMedia('(min-width: 601px)');
+
+	function setOpen(open, { focus = false } = {}) {
+		sidebar.classList.toggle('menu-open', open);
+		toggle.setAttribute('aria-expanded', String(open));
+		if (focus) toggle.focus();
+	}
+
+	toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape' && sidebar.classList.contains('menu-open')) setOpen(false, { focus: true });
+	});
+
+	// Tapping anywhere outside the bar and its panel closes it
+	document.addEventListener('click', (event) => {
+		if (sidebar.classList.contains('menu-open') && !sidebar.contains(event.target)) setOpen(false);
+	});
+
+	wide.addEventListener('change', () => {
+		if (wide.matches) setOpen(false);
+	});
+})();
