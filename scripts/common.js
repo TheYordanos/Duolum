@@ -99,6 +99,7 @@ function announce(message) {
 	if (!region) {
 		region = document.createElement('p');
 		region.className = 'visually-hidden';
+		region.style.cssText = 'position:fixed;top:0;left:0';
 		region.setAttribute('role', 'status');
 		region.setAttribute('data-live-region', '');
 		document.body.appendChild(region);
