@@ -83,6 +83,11 @@
 	font-weight: 600;
 }
 
+.dropzone-status {
+	color: var(--muted);
+	font-size: 12px;
+}
+
 .format-list {
 	display: flex;
 	flex-wrap: wrap;

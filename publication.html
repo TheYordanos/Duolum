@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="styles/layout.css">
 	<link rel="stylesheet" href="styles/components.css">
 	<link rel="stylesheet" href="styles/publication.css">
+	<link rel="stylesheet" href="styles/profile-modal.css">
+	<link rel="stylesheet" href="styles/book-modal.css">
 </head>
 <body>
 
@@ -97,7 +99,7 @@
 							</div>
 							<div class="row-actions">
 								<button class="button button-small" type="button">Edit</button>
-								<a class="button button-small" href="book.html">View</a>
+								<a class="button button-small" href="browse.html?book=the-quiet-between" data-book="the-quiet-between">View</a>
 							</div>
 						</li>
 
@@ -113,7 +115,7 @@
 							</div>
 							<div class="row-actions">
 								<button class="button button-small" type="button">Edit</button>
-								<a class="button button-small" href="book.html">View</a>
+								<a class="button button-small" href="browse.html?book=salt-and-ember" data-book="salt-and-ember">View</a>
 							</div>
 						</li>
 
@@ -129,7 +131,7 @@
 							</div>
 							<div class="row-actions">
 								<button class="button button-small" type="button">Edit</button>
-								<a class="button button-small" href="book.html">View</a>
+								<a class="button button-small" href="browse.html?book=field-notes-on-leaving" data-book="field-notes-on-leaving">View</a>
 							</div>
 						</li>
 
@@ -205,7 +207,7 @@ when someone has just left.</pre>
 
 			<section class="option-card">
 				<h3>Upload a manuscript</h3>
-				<p>Already written your book somewhere else? Upload it and we'll split it into chapters for you to review before publishing.</p>
+				<p>Already written your book somewhere else? Upload it and we'll split it into chapters for you.</p>
 
 				<div class="dropzone">
 					<span>Choose a file from your device</span>
@@ -216,6 +218,7 @@ when someone has just left.</pre>
 					</label>
 
 					<p class="dropzone-error" id="upload-error" role="alert" hidden></p>
+					<p class="dropzone-status" id="upload-status" role="status" hidden></p>
 					<ul class="format-list" aria-label="Accepted formats">
 						<li>DOCX</li>
 						<li>EPUB</li>
@@ -227,7 +230,93 @@ when someone has just left.</pre>
 		</div>
 	</dialog>
 
+	<dialog class="modal profile-modal" id="profile-dialog" aria-labelledby="profile-modal-name" data-profile-dialog>
+		<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+
+		<div class="profile-modal-head">
+			<img class="avatar avatar-large" src="imgs/profile.jpg" alt="" data-profile-avatar>
+
+			<div class="profile-identity">
+				<h2 class="profile-name" id="profile-modal-name" data-profile-name></h2>
+				<p class="profile-handle" data-profile-handle></p>
+				<p class="profile-bio" data-profile-bio></p>
+
+				<ul class="profile-links">
+					<li data-profile-joined></li>
+					<li data-profile-followers></li>
+					<li data-profile-website-item><a href="#" target="_blank" rel="noopener nofollow ugc" data-profile-website></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="profile-modal-actions">
+			<button class="button" type="button" data-follow-toggle data-following="false" data-profile-follow>Follow</button>
+			<a class="button" href="messages.html" data-profile-message>Message</a>
+			<button class="button" type="button" data-share data-profile-share>Share</button>
+		</div>
+
+		<section class="profile-modal-books" aria-labelledby="profile-modal-books-title">
+			<h3 class="section-title" id="profile-modal-books-title">Published books</h3>
+
+			<div class="empty-state empty-state-compact" data-profile-empty hidden>
+				<h3>No published books yet</h3>
+				<p data-profile-empty-text></p>
+			</div>
+
+			<ul class="profile-book-list" data-profile-books></ul>
+		</section>
+	</dialog>
+
+	<dialog class="modal book-modal" id="book-dialog" aria-labelledby="book-modal-title" data-book-dialog>
+		<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+
+		<div class="book-modal-layout">
+			<div class="book-modal-cover">
+				<img src="imgs/placeholder.png" alt="" data-book-cover>
+			</div>
+
+			<div class="book-modal-body">
+				<p class="book-genre" data-book-genre></p>
+				<h2 id="book-modal-title" data-book-title></h2>
+				<p class="book-author">by <a class="text-link" href="#" data-profile="" data-book-author-link></a><span data-book-author-plain hidden></span></p>
+
+				<div class="book-modal-actions">
+					<a class="button button-primary" href="read.html">Read</a>
+					<button class="button" type="button" data-want-toggle data-on-list="false">Want to read</button>
+					<button class="button" type="button" data-share data-book-share>Share</button>
+				</div>
+
+				<div class="book-modal-description">
+					<h3 class="section-title">About this book</h3>
+					<p data-book-description></p>
+				</div>
+
+				<dl class="book-modal-facts">
+					<div>
+						<dt>Published</dt>
+						<dd data-book-year></dd>
+					</div>
+					<div>
+						<dt>Genre</dt>
+						<dd data-book-genre-fact></dd>
+					</div>
+					<div>
+						<dt>Language</dt>
+						<dd data-book-language></dd>
+					</div>
+					<div>
+						<dt>Length</dt>
+						<dd data-book-length></dd>
+					</div>
+				</dl>
+			</div>
+		</div>
+	</dialog>
+
 	<script src="scripts/common.js" defer></script>
+	<script src="scripts/books.js" defer></script>
+	<script src="scripts/profile-modal.js" defer></script>
+	<script src="scripts/book-modal.js" defer></script>
 	<script src="scripts/publication.js" defer></script>
 </body>
 </html>
