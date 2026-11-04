@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" class="write">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Write &middot; Duolum</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/components.css">
+	<link rel="stylesheet" href="styles/prose.css">
+	<link rel="stylesheet" href="styles/reader.css">
+	<link rel="stylesheet" href="styles/write.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="write-bar">
+		<a class="write-back" href="publication.html">&larr; Publication</a>
+
+		<p class="write-book-title" data-book-title>Untitled</p>
+
+		<div class="write-bar-actions">
+			<span class="write-saved" data-saved>Saved</span>
+			<button class="button button-small" type="button" data-open-details>Book details</button>
+			<button class="button button-small button-primary" type="button" data-publish>Publish chapter</button>
+		</div>
+	</header>
+
+	<div class="write-toolbar" role="toolbar" aria-label="Chapters and formatting">
+		<button class="button button-small" type="button" aria-controls="write-chapters" aria-expanded="true" data-chapters-toggle>Chapters</button>
+
+		<span class="write-toolbar-divider" aria-hidden="true"></span>
+
+		<div class="write-format" role="group" aria-label="Formatting" data-format>
+			<button class="tool" type="button" data-format-action="bold" aria-label="Bold" title="Bold (Ctrl+B)"><strong>B</strong></button>
+			<button class="tool" type="button" data-format-action="italic" aria-label="Italic" title="Italic (Ctrl+I)"><em>I</em></button>
+			<button class="tool" type="button" data-format-action="heading" aria-label="Heading" title="Heading">Heading</button>
+			<button class="tool" type="button" data-format-action="quote" aria-label="Quote" title="Quote">Quote</button>
+			<button class="tool" type="button" data-format-action="bullets" aria-label="Bulleted list" title="Bulleted list">Bullets</button>
+			<button class="tool" type="button" data-format-action="numbers" aria-label="Numbered list" title="Numbered list">Numbers</button>
+			<button class="tool" type="button" data-format-action="link" aria-label="Link" title="Link (Ctrl+K)">Link</button>
+			<button class="tool" type="button" data-format-action="break" aria-label="Scene break" title="Scene break">Break</button>
+		</div>
+
+		<div class="write-toolbar-end">
+			<button class="tool" type="button" data-open-help>Markdown help</button>
+
+			<div class="write-mode" role="group" aria-label="View">
+				<button class="option" type="button" aria-pressed="true" data-mode="write">Write</button>
+				<button class="option" type="button" aria-pressed="false" data-mode="preview">Preview</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="write-layout">
+
+		<aside class="write-chapters" id="write-chapters" aria-labelledby="chapters-title">
+			<div class="write-chapters-head">
+				<h2 id="chapters-title">Chapters</h2>
+				<button class="button button-small" type="button" data-add-chapter>Add chapter</button>
+			</div>
+
+			<ol class="write-chapter-list" data-chapter-list></ol>
+
+			<div class="write-chapter-actions">
+				<button class="button button-small" type="button" data-move="-1">Move up</button>
+				<button class="button button-small" type="button" data-move="1">Move down</button>
+				<button class="button button-small" type="button" data-delete-chapter>Delete</button>
+			</div>
+		</aside>
+
+		<div class="write-scrim" data-chapters-scrim hidden></div>
+
+		<main class="write-main" id="main" tabindex="-1">
+
+			<div class="write-editor" data-pane="write">
+				<label class="visually-hidden" for="chapter-title">Chapter title</label>
+				<input class="write-title" id="chapter-title" type="text" placeholder="Chapter title" maxlength="120" autocomplete="off">
+
+				<label class="visually-hidden" for="chapter-body">Chapter text, written in Markdown</label>
+				<textarea class="write-body" id="chapter-body" placeholder="Start writing&hellip;" spellcheck="true"></textarea>
+			</div>
+
+			<article class="reader-article write-preview" data-pane="preview" hidden>
+				<header class="chapter-header">
+					<p class="chapter-kicker" data-preview-kicker></p>
+					<h1 data-preview-title></h1>
+				</header>
+
+				<div class="prose" data-preview-body></div>
+			</article>
+
+		</main>
+
+	</div>
+
+	<footer class="write-footer">
+		<p><span data-word-count>0 words</span> <span aria-hidden="true">&middot;</span> <span data-chapter-status>Draft</span></p>
+		<p class="write-message" role="status" data-message></p>
+	</footer>
+
+	<dialog class="modal write-modal" id="details-dialog" aria-labelledby="details-title" data-details-dialog>
+		<div class="modal-header">
+			<div>
+				<h2 id="details-title">Book details</h2>
+				<p class="modal-subtitle">Readers see these on your book&rsquo;s page.</p>
+			</div>
+			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+		</div>
+
+		<form class="details-form" data-details-form>
+			<div class="details-layout">
+				<div class="field">
+					<span class="field-label" id="cover-label">Cover</span>
+					<img class="details-cover" src="imgs/placeholder.png" alt="" data-details-cover>
+
+					<label class="button button-small details-cover-button">
+						Choose image
+						<input class="visually-hidden" type="file" accept="image/png,image/jpeg,image/webp" data-details-cover-input aria-describedby="cover-hint">
+					</label>
+					<p class="field-hint" id="cover-hint">PNG, JPG or WebP.</p>
+					<p class="field-hint field-error" role="alert" data-details-cover-error hidden></p>
+				</div>
+
+				<div class="details-fields">
+					<div class="field">
+						<label for="details-title-input">Title</label>
+						<input class="input" id="details-title-input" name="title" type="text" maxlength="120" autocomplete="off">
+					</div>
+
+					<div class="field-row">
+						<div class="field">
+							<label for="details-genre">Genre</label>
+							<select class="select" id="details-genre" name="genre">
+								<option value="">Choose a genre</option>
+								<option value="Fiction">Fiction</option>
+								<option value="Non-fiction">Non-fiction</option>
+								<option value="Fantasy">Fantasy</option>
+								<option value="Romance">Romance</option>
+								<option value="Mystery">Mystery</option>
+								<option value="Science Fiction">Science fiction</option>
+								<option value="Thriller">Thriller</option>
+								<option value="Poetry">Poetry</option>
+								<option value="Adventure">Adventure</option>
+							</select>
+						</div>
+
+						<div class="field">
+							<label for="details-language">Language</label>
+							<select class="select" id="details-language" name="language">
+								<option value="English">English</option>
+								<option value="Spanish">Spanish</option>
+								<option value="French">French</option>
+								<option value="German">German</option>
+								<option value="Portuguese">Portuguese</option>
+								<option value="Other">Other</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="field">
+						<label for="details-description">Description</label>
+						<textarea class="input" id="details-description" name="description" maxlength="2000" placeholder="A few sentences about your book"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-actions">
+				<button class="button" type="button" data-close-dialog>Cancel</button>
+				<button class="button button-primary" type="submit">Save details</button>
+			</div>
+		</form>
+	</dialog>
+
+	<dialog class="modal write-modal" id="help-dialog" aria-labelledby="help-title" data-help-dialog>
+		<div class="modal-header">
+			<div>
+				<h2 id="help-title">Markdown help</h2>
+				<p class="modal-subtitle">Duolum uses CommonMark. Leave a blank line between paragraphs.</p>
+			</div>
+			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+		</div>
+
+		<table class="help-table">
+			<thead>
+				<tr>
+					<th scope="col">You type</th>
+					<th scope="col">You get</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code># Chapter heading</code></td>
+					<td><strong>A large heading</strong></td>
+				</tr>
+				<tr>
+					<td><code>## Smaller heading</code></td>
+					<td><strong>A smaller heading</strong></td>
+				</tr>
+				<tr>
+					<td><code>**bold**</code></td>
+					<td><strong>bold</strong></td>
+				</tr>
+				<tr>
+					<td><code>*italic*</code></td>
+					<td><em>italic</em></td>
+				</tr>
+				<tr>
+					<td><code>&gt; A quotation</code></td>
+					<td>An indented quote</td>
+				</tr>
+				<tr>
+					<td><code>- One<br>- Two</code></td>
+					<td>A bulleted list</td>
+				</tr>
+				<tr>
+					<td><code>1. One<br>2. Two</code></td>
+					<td>A numbered list</td>
+				</tr>
+				<tr>
+					<td><code>[Duolum](https://example.com)</code></td>
+					<td>A link</td>
+				</tr>
+				<tr>
+					<td><code>---</code></td>
+					<td>A scene break</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p class="help-more">Want to learn more? Read the <a class="text-link" href="https://commonmark.org/help/" target="_blank" rel="noopener">CommonMark guide</a>.</p>
+	</dialog>
+
+	<dialog class="modal write-modal write-modal-small" id="delete-dialog" aria-labelledby="delete-title" data-delete-dialog>
+		<div class="modal-header">
+			<div>
+				<h2 id="delete-title">Delete this chapter?</h2>
+				<p class="modal-subtitle" data-delete-text></p>
+			</div>
+			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+		</div>
+
+		<div class="modal-actions">
+			<button class="button" type="button" data-close-dialog>Cancel</button>
+			<button class="button button-primary" type="button" data-confirm-delete>Delete chapter</button>
+		</div>
+	</dialog>
+
+	<script src="scripts/common.js" defer></script>
+	<script src="scripts/books.js" defer></script>
+	<script src="scripts/markdown.js" defer></script>
+	<script src="scripts/write.js" defer></script>
+</body>
+</html>
