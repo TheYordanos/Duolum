@@ -1,0 +1,93 @@
+/* Book modal: a book's details, opened from any book card */
+.book-modal {
+	width: min(760px, calc(100vw - 32px));
+}
+
+.book-modal > .modal-close {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+}
+
+.book-modal-layout {
+	display: grid;
+	grid-template-columns: minmax(140px, 200px) minmax(0, 1fr);
+	align-items: start;
+	gap: 28px;
+}
+
+.book-modal-cover img {
+	width: 100%;
+	aspect-ratio: 2 / 3;
+	border-radius: 3px;
+	background: var(--surface);
+	object-fit: cover;
+}
+
+.book-modal-body {
+	padding-right: 24px;
+}
+
+.book-modal-body h2 {
+	margin: 8px 0 6px;
+	font-size: 24px;
+	font-weight: 600;
+	letter-spacing: -0.8px;
+}
+
+.book-modal-body .book-author {
+	font-size: 13px;
+}
+
+.book-modal-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	margin: 20px 0 16px;
+	padding: 16px 0;
+	border-top: 1px solid var(--border);
+	border-bottom: 1px solid var(--border);
+}
+
+.book-modal-description p {
+	line-height: 1.7;
+}
+
+.book-modal-facts {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+	gap: 16px;
+	margin-top: 24px;
+}
+
+.book-modal-facts dt {
+	margin-bottom: 4px;
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.book-modal-facts dd {
+	font-size: 13px;
+	font-weight: 500;
+}
+
+@media (max-width: 600px) {
+	.book-modal-layout {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 20px;
+	}
+
+	.book-modal-cover {
+		max-width: 150px;
+	}
+
+	.book-modal-body {
+		padding-right: 0;
+	}
+}
+
+.book-modal .button.active {
+	border-color: var(--border-strong);
+	background: var(--surface);
+}

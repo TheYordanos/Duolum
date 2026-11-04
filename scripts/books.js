@@ -1,0 +1,29 @@
+// Hardcoded books until there is a backend. Every book modal on the site reads from here.
+const BOOKS = {
+	'the-silent-garden': { title: 'The Silent Garden', author: 'James Anderson', authorId: 'james', genre: 'Mystery', year: 2025, chapters: 12, pages: 183, language: 'English' },
+	'the-hollow-hour': { title: 'The Hollow Hour', author: 'James Anderson', authorId: 'james', genre: 'Mystery', year: 2023, chapters: 18, pages: 264, language: 'English' },
+	'letters-to-tomorrow': { title: 'Letters to Tomorrow', author: 'Sarah Mitchell', authorId: 'sarah', genre: 'Fiction', year: 2024, chapters: 24, pages: 345, language: 'English' },
+	'small-hours': { title: 'Small Hours', author: 'Sarah Mitchell', authorId: 'sarah', genre: 'Fiction', year: 2022, chapters: 14, pages: 196, language: 'English' },
+	'beyond-the-horizon': { title: 'Beyond the Horizon', author: 'Daniel Brooks', authorId: 'daniel', genre: 'Science Fiction', year: 2026, chapters: 8, pages: 115, language: 'English' },
+	'low-tide': { title: 'Low Tide', author: 'Daniel Brooks', authorId: 'daniel', genre: 'Thriller', year: 2025, chapters: 15, pages: 213, language: 'English' },
+	'things-we-remember': { title: 'Things We Remember', author: 'Emily Carter', authorId: 'emily', genre: 'Non-fiction', year: 2023, chapters: 16, pages: 230, language: 'English' },
+	'flour-and-verse': { title: 'Flour and Verse', author: 'Emily Carter', authorId: 'emily', genre: 'Poetry', year: 2024, chapters: 9, pages: 132, language: 'English' },
+	'the-art-of-being': { title: 'The Art of Being', author: 'Michael Reed', authorId: 'michael', genre: 'Non-fiction', year: 2025, chapters: 20, pages: 298, language: 'English' },
+	'quiet-waters': { title: 'Quiet Waters', author: 'Olivia Bennett', authorId: 'olivia', genre: 'Romance', year: 2024, chapters: 10, pages: 149, language: 'English' },
+	'winter-letters': { title: 'Winter Letters', author: 'Amelia Rose', authorId: 'amelia', genre: 'Romance', year: 2024, chapters: 20, pages: 298, language: 'English' },
+	'a-map-of-small-things': { title: 'A Map of Small Things', author: 'Nora Ellis', authorId: 'nora', genre: 'Fantasy', year: 2023, chapters: 14, pages: 196, language: 'English' },
+	'the-ember-road': { title: 'The Ember Road', author: 'Nora Ellis', authorId: 'nora', genre: 'Fantasy', year: 2024, chapters: 22, pages: 311, language: 'English' },
+	'the-last-orchard': { title: 'The Last Orchard', author: 'Thomas Avery', authorId: null, genre: 'Fiction', year: 2022, chapters: 17, pages: 247, language: 'English' },
+	'notes-from-elsewhere': { title: 'Notes from Elsewhere', author: 'Clara Morgan', authorId: 'clara', genre: 'Non-fiction', year: 2024, chapters: 14, pages: 196, language: 'English' },
+	'a-place-between': { title: 'A Place Between', author: 'Ethan Cole', authorId: 'ethan', genre: 'Fantasy', year: 2024, chapters: 26, pages: 379, language: 'English' },
+	'the-deep-hall': { title: 'The Deep Hall', author: 'Ethan Cole', authorId: 'ethan', genre: 'Fantasy', year: 2025, chapters: 30, pages: 426, language: 'English' },
+	'the-open-window': { title: 'The Open Window', author: 'Lucas Gray', authorId: 'lucas', genre: 'Mystery', year: 2023, chapters: 11, pages: 166, language: 'English' },
+	'nine-doors': { title: 'Nine Doors', author: 'Lucas Gray', authorId: 'lucas', genre: 'Mystery', year: 2025, chapters: 10, pages: 149, language: 'English' },
+	'chalk-dust': { title: 'Chalk Dust', author: 'Tom Becker', authorId: 'tom', genre: 'Fiction', year: 2025, chapters: 7, pages: 98, language: 'English' },
+	'dead-reckoning': { title: 'Dead Reckoning', author: 'Marcus Webb', authorId: 'marcus', genre: 'Adventure', year: 2024, chapters: 11, pages: 166, language: 'English' },
+	'the-quiet-between': { title: 'The Quiet Between', author: 'Jordan Hale', authorId: 'jordan', genre: 'Fiction', year: 2025, chapters: 12, pages: 183, language: 'English' },
+	'salt-and-ember': { title: 'Salt and Ember', author: 'Jordan Hale', authorId: 'jordan', genre: 'Fantasy', year: 2024, chapters: 24, pages: 345, language: 'English' },
+	'field-notes-on-leaving': { title: 'Field Notes on Leaving', author: 'Jordan Hale', authorId: 'jordan', genre: 'Non-fiction', year: 2023, chapters: 8, pages: 115, language: 'English' },
+};
+
+const BOOK_DESCRIPTION = 'Placeholder description. The full synopsis of the book will appear here once authors can publish their work. It will be a few paragraphs long and give readers a sense of the story, the tone and who it is for.';
