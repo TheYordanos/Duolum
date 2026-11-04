@@ -18,51 +18,24 @@
 
 	<a class="skip-link" href="#main">Skip to content</a>
 
-	<div class="app-container">
+	<header class="error-bar">
+		<a class="brand" href="index.html">Duolum</a>
+	</header>
 
-		<aside class="sidebar">
-			<div class="sidebar-header">
-				<a class="brand" href="index.html">Duolum</a>
-				<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>Menu</button>
+	<main class="error-main" id="main" tabindex="-1">
+
+		<section class="error-state" aria-labelledby="error-title">
+			<p class="error-code" aria-hidden="true">404</p>
+			<h1 id="error-title">We couldn&rsquo;t find that page</h1>
+			<p class="error-text">The link may be broken, or the page may have been moved or removed.</p>
+
+			<div class="error-actions">
+				<a class="button button-primary" href="browse.html">Browse books</a>
+				<a class="button" href="library.html">Go to your library</a>
 			</div>
+		</section>
 
-			<div class="sidebar-menu" id="site-menu">
-				<nav class="navigation" aria-label="Main navigation">
-					<a class="nav-item" href="browse.html">Browse</a>
-					<a class="nav-item" href="library.html">Library</a>
-					<a class="nav-item" href="following.html">Following</a>
-					<a class="nav-item" href="publication.html">Publication</a>
-					<a class="nav-item" href="messages.html">Messages<span class="nav-dot" data-unread-dot><span class="visually-hidden">Unread messages</span></span></a>
-					<a class="nav-item" href="profile.html">Profile</a>
-				</nav>
+	</main>
 
-				<div class="sidebar-footer">
-					<a class="nav-item" href="legal.html">Legal</a>
-				</div>
-			</div>
-		</aside>
-
-		<main class="main-content" id="main" tabindex="-1">
-
-			<div class="page">
-
-				<section class="error-state" aria-labelledby="error-title">
-					<p class="error-code" aria-hidden="true">404</p>
-					<h1 id="error-title">We couldn&rsquo;t find that page</h1>
-					<p class="error-text">The link may be broken, or the page may have been moved or removed.</p>
-
-					<div class="error-actions">
-						<a class="button button-primary" href="browse.html">Browse books</a>
-						<a class="button" href="library.html">Go to your library</a>
-					</div>
-				</section>
-
-			</div>
-
-		</main>
-
-	</div>
-
-	<script src="scripts/common.js" defer></script>
 </body>
 </html>
