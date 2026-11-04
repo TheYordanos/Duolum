@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="styles/base.css">
 	<link rel="stylesheet" href="styles/layout.css">
 	<link rel="stylesheet" href="styles/components.css">
+	<link rel="stylesheet" href="styles/profile-modal.css">
 	<link rel="stylesheet" href="styles/messages.css">
 </head>
 <body>
@@ -197,6 +198,7 @@
 									<h2>Sarah Mitchell</h2>
 									<p class="is-online">Online</p>
 								</div>
+								<button class="button button-small chat-view-profile" type="button" data-profile="sarah">View profile</button>
 							</header>
 
 							<div class="chat-messages">
@@ -237,6 +239,7 @@
 									<h2>James Anderson</h2>
 									<p>Last seen today at 9:15</p>
 								</div>
+								<button class="button button-small chat-view-profile" type="button" data-profile="james">View profile</button>
 							</header>
 
 							<div class="chat-messages">
@@ -267,6 +270,7 @@
 									<h2>Emily Carter</h2>
 									<p>Last seen yesterday at 16:48</p>
 								</div>
+								<button class="button button-small chat-view-profile" type="button" data-profile="emily">View profile</button>
 							</header>
 
 							<div class="chat-messages">
@@ -292,6 +296,7 @@
 									<h2>Daniel Brooks</h2>
 									<p>Last seen Tuesday at 12:02</p>
 								</div>
+								<button class="button button-small chat-view-profile" type="button" data-profile="daniel">View profile</button>
 							</header>
 
 							<div class="chat-messages">
@@ -317,6 +322,7 @@
 									<h2>Olivia Bennett</h2>
 									<p>Last seen Oct 24</p>
 								</div>
+								<button class="button button-small chat-view-profile" type="button" data-profile="olivia">View profile</button>
 							</header>
 
 							<div class="chat-messages">
@@ -342,6 +348,7 @@
 									<h2>Michael Reed</h2>
 									<p>Last seen Oct 19</p>
 								</div>
+								<button class="button button-small chat-view-profile" type="button" data-profile="michael">View profile</button>
 							</header>
 
 							<div class="chat-messages">
@@ -367,6 +374,7 @@
 									<h2>Ava Morrison</h2>
 									<p>Wants to message you</p>
 								</div>
+								<button class="button button-small chat-view-profile" type="button" data-profile="ava">View profile</button>
 							</header>
 
 							<div class="chat-messages">
@@ -395,6 +403,7 @@
 									<h2>Marcus Webb</h2>
 									<p>Wants to message you</p>
 								</div>
+								<button class="button button-small chat-view-profile" type="button" data-profile="marcus">View profile</button>
 							</header>
 
 							<div class="chat-messages">
@@ -430,7 +439,45 @@
 
 	</div>
 
+	<dialog class="modal profile-modal" id="profile-dialog" aria-labelledby="profile-modal-name" data-profile-dialog>
+		<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+
+		<div class="profile-modal-head">
+			<img class="avatar avatar-large" src="imgs/profile.jpg" alt="" data-profile-avatar>
+
+			<div class="profile-identity">
+				<h2 class="profile-name" id="profile-modal-name" data-profile-name></h2>
+				<p class="profile-handle" data-profile-handle></p>
+				<p class="profile-bio" data-profile-bio></p>
+
+				<ul class="profile-links">
+					<li data-profile-joined></li>
+					<li data-profile-followers></li>
+					<li data-profile-website-item><a href="#" target="_blank" rel="noopener nofollow ugc" data-profile-website></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="profile-modal-actions">
+			<button class="button" type="button" data-follow-toggle data-following="false" data-profile-follow>Follow</button>
+			<a class="button" href="messages.html" data-profile-message>Message</a>
+			<button class="button" type="button" data-share data-profile-share>Share</button>
+		</div>
+
+		<section class="profile-modal-books" aria-labelledby="profile-modal-books-title">
+			<h3 class="section-title" id="profile-modal-books-title">Published books</h3>
+
+			<div class="empty-state empty-state-compact" data-profile-empty hidden>
+				<h3>No published books yet</h3>
+				<p data-profile-empty-text></p>
+			</div>
+
+			<ul class="profile-book-list" data-profile-books></ul>
+		</section>
+	</dialog>
+
 	<script src="scripts/common.js" defer></script>
+	<script src="scripts/profile-modal.js" defer></script>
 	<script src="scripts/messages.js" defer></script>
 </body>
 </html>

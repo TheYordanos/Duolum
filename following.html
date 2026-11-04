@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="styles/base.css">
 	<link rel="stylesheet" href="styles/layout.css">
 	<link rel="stylesheet" href="styles/components.css">
+	<link rel="stylesheet" href="styles/profile-modal.css">
 	<link rel="stylesheet" href="styles/following.css">
 </head>
 <body>
@@ -133,7 +134,7 @@
 							</div>
 
 							<div class="people-content-actions" id="people-content-actions" hidden>
-								<a class="button button-small" href="person.html">View profile</a>
+								<button class="button button-small" type="button" data-profile="all" data-view-profile>View profile</button>
 								<button class="button button-small" type="button" data-unfollow>Unfollow</button>
 							</div>
 						</header>
@@ -270,7 +271,45 @@
 
 	</div>
 
+	<dialog class="modal profile-modal" id="profile-dialog" aria-labelledby="profile-modal-name" data-profile-dialog>
+		<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+
+		<div class="profile-modal-head">
+			<img class="avatar avatar-large" src="imgs/profile.jpg" alt="" data-profile-avatar>
+
+			<div class="profile-identity">
+				<h2 class="profile-name" id="profile-modal-name" data-profile-name></h2>
+				<p class="profile-handle" data-profile-handle></p>
+				<p class="profile-bio" data-profile-bio></p>
+
+				<ul class="profile-links">
+					<li data-profile-joined></li>
+					<li data-profile-followers></li>
+					<li data-profile-website-item><a href="#" target="_blank" rel="noopener nofollow ugc" data-profile-website></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="profile-modal-actions">
+			<button class="button" type="button" data-follow-toggle data-following="false" data-profile-follow>Follow</button>
+			<a class="button" href="messages.html" data-profile-message>Message</a>
+			<button class="button" type="button" data-share data-profile-share>Share</button>
+		</div>
+
+		<section class="profile-modal-books" aria-labelledby="profile-modal-books-title">
+			<h3 class="section-title" id="profile-modal-books-title">Published books</h3>
+
+			<div class="empty-state empty-state-compact" data-profile-empty hidden>
+				<h3>No published books yet</h3>
+				<p data-profile-empty-text></p>
+			</div>
+
+			<ul class="profile-book-list" data-profile-books></ul>
+		</section>
+	</dialog>
+
 	<script src="scripts/common.js" defer></script>
+	<script src="scripts/profile-modal.js" defer></script>
 	<script src="scripts/following.js" defer></script>
 </body>
 </html>

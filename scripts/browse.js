@@ -41,38 +41,6 @@
 		}
 	});
 
-	// Share a person's profile: the device share sheet where there is one, otherwise copy the link
-	const shareStatus = $('[data-share-status]');
-
-	section.addEventListener('click', async (event) => {
-		const button = event.target.closest('[data-share]');
-		if (!button) return;
-
-		const card = button.closest('.person-card');
-		const name = $('h3', card).textContent.trim();
-		const url = new URL($('.person-link', card).getAttribute('href'), location.href).href;
-
-		try {
-			if (navigator.share) {
-				await navigator.share({ title: name + ' on Duolum', url });
-				return;
-			}
-
-			await navigator.clipboard.writeText(url);
-			shareStatus.textContent = 'Link to ' + name + ' copied.';
-		} catch (error) {
-			if (error.name === 'AbortError') return;
-			shareStatus.textContent = 'Couldn\u2019t copy the link.';
-		}
-
-		const label = button.textContent;
-
-		button.textContent = shareStatus.textContent.startsWith('Link') ? 'Link copied' : 'Not copied';
-		setTimeout(() => {
-			button.textContent = label;
-		}, 1800);
-	});
-
 	// Demo of the "nothing found" state until there is a real search: add ?empty to the address.
 	// With a search or filter in use it says nothing matched; with none, there is nothing to show at all.
 	const empty = $('[data-empty]', section);

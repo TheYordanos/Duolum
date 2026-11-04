@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="styles/base.css">
 	<link rel="stylesheet" href="styles/layout.css">
 	<link rel="stylesheet" href="styles/components.css">
+	<link rel="stylesheet" href="styles/profile-modal.css">
 	<link rel="stylesheet" href="styles/browse.css">
 </head>
 <body>
@@ -193,7 +194,7 @@
 					<h2 class="visually-hidden" data-results>People</h2>
 					<div class="person-grid" data-results>
 							<article class="person-card">
-								<a class="person-link" href="person.html">
+								<a class="person-link" href="browse.html?mode=people&amp;profile=sarah" data-profile="sarah">
 									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
 									<div class="person-card-info">
 										<h3>Sarah Mitchell</h3>
@@ -202,15 +203,15 @@
 								</a>
 								<p class="person-card-bio">Writes letters, essays and the occasional novel about family and distance.</p>
 								<div class="person-card-actions">
-									<button class="button button-small" type="button" data-follow-toggle data-following="true">Following</button>
+									<button class="button button-small" type="button" data-person="sarah" data-follow-toggle data-following="true">Following</button>
 									<a class="button button-small" href="messages.html">Message</a>
-									<a class="button button-small" href="person.html">View profile</a>
-									<button class="button button-small" type="button" data-share>Share</button>
+									<button class="button button-small" type="button" data-profile="sarah">View profile</button>
+									<button class="button button-small" type="button" data-share data-share-url="browse.html?mode=people&amp;profile=sarah">Share</button>
 								</div>
 							</article>
 
 							<article class="person-card">
-								<a class="person-link" href="person.html">
+								<a class="person-link" href="browse.html?mode=people&amp;profile=james" data-profile="james">
 									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
 									<div class="person-card-info">
 										<h3>James Anderson</h3>
@@ -219,15 +220,15 @@
 								</a>
 								<p class="person-card-bio">Mystery writer, tea drinker and collector of second-hand paperbacks.</p>
 								<div class="person-card-actions">
-									<button class="button button-small" type="button" data-follow-toggle data-following="true">Following</button>
+									<button class="button button-small" type="button" data-person="james" data-follow-toggle data-following="true">Following</button>
 									<a class="button button-small" href="messages.html">Message</a>
-									<a class="button button-small" href="person.html">View profile</a>
-									<button class="button button-small" type="button" data-share>Share</button>
+									<button class="button button-small" type="button" data-profile="james">View profile</button>
+									<button class="button button-small" type="button" data-share data-share-url="browse.html?mode=people&amp;profile=james">Share</button>
 								</div>
 							</article>
 
 							<article class="person-card">
-								<a class="person-link" href="person.html">
+								<a class="person-link" href="browse.html?mode=people&amp;profile=priya" data-profile="priya">
 									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
 									<div class="person-card-info">
 										<h3>Priya Nair</h3>
@@ -236,15 +237,15 @@
 								</a>
 								<p class="person-card-bio">Reads about a book a week and always has a recommendation.</p>
 								<div class="person-card-actions">
-									<button class="button button-small" type="button" data-follow-toggle data-following="true">Following</button>
+									<button class="button button-small" type="button" data-person="priya" data-follow-toggle data-following="true">Following</button>
 									<a class="button button-small" href="messages.html">Message</a>
-									<a class="button button-small" href="person.html">View profile</a>
-									<button class="button button-small" type="button" data-share>Share</button>
+									<button class="button button-small" type="button" data-profile="priya">View profile</button>
+									<button class="button button-small" type="button" data-share data-share-url="browse.html?mode=people&amp;profile=priya">Share</button>
 								</div>
 							</article>
 
 							<article class="person-card">
-								<a class="person-link" href="person.html">
+								<a class="person-link" href="browse.html?mode=people&amp;profile=nora" data-profile="nora">
 									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
 									<div class="person-card-info">
 										<h3>Nora Ellis</h3>
@@ -253,15 +254,15 @@
 								</a>
 								<p class="person-card-bio">Fantasy author building small worlds one map at a time.</p>
 								<div class="person-card-actions">
-									<button class="button button-small button-primary" type="button" data-follow-toggle data-following="false">Follow</button>
+									<button class="button button-small button-primary" type="button" data-person="nora" data-follow-toggle data-following="false">Follow</button>
 									<a class="button button-small" href="messages.html">Message</a>
-									<a class="button button-small" href="person.html">View profile</a>
-									<button class="button button-small" type="button" data-share>Share</button>
+									<button class="button button-small" type="button" data-profile="nora">View profile</button>
+									<button class="button button-small" type="button" data-share data-share-url="browse.html?mode=people&amp;profile=nora">Share</button>
 								</div>
 							</article>
 
 							<article class="person-card">
-								<a class="person-link" href="person.html">
+								<a class="person-link" href="browse.html?mode=people&amp;profile=lucas" data-profile="lucas">
 									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
 									<div class="person-card-info">
 										<h3>Lucas Gray</h3>
@@ -270,15 +271,15 @@
 								</a>
 								<p class="person-card-bio">Short mysteries and long walks.</p>
 								<div class="person-card-actions">
-									<button class="button button-small button-primary" type="button" data-follow-toggle data-following="false">Follow</button>
+									<button class="button button-small button-primary" type="button" data-person="lucas" data-follow-toggle data-following="false">Follow</button>
 									<a class="button button-small" href="messages.html">Message</a>
-									<a class="button button-small" href="person.html">View profile</a>
-									<button class="button button-small" type="button" data-share>Share</button>
+									<button class="button button-small" type="button" data-profile="lucas">View profile</button>
+									<button class="button button-small" type="button" data-share data-share-url="browse.html?mode=people&amp;profile=lucas">Share</button>
 								</div>
 							</article>
 
 							<article class="person-card">
-								<a class="person-link" href="person.html">
+								<a class="person-link" href="browse.html?mode=people&amp;profile=clara" data-profile="clara">
 									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
 									<div class="person-card-info">
 										<h3>Clara Morgan</h3>
@@ -287,15 +288,15 @@
 								</a>
 								<p class="person-card-bio">Essays on travel, home and the places in between.</p>
 								<div class="person-card-actions">
-									<button class="button button-small button-primary" type="button" data-follow-toggle data-following="false">Follow</button>
+									<button class="button button-small button-primary" type="button" data-person="clara" data-follow-toggle data-following="false">Follow</button>
 									<a class="button button-small" href="messages.html">Message</a>
-									<a class="button button-small" href="person.html">View profile</a>
-									<button class="button button-small" type="button" data-share>Share</button>
+									<button class="button button-small" type="button" data-profile="clara">View profile</button>
+									<button class="button button-small" type="button" data-share data-share-url="browse.html?mode=people&amp;profile=clara">Share</button>
 								</div>
 							</article>
 
 							<article class="person-card">
-								<a class="person-link" href="person.html">
+								<a class="person-link" href="browse.html?mode=people&amp;profile=ethan" data-profile="ethan">
 									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
 									<div class="person-card-info">
 										<h3>Ethan Cole</h3>
@@ -304,15 +305,15 @@
 								</a>
 								<p class="person-card-bio">Fantasy writer. Currently lost in a very large dungeon.</p>
 								<div class="person-card-actions">
-									<button class="button button-small button-primary" type="button" data-follow-toggle data-following="false">Follow</button>
+									<button class="button button-small button-primary" type="button" data-person="ethan" data-follow-toggle data-following="false">Follow</button>
 									<a class="button button-small" href="messages.html">Message</a>
-									<a class="button button-small" href="person.html">View profile</a>
-									<button class="button button-small" type="button" data-share>Share</button>
+									<button class="button button-small" type="button" data-profile="ethan">View profile</button>
+									<button class="button button-small" type="button" data-share data-share-url="browse.html?mode=people&amp;profile=ethan">Share</button>
 								</div>
 							</article>
 
 							<article class="person-card">
-								<a class="person-link" href="person.html">
+								<a class="person-link" href="browse.html?mode=people&amp;profile=amelia" data-profile="amelia">
 									<img class="avatar" src="imgs/profile.jpg" alt="" loading="lazy" decoding="async">
 									<div class="person-card-info">
 										<h3>Amelia Rose</h3>
@@ -321,10 +322,10 @@
 								</a>
 								<p class="person-card-bio">Romance and winter. Mostly winter.</p>
 								<div class="person-card-actions">
-									<button class="button button-small button-primary" type="button" data-follow-toggle data-following="false">Follow</button>
+									<button class="button button-small button-primary" type="button" data-person="amelia" data-follow-toggle data-following="false">Follow</button>
 									<a class="button button-small" href="messages.html">Message</a>
-									<a class="button button-small" href="person.html">View profile</a>
-									<button class="button button-small" type="button" data-share>Share</button>
+									<button class="button button-small" type="button" data-profile="amelia">View profile</button>
+									<button class="button button-small" type="button" data-share data-share-url="browse.html?mode=people&amp;profile=amelia">Share</button>
 								</div>
 							</article>
 					</div>
@@ -343,7 +344,6 @@
 
 				</div>
 
-				<p class="visually-hidden" role="status" data-share-status></p>
 
 			</div>
 
@@ -351,7 +351,45 @@
 
 	</div>
 
+	<dialog class="modal profile-modal" id="profile-dialog" aria-labelledby="profile-modal-name" data-profile-dialog>
+		<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+
+		<div class="profile-modal-head">
+			<img class="avatar avatar-large" src="imgs/profile.jpg" alt="" data-profile-avatar>
+
+			<div class="profile-identity">
+				<h2 class="profile-name" id="profile-modal-name" data-profile-name></h2>
+				<p class="profile-handle" data-profile-handle></p>
+				<p class="profile-bio" data-profile-bio></p>
+
+				<ul class="profile-links">
+					<li data-profile-joined></li>
+					<li data-profile-followers></li>
+					<li data-profile-website-item><a href="#" target="_blank" rel="noopener nofollow ugc" data-profile-website></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="profile-modal-actions">
+			<button class="button" type="button" data-follow-toggle data-following="false" data-profile-follow>Follow</button>
+			<a class="button" href="messages.html" data-profile-message>Message</a>
+			<button class="button" type="button" data-share data-profile-share>Share</button>
+		</div>
+
+		<section class="profile-modal-books" aria-labelledby="profile-modal-books-title">
+			<h3 class="section-title" id="profile-modal-books-title">Published books</h3>
+
+			<div class="empty-state empty-state-compact" data-profile-empty hidden>
+				<h3>No published books yet</h3>
+				<p data-profile-empty-text></p>
+			</div>
+
+			<ul class="profile-book-list" data-profile-books></ul>
+		</section>
+	</dialog>
+
 	<script src="scripts/common.js" defer></script>
+	<script src="scripts/profile-modal.js" defer></script>
 	<script src="scripts/browse.js" defer></script>
 </body>
 </html>

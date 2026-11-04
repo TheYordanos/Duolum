@@ -1,0 +1,84 @@
+.profile-modal {
+	width: min(560px, calc(100vw - 32px));
+}
+
+.profile-modal > .modal-close {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+}
+
+.profile-modal-head {
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+	padding-right: 28px;
+}
+
+.profile-modal-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 20px;
+}
+
+.profile-modal-books {
+	margin-top: 28px;
+	padding-top: 20px;
+	border-top: 1px solid var(--border);
+}
+
+.profile-modal-books .section-title {
+	margin-bottom: 12px;
+}
+
+.profile-book-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	list-style: none;
+}
+
+.profile-book-list a {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 8px;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	text-decoration: none;
+	transition: background 150ms ease, border-color 150ms ease;
+}
+
+.profile-book-list a:hover {
+	border-color: var(--border-strong);
+	background: var(--hover);
+}
+
+.profile-book-list img {
+	flex: none;
+	width: 40px;
+	aspect-ratio: 2 / 3;
+	border-radius: 2px;
+	object-fit: cover;
+}
+
+.profile-book-list strong {
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.profile-book-list span {
+	display: block;
+	margin-top: 2px;
+	color: var(--muted);
+	font-size: 12px;
+}
+
+@media (max-width: 600px) {
+	.profile-modal-head {
+		flex-direction: column;
+		gap: 14px;
+	}
+}

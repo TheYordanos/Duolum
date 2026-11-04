@@ -109,8 +109,6 @@
 	color: var(--muted);
 	font-size: 12px;
 	line-height: 1.6;
-	text-align: center;
-	margin-block: auto;
 }
 
 .chat-list-item {
@@ -219,6 +217,11 @@
 	gap: 12px;
 	padding: 14px 20px;
 	border-bottom: 1px solid var(--border);
+}
+
+.chat-view-profile {
+	flex: none;
+	margin-left: auto;
 }
 
 .chat-thread-title h2 {

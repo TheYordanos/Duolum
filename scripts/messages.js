@@ -115,6 +115,16 @@
 		selectConversation(id);
 	}
 
+	// "Message" in the profile modal opens that conversation here instead of reloading the page
+	document.addEventListener('profile:message', (event) => {
+		const id = event.detail.id;
+
+		if (!threads.some((thread) => thread.dataset.thread === id)) return;
+
+		event.detail.handled = true;
+		openConversation(id);
+	});
+
 	function resolveRequest(thread, accepted) {
 		const id = thread.dataset.thread;
 		const item = items.find((entry) => entry.dataset.conversation === id);

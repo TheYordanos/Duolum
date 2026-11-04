@@ -75,6 +75,7 @@
 		title.textContent = isAll ? 'New releases' : nameOf(activeItem);
 		count.textContent = visible.length === 1 ? '1 book' : visible.length + ' books';
 		actions.hidden = isAll;
+		if (!isAll) $('[data-view-profile]').dataset.profile = id;
 
 		empty.hidden = visible.length > 0;
 
@@ -93,6 +94,27 @@
 	});
 
 	search.addEventListener('input', refreshList);
+
+	// The profile modal: show the right follow state, and follow or unfollow from it
+	document.addEventListener('profile:open', (event) => {
+		setFollowing($('[data-profile-follow]'), !unfollowed.has(event.detail.id));
+	});
+
+	document.addEventListener('click', (event) => {
+		const button = event.target.closest('[data-profile-follow]');
+		if (!button) return;
+
+		const id = button.dataset.person;
+
+		if (button.dataset.following === 'true') {
+			unfollowed.delete(id);
+		} else {
+			unfollowed.add(id);
+		}
+
+		refreshList();
+		if (selected === id && unfollowed.has(id)) showPerson('all');
+	});
 
 	$('[data-unfollow]').addEventListener('click', () => {
 		unfollowed.add(selected);

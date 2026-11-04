@@ -63,3 +63,69 @@ document.addEventListener('click', (event) => {
 		setFollowing(follow, follow.dataset.following !== 'true');
 	}
 });
+
+// Share buttons only copy a link to the page, they never open the device share sheet.
+// Put the link in data-share-url (relative to the current page); without it the current page is used.
+async function copyText(text) {
+	try {
+		await navigator.clipboard.writeText(text);
+		return true;
+	} catch (error) {
+		const field = document.createElement('textarea');
+
+		field.value = text;
+		field.setAttribute('readonly', '');
+		field.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+		document.body.appendChild(field);
+		field.select();
+
+		let copied = false;
+
+		try {
+			copied = document.execCommand('copy');
+		} catch (fallbackError) {
+			copied = false;
+		}
+
+		field.remove();
+
+		return copied;
+	}
+}
+
+function announce(message) {
+	let region = $('[data-live-region]');
+
+	if (!region) {
+		region = document.createElement('p');
+		region.className = 'visually-hidden';
+		region.setAttribute('role', 'status');
+		region.setAttribute('data-live-region', '');
+		document.body.appendChild(region);
+	}
+
+	region.textContent = '';
+	setTimeout(() => {
+		region.textContent = message;
+	}, 50);
+}
+
+document.addEventListener('click', async (event) => {
+	const button = event.target.closest('[data-share]');
+	if (!button) return;
+
+	const url = new URL(button.dataset.shareUrl || location.href, location.href).href;
+	const copied = await copyText(url);
+
+	if (button.dataset.shareTimer) clearTimeout(Number(button.dataset.shareTimer));
+	if (!button.dataset.shareLabel) button.dataset.shareLabel = button.textContent;
+
+	button.textContent = copied ? 'Link copied' : 'Not copied';
+	announce(copied ? 'Link copied to clipboard.' : 'Couldn\u2019t copy the link.');
+
+	button.dataset.shareTimer = String(setTimeout(() => {
+		button.textContent = button.dataset.shareLabel;
+		delete button.dataset.shareLabel;
+		delete button.dataset.shareTimer;
+	}, 1800));
+});
