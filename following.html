@@ -391,6 +391,27 @@
 					<button class="button" type="button" data-share data-book-share>Share</button>
 				</div>
 
+				<div class="book-rating" data-rating>
+					<div class="book-rating-summary">
+						<span class="book-rating-dot" aria-hidden="true"></span>
+						<span data-rating-average></span>
+					</div>
+
+					<div class="book-rating-input" data-rating-input>
+						<span class="book-rating-label" id="rating-label" data-rating-label>Rate this book</span>
+						<div class="book-rating-stars" role="group" aria-labelledby="rating-label">
+							<button type="button" class="rate-dot" data-rate="1" aria-label="1 of 5" aria-pressed="false"></button>
+							<button type="button" class="rate-dot" data-rate="2" aria-label="2 of 5" aria-pressed="false"></button>
+							<button type="button" class="rate-dot" data-rate="3" aria-label="3 of 5" aria-pressed="false"></button>
+							<button type="button" class="rate-dot" data-rate="4" aria-label="4 of 5" aria-pressed="false"></button>
+							<button type="button" class="rate-dot" data-rate="5" aria-label="5 of 5" aria-pressed="false"></button>
+						</div>
+						<button class="text-button" type="button" data-rating-clear hidden>Clear</button>
+					</div>
+
+					<p class="book-rating-own" data-rating-own hidden>You can&rsquo;t rate your own book.</p>
+				</div>
+
 				<div class="book-modal-description">
 					<h3 class="section-title">About this book</h3>
 					<p data-book-description></p>

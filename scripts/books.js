@@ -58,3 +58,56 @@ function setFavorite(id, on) {
 
 	document.dispatchEvent(new CustomEvent('favorites:change', { detail: { id, on, count: favorites.size } }));
 }
+
+// Ratings: one 1 to 5 star rating per book from the reader. The averages are made-up demo numbers until there is a backend.
+const RATINGS_KEY = 'duolum-ratings';
+
+function getRatings() {
+	try {
+		return JSON.parse(localStorage.getItem(RATINGS_KEY) || '{}');
+	} catch (error) {
+		return {};
+	}
+}
+
+function getRating(id) {
+	return getRatings()[id] || 0;
+}
+
+function setRating(id, stars) {
+	const ratings = getRatings();
+
+	if (stars) ratings[id] = stars;
+	else delete ratings[id];
+
+	try {
+		localStorage.setItem(RATINGS_KEY, JSON.stringify(ratings));
+	} catch (error) {
+		// The rating then only lasts for this page
+	}
+
+	document.dispatchEvent(new CustomEvent('ratings:change', { detail: { id, stars } }));
+}
+
+// Everyone else's ratings: a stable fake per book. Some books have none yet.
+function demoRatings(id) {
+	let hash = 0;
+
+	for (const letter of id) hash = (hash * 31 + letter.charCodeAt(0)) % 9973;
+
+	if (hash % 5 === 0) return { sum: 0, count: 0 };
+
+	const count = 12 + (hash % 440);
+	const average = 3.8 + (hash % 12) / 10;
+
+	return { sum: average * count, count };
+}
+
+// The average and number of ratings, including the reader's own
+function ratingSummary(id) {
+	const demo = demoRatings(id);
+	const mine = getRating(id);
+	const count = demo.count + (mine ? 1 : 0);
+
+	return { count, average: count ? (demo.sum + mine) / count : 0 };
+}
