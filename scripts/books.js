@@ -111,3 +111,72 @@ function ratingSummary(id) {
 
 	return { count, average: count ? (demo.sum + mine) / count : 0 };
 }
+
+// Wires a block of rating circles: [data-rate] circles, an optional [data-rating-clear], [data-rating-label],
+// [data-rating-average], [data-rating-input] and [data-rating-own]. Returns render() to call when the book changes.
+function bindRating(root, getId, isOwn = () => false) {
+	const dots = $$('[data-rate]', root);
+	const clear = $('[data-rating-clear]', root);
+	const label = $('[data-rating-label]', root);
+	const average = $('[data-rating-average]', root);
+	const input = $('[data-rating-input]', root);
+	const own = $('[data-rating-own]', root);
+
+	function render() {
+		const id = getId();
+		if (!id) return;
+
+		const mine = getRating(id);
+		const summary = ratingSummary(id);
+
+		if (average) {
+			average.textContent = summary.count
+				? summary.average.toFixed(1) + ' \u00b7 ' + summary.count.toLocaleString('en-US') + (summary.count === 1 ? ' rating' : ' ratings')
+				: 'No ratings yet';
+		}
+
+		if (input) input.hidden = isOwn(id);
+		if (own) own.hidden = !isOwn(id);
+		if (clear) clear.hidden = !mine;
+		if (label) label.textContent = mine ? 'Your rating' : 'Rate this book';
+
+		dots.forEach((dot) => {
+			const value = Number(dot.dataset.rate);
+
+			dot.classList.toggle('on', value <= mine);
+			dot.setAttribute('aria-pressed', String(value === mine));
+		});
+	}
+
+	// Hovering or focusing a circle previews it
+	function preview(value) {
+		dots.forEach((dot) => dot.classList.toggle('preview', Number(dot.dataset.rate) <= value));
+	}
+
+	dots.forEach((dot) => {
+		const value = Number(dot.dataset.rate);
+
+		dot.addEventListener('mouseenter', () => preview(value));
+		dot.addEventListener('mouseleave', () => preview(0));
+		dot.addEventListener('focus', () => preview(value));
+		dot.addEventListener('blur', () => preview(0));
+
+		dot.addEventListener('click', () => {
+			const id = getId();
+
+			setRating(id, value === getRating(id) ? 0 : value);
+			announce(getRating(id) ? 'You rated this book ' + value + ' out of 5.' : 'Your rating was removed.');
+		});
+	});
+
+	if (clear) {
+		clear.addEventListener('click', () => {
+			setRating(getId(), 0);
+			announce('Your rating was removed.');
+		});
+	}
+
+	document.addEventListener('ratings:change', render);
+
+	return render;
+}

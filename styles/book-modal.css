@@ -77,53 +77,9 @@
 	background: var(--foreground);
 }
 
-.book-rating-input {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
-
-.book-rating-label,
 .book-rating-own {
 	color: var(--muted);
 	font-size: 13px;
-}
-
-.book-rating-stars {
-	display: flex;
-}
-
-/* Five circles: filled up to the rating */
-.rate-dot {
-	display: grid;
-	place-items: center;
-	width: 28px;
-	height: 28px;
-	padding: 0;
-	border: none;
-	background: transparent;
-	cursor: pointer;
-}
-
-.rate-dot::before {
-	content: "";
-	width: 16px;
-	height: 16px;
-	border: 1.5px solid var(--border-strong);
-	border-radius: 50%;
-	transition: background 120ms ease, border-color 120ms ease;
-}
-
-.rate-dot.on::before,
-.rate-dot.preview::before {
-	border-color: var(--foreground);
-	background: var(--foreground);
-}
-
-/* While hovering, only the previewed circles are filled */
-.book-rating-input:has(.preview) .rate-dot.on:not(.preview)::before {
-	border-color: var(--border-strong);
-	background: transparent;
 }
 
 .book-modal-description p {

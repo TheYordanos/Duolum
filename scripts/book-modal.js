@@ -11,58 +11,9 @@
 		favoriteButton.textContent = on ? 'Favorited' : 'Favorite';
 		favoriteButton.classList.toggle('active', on);
 	}
-	const dots = $$('[data-rate]', dialog);
 
-	// The average for everyone, and the reader's own rating (not for their own books)
-	function renderRating() {
-		const summary = ratingSummary(currentId);
-		const mine = getRating(currentId);
-		const own = BOOKS[currentId].authorId === 'jordan';
-
-		$('[data-rating-average]', dialog).textContent = summary.count
-			? summary.average.toFixed(1) + ' \u00b7 ' + summary.count.toLocaleString('en-US') + (summary.count === 1 ? ' rating' : ' ratings')
-			: 'No ratings yet';
-
-		$('[data-rating-input]', dialog).hidden = own;
-		$('[data-rating-own]', dialog).hidden = !own;
-		$('[data-rating-clear]', dialog).hidden = !mine;
-		$('[data-rating-label]', dialog).textContent = mine ? 'Your rating' : 'Rate this book';
-
-		dots.forEach((dot) => {
-			const value = Number(dot.dataset.rate);
-
-			dot.classList.toggle('on', value <= mine);
-			dot.setAttribute('aria-pressed', String(value === mine));
-		});
-	}
-
-	// Hovering a circle previews it
-	function preview(value) {
-		dots.forEach((dot) => dot.classList.toggle('preview', Number(dot.dataset.rate) <= value));
-	}
-
-	dots.forEach((dot) => {
-		const value = Number(dot.dataset.rate);
-
-		dot.addEventListener('mouseenter', () => preview(value));
-		dot.addEventListener('mouseleave', () => preview(0));
-		dot.addEventListener('focus', () => preview(value));
-		dot.addEventListener('blur', () => preview(0));
-
-		dot.addEventListener('click', () => {
-			setRating(currentId, value === getRating(currentId) ? 0 : value);
-			announce(getRating(currentId) ? 'You rated this book ' + value + ' out of 5.' : 'Your rating was removed.');
-		});
-	});
-
-	$('[data-rating-clear]', dialog).addEventListener('click', () => {
-		setRating(currentId, 0);
-		announce('Your rating was removed.');
-	});
-
-	document.addEventListener('ratings:change', () => {
-		if (currentId) renderRating();
-	});
+	// The average for everyone and the reader's own rating (not for their own books)
+	const renderRating = bindRating($('[data-rating]', dialog), () => currentId, (id) => BOOKS[id].authorId === 'jordan');
 
 	const authorLink = $('[data-book-author-link]', dialog);
 	let opener = null;

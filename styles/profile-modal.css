@@ -92,22 +92,6 @@
 	border-top: 1px solid var(--border);
 }
 
-.text-button {
-	padding: 0;
-	border: none;
-	background: transparent;
-	color: var(--muted);
-	font: inherit;
-	font-size: 13px;
-	text-decoration: underline;
-	text-underline-offset: 3px;
-	cursor: pointer;
-}
-
-.text-button:hover {
-	color: var(--foreground);
-}
-
 .safety-modal {
 	width: min(440px, calc(100vw - 32px));
 }

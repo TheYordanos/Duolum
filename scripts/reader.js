@@ -153,6 +153,11 @@
 		$('.chapter-nav-link[rel="next"]').hidden = true;
 	}
 
+	// Rate the book from its end screen. Same rating as in the book modal.
+	const bookEnd = $('[data-book-end]');
+
+	bindRating($('[data-rating]', bookEnd), () => bookEnd.dataset.bookId)();
+
 	$('[data-finish-toggle]').addEventListener('click', (event) => {
 		const button = event.currentTarget;
 		const isFinished = button.getAttribute('aria-pressed') !== 'true';

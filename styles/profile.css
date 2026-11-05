@@ -239,3 +239,67 @@ input[role="switch"]:checked::before {
 		align-items: flex-start;
 	}
 }
+
+/* Blocked people */
+.blocked-people {
+    align-self: stretch;
+}
+
+.blocked-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.blocked-title+.field-hint {
+    margin-top: 4px;
+}
+
+.blocked-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+    list-style: none;
+}
+
+.blocked-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.blocked-item div {
+    flex: 1;
+    min-width: 0;
+}
+
+.blocked-item strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.blocked-item span {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.blocked-empty {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .blocked-item {
+        flex-wrap: wrap;
+    }
+
+    .blocked-item div {
+        flex: 1 1 calc(100% - 60px);
+    }
+}

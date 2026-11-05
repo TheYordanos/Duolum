@@ -359,6 +359,12 @@ html[data-reader-font="sans"] {
 	line-height: 1.6;
 }
 
+.book-end-rating {
+	display: flex;
+	justify-content: center;
+	margin-top: 24px;
+}
+
 .book-end-more {
 	margin-top: 40px;
 	text-align: left;

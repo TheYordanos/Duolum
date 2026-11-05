@@ -308,3 +308,57 @@
 	document.addEventListener('DOMContentLoaded', update);
 	document.addEventListener('favorites:change', update);
 })();
+
+// Blocked people: listed in Settings, unblocked in one click
+(() => {
+	const list = $('[data-blocked-list]');
+	const empty = $('[data-blocked-empty]');
+	if (!list) return;
+
+	function render() {
+		const people = [...getBlocked()].filter((id) => window.getPerson && window.getPerson(id));
+
+		list.replaceChildren(...people.map((id) => {
+			const person = window.getPerson(id);
+			const item = document.createElement('li');
+			const avatar = document.createElement('img');
+			const text = document.createElement('div');
+			const name = document.createElement('strong');
+			const handle = document.createElement('span');
+			const view = document.createElement('button');
+			const unblock = document.createElement('button');
+
+			item.className = 'blocked-item';
+			avatar.className = 'avatar';
+			avatar.src = 'imgs/profile.jpg';
+			avatar.alt = '';
+			name.textContent = person.name;
+			handle.textContent = '@' + person.handle;
+			text.append(name, handle);
+
+			view.className = 'button button-small';
+			view.type = 'button';
+			view.dataset.profile = id;
+			view.textContent = 'View profile';
+
+			unblock.className = 'button button-small';
+			unblock.type = 'button';
+			unblock.textContent = 'Unblock';
+			unblock.setAttribute('aria-label', 'Unblock ' + person.name);
+			unblock.addEventListener('click', () => {
+				setBlocked(id, false);
+				announce(person.name + ' unblocked.');
+			});
+
+			item.append(avatar, text, view, unblock);
+
+			return item;
+		}));
+
+		list.hidden = people.length === 0;
+		empty.hidden = people.length > 0;
+	}
+
+	render();
+	document.addEventListener('blocks:change', render);
+})();

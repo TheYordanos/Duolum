@@ -181,6 +181,72 @@ select.input {
 	cursor: pointer;
 }
 
+/* Text-only button */
+.text-button {
+	padding: 0;
+	border: none;
+	background: transparent;
+	color: var(--muted);
+	font: inherit;
+	font-size: 13px;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	cursor: pointer;
+}
+
+.text-button:hover {
+	color: var(--foreground);
+}
+
+/* Rating: five circles, filled up to the rating */
+.rating-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.rating-label {
+	color: var(--muted);
+	font-size: 13px;
+}
+
+.rating-dots {
+	display: flex;
+}
+
+/* Five circles: filled up to the rating */
+.rate-dot {
+	display: grid;
+	place-items: center;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+.rate-dot::before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	border: 1.5px solid var(--border-strong);
+	border-radius: 50%;
+	transition: background 120ms ease, border-color 120ms ease;
+}
+
+.rate-dot.on::before,
+.rate-dot.preview::before {
+	border-color: var(--foreground);
+	background: var(--foreground);
+}
+
+/* While hovering, only the previewed circles are filled */
+.rating-row:has(.preview) .rate-dot.on:not(.preview)::before {
+	border-color: var(--border-strong);
+	background: transparent;
+}
+
 /* Avatars */
 .avatar {
 	flex: none;
