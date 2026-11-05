@@ -3,7 +3,6 @@
 	const THEMES = ['light', 'sepia', 'dark'];
 	const FONTS = ['serif', 'sans'];
 	const SIZE = { min: 15, max: 26, fallback: 19 };
-	const GATES = ['sample', 'supporters'];
 
 	const root = document.documentElement;
 	const settingsToggle = $('#settings-toggle');
@@ -35,7 +34,7 @@
 
 	const stored = load();
 	const settings = {
-		theme: THEMES.includes(stored.theme) ? stored.theme : 'light',
+		theme: THEMES.includes(stored.theme) ? stored.theme : (root.dataset.theme === 'dark' ? 'dark' : 'light'),
 		font: FONTS.includes(stored.font) ? stored.font : 'serif',
 		size: stored.size >= SIZE.min && stored.size <= SIZE.max ? Number(stored.size) : SIZE.fallback,
 	};
@@ -124,15 +123,8 @@
 	window.addEventListener('scroll', updateProgress, { passive: true });
 	window.addEventListener('resize', updateProgress);
 
-	// Demo of the states the server will decide later: ?access=sample, ?access=supporters or ?end
+	// Demo of the end-of-book screen until the server decides it: add ?end to the address
 	const params = new URLSearchParams(location.search);
-	const access = params.get('access');
-
-	if (GATES.includes(access)) {
-		article.classList.add('is-gated');
-		$('[data-access-gate="' + access + '"]').hidden = false;
-		$('.chapter-nav').hidden = true;
-	}
 
 	if (params.has('end')) {
 		$('[data-book-end]').hidden = false;

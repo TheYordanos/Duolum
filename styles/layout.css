@@ -83,6 +83,12 @@
 	font-weight: 600;
 }
 
+.nav-state {
+	color: var(--muted);
+	font-size: 12px;
+	font-weight: 400;
+}
+
 .nav-dot {
 	flex: none;
 	width: 8px;
@@ -233,7 +239,7 @@
 		padding: 8px 20px 12px;
 		border-bottom: 1px solid var(--border);
 		background: var(--background);
-		box-shadow: 0 12px 24px rgba(37, 37, 33, 0.12);
+		box-shadow: 0 12px 24px var(--shadow);
 	}
 
 	.navigation {

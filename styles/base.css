@@ -16,10 +16,31 @@
 	--border-strong: #B8B6AE;
 	--hover: #E8E7E0;
 	--surface: #EAE9E3;
+	--scrim: rgba(37, 37, 33, 0.4);
+	--shadow: rgba(37, 37, 33, 0.12);
+
+	color-scheme: light;
 
 	--radius: 4px;
 	--sidebar-width: 240px;
 	--gutter: 32px;
+}
+
+/* Dark theme: only the colour tokens change, nothing else in the CSS is theme-aware */
+html[data-theme="dark"] {
+	--background: #1B1B19;
+	--foreground: #E9E7E0;
+	--muted: #A9A79E;
+	--muted-light: #A9A79E;
+	--placeholder: #A9A79E;
+	--border: #34342F;
+	--border-strong: #5A5953;
+	--hover: #2A2A27;
+	--surface: #262623;
+	--scrim: rgba(0, 0, 0, 0.6);
+	--shadow: rgba(0, 0, 0, 0.5);
+
+	color-scheme: dark;
 }
 
 html,

@@ -4,6 +4,19 @@ html.reader body {
 	min-height: 100%;
 }
 
+html[data-reader-theme="light"] {
+	--background: #F7F6F2;
+	--foreground: #252521;
+	--muted: #66655E;
+	--muted-light: #6E6D66;
+	--placeholder: #6E6D66;
+	--border: #E4E2DC;
+	--border-strong: #B8B6AE;
+	--hover: #E8E7E0;
+	--surface: #EAE9E3;
+	color-scheme: light;
+}
+
 html[data-reader-theme="sepia"] {
 	--background: #F4ECD8;
 	--foreground: #3B3226;

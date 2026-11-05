@@ -597,7 +597,7 @@ select.input {
 }
 
 .modal::backdrop {
-	background: rgba(37, 37, 33, 0.4);
+	background: var(--scrim);
 }
 
 .modal-header {
