@@ -20,6 +20,14 @@
 	text-decoration: none;
 }
 
+.home-nav-link:is(button) {
+	padding: 0;
+	border: 0;
+	background: none;
+	font-family: inherit;
+	cursor: pointer;
+}
+
 .home-nav-link:hover {
 	color: var(--foreground);
 	text-decoration: underline;
@@ -177,9 +185,5 @@ main:focus {
 
 	.home-section {
 		padding: 40px 0;
-	}
-
-	.home-nav-browse {
-		display: none;
 	}
 }
