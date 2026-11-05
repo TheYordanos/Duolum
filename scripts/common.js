@@ -161,3 +161,17 @@ document.addEventListener('click', async (event) => {
 		if (wide.matches) setOpen(false);
 	});
 })();
+
+// Keep a modal's id in the address (?book=...) so going back to the page reopens it
+function setQueryParam(key, value) {
+	try {
+		const url = new URL(location.href);
+
+		if (value) url.searchParams.set(key, value);
+		else url.searchParams.delete(key);
+
+		history.replaceState(null, '', url.pathname.split('/').pop() + url.search + url.hash);
+	} catch (error) {
+		// Some contexts refuse to change the address
+	}
+}

@@ -98,6 +98,7 @@
 		render(id);
 
 		if (!dialog.open) dialog.showModal();
+		setQueryParam('profile', id);
 
 		// Let pages react, e.g. messages opens the conversation instead of leaving
 		document.dispatchEvent(new CustomEvent('profile:open', { detail: { id } }));
@@ -140,6 +141,7 @@
 	});
 
 	dialog.addEventListener('close', () => {
+		setQueryParam('profile', null);
 		if (opener && document.contains(opener)) opener.focus();
 		opener = null;
 	});

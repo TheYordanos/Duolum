@@ -13,8 +13,6 @@
 	<link rel="stylesheet" href="styles/components.css">
 	<link rel="stylesheet" href="styles/prose.css">
 	<link rel="stylesheet" href="styles/reader.css">
-	<link rel="stylesheet" href="styles/profile-modal.css">
-	<link rel="stylesheet" href="styles/book-modal.css">
 	<script src="scripts/theme.js"></script>
 
 	<script>
@@ -35,7 +33,7 @@
 
 	<header class="reader-bar">
 		<div class="reader-bar-inner">
-			<a class="reader-back" href="browse.html?book=the-silent-garden" data-book="the-silent-garden">&larr; The Silent Garden</a>
+			<a class="reader-back" href="browse.html?book=the-silent-garden" data-reader-back>&larr; The Silent Garden</a>
 
 			<p class="reader-bar-title">Chapter 3 of 12</p>
 
@@ -218,7 +216,7 @@ dig where the light stops</code></pre>
 				<h3 class="section-title">More by James Anderson</h3>
 				<div class="book-grid">
 					<article class="book-card">
-						<a class="book-link" href="browse.html?book=the-hollow-hour" data-book="the-hollow-hour">
+						<a class="book-link" href="browse.html?book=the-hollow-hour">
 							<div class="book-cover">
 								<img src="imgs/placeholder.png" alt="Cover of The Hollow Hour" loading="lazy" decoding="async">
 							</div>
@@ -236,93 +234,7 @@ dig where the light stops</code></pre>
 
 	</main>
 
-	<dialog class="modal profile-modal" id="profile-dialog" aria-labelledby="profile-modal-name" data-profile-dialog>
-		<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
-
-		<div class="profile-modal-head">
-			<img class="avatar avatar-large" src="imgs/profile.jpg" alt="" data-profile-avatar>
-
-			<div class="profile-identity">
-				<h2 class="profile-name" id="profile-modal-name" data-profile-name></h2>
-				<p class="profile-handle" data-profile-handle></p>
-				<p class="profile-bio" data-profile-bio></p>
-
-				<ul class="profile-links">
-					<li data-profile-joined></li>
-					<li data-profile-followers></li>
-					<li data-profile-website-item><a href="#" target="_blank" rel="noopener nofollow ugc" data-profile-website></a></li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="profile-modal-actions">
-			<button class="button" type="button" data-follow-toggle data-following="false" data-profile-follow>Follow</button>
-			<a class="button" href="messages.html" data-profile-message>Message</a>
-			<button class="button" type="button" data-share data-profile-share>Share</button>
-		</div>
-
-		<section class="profile-modal-books" aria-labelledby="profile-modal-books-title">
-			<h3 class="section-title" id="profile-modal-books-title">Published books</h3>
-
-			<div class="empty-state empty-state-compact" data-profile-empty hidden>
-				<h3>No published books yet</h3>
-				<p data-profile-empty-text></p>
-			</div>
-
-			<ul class="profile-book-list" data-profile-books></ul>
-		</section>
-	</dialog>
-
-	<dialog class="modal book-modal" id="book-dialog" aria-labelledby="book-modal-title" data-book-dialog>
-		<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
-
-		<div class="book-modal-layout">
-			<div class="book-modal-cover">
-				<img src="imgs/placeholder.png" alt="" data-book-cover>
-			</div>
-
-			<div class="book-modal-body">
-				<p class="book-genre" data-book-genre></p>
-				<h2 id="book-modal-title" data-book-title></h2>
-				<p class="book-author">by <a class="text-link" href="#" data-profile="" data-book-author-link></a><span data-book-author-plain hidden></span></p>
-
-				<div class="book-modal-actions">
-					<a class="button button-primary" href="read.html">Read</a>
-					<button class="button" type="button" data-want-toggle data-on-list="false">Want to read</button>
-					<button class="button" type="button" data-share data-book-share>Share</button>
-				</div>
-
-				<div class="book-modal-description">
-					<h3 class="section-title">About this book</h3>
-					<p data-book-description></p>
-				</div>
-
-				<dl class="book-modal-facts">
-					<div>
-						<dt>Published</dt>
-						<dd data-book-year></dd>
-					</div>
-					<div>
-						<dt>Genre</dt>
-						<dd data-book-genre-fact></dd>
-					</div>
-					<div>
-						<dt>Language</dt>
-						<dd data-book-language></dd>
-					</div>
-					<div>
-						<dt>Length</dt>
-						<dd data-book-length></dd>
-					</div>
-				</dl>
-			</div>
-		</div>
-	</dialog>
-
 	<script src="scripts/common.js" defer></script>
-	<script src="scripts/books.js" defer></script>
-	<script src="scripts/profile-modal.js" defer></script>
-	<script src="scripts/book-modal.js" defer></script>
 	<script src="scripts/reader.js" defer></script>
 </body>
 </html>

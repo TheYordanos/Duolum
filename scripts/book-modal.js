@@ -56,6 +56,7 @@
 		render(id, trigger);
 
 		if (!dialog.open) dialog.showModal();
+		setQueryParam('book', id);
 	}
 
 	document.addEventListener('click', (event) => {
@@ -87,6 +88,7 @@
 	});
 
 	dialog.addEventListener('close', () => {
+		setQueryParam('book', null);
 		const another = $('dialog[open]');
 
 		if (!another && opener && document.contains(opener)) opener.focus();

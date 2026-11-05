@@ -5,6 +5,28 @@
 	const SIZE = { min: 15, max: 26, fallback: 19 };
 
 	const root = document.documentElement;
+
+	// The back link returns to wherever the person started reading (library, a book modal, ...)
+	(() => {
+		const back = $('[data-reader-back]');
+		const KEY = 'duolum-read-origin';
+		let origin = null;
+
+		try {
+			const from = document.referrer ? new URL(document.referrer) : null;
+
+			if (from && from.origin === location.origin && !from.pathname.endsWith('/read.html')) {
+				origin = (from.pathname.split('/').pop() || 'index.html') + from.search;
+				sessionStorage.setItem(KEY, origin);
+			} else {
+				origin = sessionStorage.getItem(KEY);
+			}
+		} catch (error) {
+			origin = null;
+		}
+
+		if (back && origin) back.href = origin;
+	})();
 	const settingsToggle = $('#settings-toggle');
 	const settingsPanel = $('#reader-settings');
 	const contentsToggle = $('#contents-toggle');
