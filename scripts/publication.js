@@ -1,14 +1,13 @@
 (() => {
 	const tablist = $('[role="tablist"]');
 	const panel = $('#publication-list');
-	const rows = $$('[data-status]', panel);
 	const empty = $('[data-empty]');
 
 	initTabs(tablist, (tab) => {
 		const filter = tab.dataset.filter;
 		let visible = 0;
 
-		rows.forEach((row) => {
+		$$('[data-status]', panel).forEach((row) => {
 			const show = filter === 'all' || row.dataset.status === filter;
 
 			row.hidden = !show;
@@ -69,5 +68,53 @@
 
 		// The writer marks the chapters themselves on the write page
 		location.href = 'write.html?import=' + encodeURIComponent(file.name);
+	});
+})();
+
+// Removing a book asks first
+(() => {
+	const dialog = $('[data-remove-dialog]');
+	const panel = $('#publication-list');
+	let row = null;
+	let opener = null;
+
+	panel.addEventListener('click', (event) => {
+		const button = event.target.closest('[data-remove-book]');
+		if (!button) return;
+
+		opener = button;
+		row = button.closest('[data-status]');
+
+		const title = $('h3', row).textContent;
+		const published = row.dataset.status === 'published';
+
+		$('[data-remove-title]').textContent = 'Remove \u201c' + title + '\u201d?';
+		$('[data-remove-text]').textContent = published
+			? 'The book and all of its chapters will be deleted, and readers will no longer find it. This can\u2019t be undone.'
+			: 'The draft and all of its chapters will be deleted. This can\u2019t be undone.';
+		dialog.showModal();
+	});
+
+	$$('[data-close-dialog]', dialog).forEach((button) => button.addEventListener('click', () => dialog.close()));
+
+	dialog.addEventListener('click', (event) => {
+		if (event.target === dialog) dialog.close();
+	});
+
+	$('[data-remove-confirm]').addEventListener('click', () => {
+		const title = $('h3', row).textContent;
+
+		row.remove();
+		row = null;
+		opener = null;
+		dialog.close();
+
+		// Run the current tab's filter again so the list and its empty state are right
+		$('[role="tab"][aria-selected="true"]', $('[role="tablist"]')).click();
+		announce(title + ' was removed.');
+	});
+
+	dialog.addEventListener('close', () => {
+		if (opener && document.contains(opener)) opener.focus();
 	});
 })();

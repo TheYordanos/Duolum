@@ -107,6 +107,7 @@
 							<div class="row-actions">
 								<a class="button button-small" href="write.html?book=the-quiet-between">Edit</a>
 								<a class="button button-small" href="browse.html?book=the-quiet-between" data-book="the-quiet-between">View</a>
+								<button class="button button-small" type="button" data-remove-book>Remove</button>
 							</div>
 						</li>
 
@@ -123,6 +124,7 @@
 							<div class="row-actions">
 								<a class="button button-small" href="write.html?book=salt-and-ember">Edit</a>
 								<a class="button button-small" href="browse.html?book=salt-and-ember" data-book="salt-and-ember">View</a>
+								<button class="button button-small" type="button" data-remove-book>Remove</button>
 							</div>
 						</li>
 
@@ -139,6 +141,7 @@
 							<div class="row-actions">
 								<a class="button button-small" href="write.html?book=field-notes-on-leaving">Edit</a>
 								<a class="button button-small" href="browse.html?book=field-notes-on-leaving" data-book="field-notes-on-leaving">View</a>
+								<button class="button button-small" type="button" data-remove-book>Remove</button>
 							</div>
 						</li>
 
@@ -155,6 +158,7 @@
 							<div class="row-actions">
 								<a class="button button-small" href="write.html?book=the-lantern-keeper">Edit</a>
 								<button class="button button-small button-primary" type="button">Publish</button>
+								<button class="button button-small" type="button" data-remove-book>Remove</button>
 							</div>
 						</li>
 
@@ -171,6 +175,7 @@
 							<div class="row-actions">
 								<a class="button button-small" href="write.html?book=letters-i-never-sent">Edit</a>
 								<button class="button button-small button-primary" type="button">Publish</button>
+								<button class="button button-small" type="button" data-remove-book>Remove</button>
 							</div>
 						</li>
 					</ul>
@@ -236,6 +241,21 @@ when someone has just left.</pre>
 		</div>
 	</dialog>
 
+	<dialog class="modal" id="remove-dialog" aria-labelledby="remove-title" data-remove-dialog>
+		<div class="modal-header">
+			<div>
+				<h2 id="remove-title" data-remove-title></h2>
+				<p class="modal-subtitle" data-remove-text></p>
+			</div>
+			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+		</div>
+
+		<div class="modal-actions">
+			<button class="button" type="button" data-close-dialog>Cancel</button>
+			<button class="button button-primary" type="button" data-remove-confirm>Remove book</button>
+		</div>
+	</dialog>
+
 	<dialog class="modal profile-modal" id="profile-dialog" aria-labelledby="profile-modal-name" data-profile-dialog>
 		<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
 
@@ -289,6 +309,7 @@ when someone has just left.</pre>
 				<div class="book-modal-actions">
 					<a class="button button-primary" href="read.html">Read</a>
 					<button class="button" type="button" data-want-toggle data-on-list="false">Want to read</button>
+					<button class="button" type="button" aria-pressed="false" data-favorite-toggle>Favorite</button>
 					<button class="button" type="button" data-share data-book-share>Share</button>
 				</div>
 

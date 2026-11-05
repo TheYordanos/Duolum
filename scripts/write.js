@@ -254,6 +254,21 @@
 		say(chapter.published ? (book.published ? 'Chapter published.' : 'Chapter published. Readers see it once your book is published.') : 'Chapter unpublished. It is a draft again.');
 	});
 
+	// Autosave is only visual, so Save draft gives the same feedback on demand
+	function saveDraft() {
+		markSaving();
+		say('Draft saved.');
+	}
+
+	$('[data-save-draft]').addEventListener('click', saveDraft);
+
+	document.addEventListener('keydown', (event) => {
+		if ((event.ctrlKey || event.metaKey) && !event.altKey && event.key.toLowerCase() === 's') {
+			event.preventDefault();
+			saveDraft();
+		}
+	});
+
 	// Formatting
 	function edit(start, end, text, selectStart, selectEnd) {
 		bodyInput.focus();

@@ -232,7 +232,7 @@ html.write body {
 	height: 100%;
 	max-width: 720px;
 	margin: 0 auto;
-	padding: 32px var(--gutter) 24px;
+	padding: 32px var(--gutter) 0;
 }
 
 .write-title {
@@ -398,8 +398,17 @@ html.write body {
 }
 
 @media (max-width: 800px) {
+	/* Two rows: the way back on top, the actions underneath */
 	.write-bar {
-		padding: 0 16px;
+		flex-wrap: wrap;
+		height: auto;
+		padding: 10px 16px;
+		row-gap: 8px;
+	}
+
+	.write-bar-actions {
+		flex: 1 0 100%;
+		justify-content: flex-end;
 	}
 
 	.write-toolbar,
@@ -431,7 +440,7 @@ html.write body {
 	}
 
 	.write-editor {
-		padding: 20px 16px;
+		padding: 20px 16px 0;
 	}
 
 	.write-title {
@@ -450,10 +459,6 @@ html.write body {
 		display: none;
 	}
 
-	.write-bar-actions {
-		margin-left: auto;
-	}
-
 	.write-preview {
 		padding: 24px 16px 48px;
 	}
@@ -468,7 +473,8 @@ html.write body {
 }
 
 @media (max-width: 520px) {
-	.write-saved {
+	.write-saved,
+	.write-book-state {
 		display: none;
 	}
 }
@@ -737,4 +743,9 @@ html.write body {
 
 .tool {
 	white-space: nowrap;
+}
+
+.write-theme-state {
+	margin-left: 4px;
+	color: var(--muted);
 }

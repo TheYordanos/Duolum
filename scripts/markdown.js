@@ -29,7 +29,8 @@ function renderMarkdown(source) {
 	let i = 0;
 
 	const flush = () => {
-		if (paragraph.length) out.push('<p>' + inline(paragraph.join(' ')) + '</p>');
+		// A single Enter is a line break, a blank line starts a new paragraph
+		if (paragraph.length) out.push('<p>' + inline(paragraph.join('\n')).replace(/\n/g, '<br>') + '</p>');
 		paragraph = [];
 	};
 

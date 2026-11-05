@@ -3,6 +3,14 @@
 	if (!dialog) return;
 
 	const wantButton = $('[data-want-toggle]', dialog);
+	const favoriteButton = $('[data-favorite-toggle]', dialog);
+	let currentId = null;
+
+	function renderFavorite(on) {
+		favoriteButton.setAttribute('aria-pressed', String(on));
+		favoriteButton.textContent = on ? 'Favorited' : 'Favorite';
+		favoriteButton.classList.toggle('active', on);
+	}
 	const authorLink = $('[data-book-author-link]', dialog);
 	let opener = null;
 
@@ -41,6 +49,9 @@
 		wantButton.classList.toggle('button-primary', false);
 		wantButton.classList.toggle('active', onList);
 
+		currentId = id;
+		renderFavorite(getFavorites().has(id));
+
 		$('[data-book-share]', dialog).dataset.shareUrl = 'browse.html?book=' + id;
 	}
 
@@ -73,6 +84,14 @@
 		wantButton.dataset.onList = String(isOnList);
 		wantButton.textContent = isOnList ? 'On your list' : 'Want to read';
 		wantButton.classList.toggle('active', isOnList);
+	});
+
+	favoriteButton.addEventListener('click', () => {
+		const on = favoriteButton.getAttribute('aria-pressed') !== 'true';
+
+		setFavorite(currentId, on);
+		renderFavorite(on);
+		announce(on ? 'Added to your favorites.' : 'Removed from your favorites.');
 	});
 
 	// The author link opens their profile, so this modal steps aside first

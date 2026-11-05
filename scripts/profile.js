@@ -294,3 +294,17 @@
 
 	deleteDialog.addEventListener('close', () => deleteLink.setAttribute('aria-disabled', 'true'));
 })();
+
+// The Favorites stat follows the shared favourites list
+(() => {
+	const count = $('[data-favorites-count]');
+
+	if (!count) return;
+
+	const update = () => {
+		count.textContent = getFavorites().size;
+	};
+
+	document.addEventListener('DOMContentLoaded', update);
+	document.addEventListener('favorites:change', update);
+})();

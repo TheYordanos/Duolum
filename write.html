@@ -28,6 +28,7 @@
 		<div class="write-bar-actions">
 			<span class="write-book-state" data-book-state>Draft</span>
 			<span class="write-saved" data-saved>Saved</span>
+			<button class="button button-small" type="button" data-save-draft>Save draft</button>
 			<button class="button button-small" type="button" data-open-details>Book details</button>
 			<button class="button button-small button-primary" type="button" data-open-publish>Publish book</button>
 		</div>
@@ -52,6 +53,7 @@
 			</div>
 
 			<div class="write-toolbar-end">
+				<button class="tool" type="button" aria-pressed="false" data-theme-toggle>Dark mode <span class="write-theme-state" data-theme-state>Off</span></button>
 				<button class="tool" type="button" data-open-help>Markdown help</button>
 
 				<div class="write-mode" role="group" aria-label="View">
@@ -228,7 +230,7 @@
 		<div class="modal-header">
 			<div>
 				<h2 id="help-title">Markdown help</h2>
-				<p class="modal-subtitle">Duolum uses CommonMark. Leave a blank line between paragraphs.</p>
+				<p class="modal-subtitle">Duolum uses CommonMark. Press Enter for a new line, and leave a blank line to start a new paragraph.</p>
 			</div>
 			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
 		</div>

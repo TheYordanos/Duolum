@@ -27,3 +27,34 @@ const BOOKS = {
 };
 
 const BOOK_DESCRIPTION = 'Placeholder description. The full synopsis of the book will appear here once authors can publish their work. It will be a few paragraphs long and give readers a sense of the story, the tone and who it is for.';
+
+// Favourites: a set of book ids shared by every page. Starts with the demo library's favourites.
+const FAVORITE_DEFAULTS = ['the-silent-garden', 'letters-to-tomorrow', 'beyond-the-horizon', 'the-art-of-being', 'quiet-waters', 'notes-from-elsewhere'];
+const FAVORITES_KEY = 'duolum-favorites';
+
+function getFavorites() {
+	try {
+		const saved = localStorage.getItem(FAVORITES_KEY);
+
+		if (saved) return new Set(JSON.parse(saved));
+	} catch (error) {
+		// Storage can be unavailable; the defaults are used
+	}
+
+	return new Set(FAVORITE_DEFAULTS);
+}
+
+function setFavorite(id, on) {
+	const favorites = getFavorites();
+
+	if (on) favorites.add(id);
+	else favorites.delete(id);
+
+	try {
+		localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+	} catch (error) {
+		// The change then only lasts for this page
+	}
+
+	document.dispatchEvent(new CustomEvent('favorites:change', { detail: { id, on, count: favorites.size } }));
+}
