@@ -132,13 +132,13 @@ document.addEventListener('click', async (event) => {
 	}, 1800));
 });
 
-// Small screens: the sidebar becomes a slim bar whose Menu button opens the links
+// Phones and tablets: the sidebar becomes a slim bar whose Menu button opens the links
 (() => {
 	const toggle = $('[data-menu-toggle]');
 	if (!toggle) return;
 
 	const sidebar = toggle.closest('.sidebar');
-	const wide = window.matchMedia('(min-width: 601px)');
+	const wide = window.matchMedia('(min-width: 901px)');
 
 	function setOpen(open, { focus = false } = {}) {
 		sidebar.classList.toggle('menu-open', open);
@@ -174,4 +174,34 @@ function setQueryParam(key, value) {
 	} catch (error) {
 		// Some contexts refuse to change the address
 	}
+}
+
+// People the reader has blocked. Kept in localStorage until there is an account.
+const BLOCKED_KEY = 'duolum-blocked';
+
+function getBlocked() {
+	try {
+		return new Set(JSON.parse(localStorage.getItem(BLOCKED_KEY) || '[]'));
+	} catch (error) {
+		return new Set();
+	}
+}
+
+function isBlocked(id) {
+	return getBlocked().has(id);
+}
+
+function setBlocked(id, on) {
+	const blocked = getBlocked();
+
+	if (on) blocked.add(id);
+	else blocked.delete(id);
+
+	try {
+		localStorage.setItem(BLOCKED_KEY, JSON.stringify([...blocked]));
+	} catch (error) {
+		// The block then only lasts for this page
+	}
+
+	document.dispatchEvent(new CustomEvent('blocks:change', { detail: { id, on } }));
 }

@@ -13,22 +13,6 @@
 	color: var(--foreground);
 }
 
-.back-link {
-	display: inline-block;
-	margin-bottom: 24px;
-	padding: 0;
-	border: none;
-	background: transparent;
-	color: var(--muted);
-	font-size: 13px;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.back-link:hover {
-	color: var(--foreground);
-}
-
 /* Buttons */
 .button {
 	display: inline-flex;
@@ -178,8 +162,7 @@ textarea.input {
 	padding-left: 28px;
 }
 
-.checkbox-row,
-.radio-row {
+.checkbox-row {
 	display: flex;
 	align-items: center;
 	gap: 10px;
@@ -187,22 +170,9 @@ textarea.input {
 	cursor: pointer;
 }
 
-.checkbox-row input,
-.radio-row input {
+.checkbox-row input {
 	accent-color: var(--foreground);
 	cursor: pointer;
-}
-
-.fieldset legend {
-	margin-bottom: 8px;
-	padding: 0;
-	color: var(--muted);
-	font-size: 12px;
-}
-
-.fieldset {
-	min-width: 0;
-	border: 0;
 }
 
 select.input {
@@ -288,10 +258,6 @@ select.input {
 
 .tab:focus-visible {
 	outline-offset: -2px;
-}
-
-.tab-panel:focus-visible {
-	outline-offset: 6px;
 }
 
 /* Book grid and cards */

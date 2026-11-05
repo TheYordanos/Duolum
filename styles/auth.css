@@ -14,6 +14,17 @@
 	padding: 40px 20px;
 }
 
+.auth-theme {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+}
+
+.auth-theme-state {
+	margin-left: 8px;
+	color: var(--muted);
+}
+
 .auth:focus {
 	outline: none;
 }

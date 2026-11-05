@@ -397,6 +397,7 @@
 							<div class="request-bar">
 								<p>Ava isn't in your conversations yet. Accept to start chatting, or decline to remove this request.</p>
 								<div class="request-actions">
+									<button class="button" type="button" data-block-person="ava">Block</button>
 									<button class="button" type="button" data-request-action="decline">Decline</button>
 									<button class="button button-primary" type="button" data-request-action="accept">Accept</button>
 								</div>
@@ -426,11 +427,14 @@
 							<div class="request-bar">
 								<p>Marcus isn't in your conversations yet. Accept to start chatting, or decline to remove this request.</p>
 								<div class="request-actions">
+									<button class="button" type="button" data-block-person="marcus">Block</button>
 									<button class="button" type="button" data-request-action="decline">Decline</button>
 									<button class="button button-primary" type="button" data-request-action="accept">Accept</button>
 								</div>
 							</div>
 						</div>
+
+						<p class="chat-blocked" role="status" data-chat-blocked hidden></p>
 
 						<form class="chat-composer" id="chat-composer">
 							<input class="input" type="text" placeholder="Write a message..." aria-label="Message" autocomplete="off">
@@ -472,6 +476,8 @@
 			<button class="button" type="button" data-share data-profile-share>Share</button>
 		</div>
 
+		<p class="profile-blocked-note" role="status" data-profile-blocked-note hidden></p>
+
 		<section class="profile-modal-books" aria-labelledby="profile-modal-books-title">
 			<h3 class="section-title" id="profile-modal-books-title">Published books</h3>
 
@@ -482,6 +488,59 @@
 
 			<ul class="profile-book-list" data-profile-books></ul>
 		</section>
+
+		<div class="profile-modal-safety" data-profile-safety>
+			<button class="text-button" type="button" data-profile-report data-report-person="">Report</button>
+			<button class="text-button" type="button" data-profile-block data-block-person="">Block</button>
+		</div>
+	</dialog>
+
+	<dialog class="modal safety-modal" id="block-dialog" aria-labelledby="block-title" data-block-dialog>
+		<div class="modal-header">
+			<div>
+				<h2 id="block-title" data-block-title></h2>
+				<p class="modal-subtitle" data-block-text></p>
+			</div>
+			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+		</div>
+
+		<div class="modal-actions">
+			<button class="button" type="button" data-close-dialog>Cancel</button>
+			<button class="button button-primary" type="button" data-block-confirm>Block</button>
+		</div>
+	</dialog>
+
+	<dialog class="modal safety-modal" id="report-dialog" aria-labelledby="report-title" data-report-dialog>
+		<div class="modal-header">
+			<div>
+				<h2 id="report-title" data-report-title>Report</h2>
+				<p class="modal-subtitle">Tell us what&rsquo;s wrong. The person won&rsquo;t be told who reported them.</p>
+			</div>
+			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+		</div>
+
+		<form class="report-form" method="post" action="report.php">
+			<fieldset class="report-reasons">
+				<legend class="visually-hidden">Reason</legend>
+				<label class="checkbox-row"><input type="radio" name="reason" value="spam"> Spam or scam</label>
+				<label class="checkbox-row"><input type="radio" name="reason" value="harassment"> Harassment or hate</label>
+				<label class="checkbox-row"><input type="radio" name="reason" value="impersonation"> Pretending to be someone else</label>
+				<label class="checkbox-row"><input type="radio" name="reason" value="content"> Inappropriate or stolen content</label>
+				<label class="checkbox-row"><input type="radio" name="reason" value="other"> Something else</label>
+			</fieldset>
+
+			<div class="field">
+				<label for="report-details">Details <span class="field-optional">(optional)</span></label>
+				<textarea class="input" id="report-details" name="details" rows="3" maxlength="500"></textarea>
+			</div>
+
+			<p class="field-error" role="alert" data-report-error hidden>Choose a reason first.</p>
+
+			<div class="modal-actions">
+				<button class="button" type="button" data-close-dialog>Cancel</button>
+				<button class="button button-primary" type="submit">Send report</button>
+			</div>
+		</form>
 	</dialog>
 
 	<dialog class="modal book-modal" id="book-dialog" aria-labelledby="book-modal-title" data-book-dialog>
@@ -555,6 +614,7 @@
 	<script src="scripts/common.js" defer></script>
 	<script src="scripts/books.js" defer></script>
 	<script src="scripts/profile-modal.js" defer></script>
+	<script src="scripts/safety.js" defer></script>
 	<script src="scripts/book-modal.js" defer></script>
 	<script src="scripts/notifications.js" defer></script>
 	<script src="scripts/messages.js" defer></script>

@@ -164,7 +164,10 @@
 	:root {
 		--gutter: 20px;
 	}
+}
 
+/* Phones and tablets: the sidebar becomes a top bar */
+@media (max-width: 900px) {
 	.app-container {
 		grid-template-columns: minmax(0, 1fr);
 		grid-template-rows: auto minmax(0, 1fr);
@@ -187,7 +190,7 @@
 		align-items: center;
 		height: 56px;
 		margin-bottom: 0;
-		padding: 0 20px;
+		padding: 0 var(--gutter);
 	}
 
 	.brand {
@@ -236,7 +239,7 @@
 		left: 0;
 		display: flex;
 		flex: none;
-		padding: 8px 20px 12px;
+		padding: 8px var(--gutter) 12px;
 		border-bottom: 1px solid var(--border);
 		background: var(--background);
 		box-shadow: 0 12px 24px var(--shadow);

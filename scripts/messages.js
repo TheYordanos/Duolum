@@ -64,8 +64,14 @@
 		const thread = getActiveThread();
 		const requests = countRequests();
 
+		const blocked = Boolean(thread) && isBlocked(thread.dataset.thread);
+		const note = $('[data-chat-blocked]');
+
 		emptyWindow.hidden = Boolean(thread);
-		composer.hidden = !thread || thread.hasAttribute('data-request');
+		composer.hidden = !thread || thread.hasAttribute('data-request') || blocked;
+		note.hidden = !blocked;
+
+		if (blocked) note.textContent = 'You blocked ' + $('.chat-thread-title h2', thread).textContent + '. Unblock them from their profile to send messages.';
 
 		if (thread) return;
 
@@ -160,6 +166,14 @@
 			refreshWindow();
 		}
 	}
+
+	// Blocking someone who sent a request declines it; blocking or unblocking anyone else updates the composer
+	document.addEventListener('blocks:change', (event) => {
+		const thread = threads.find((entry) => entry.dataset.thread === event.detail.id);
+
+		if (thread && event.detail.on && thread.hasAttribute('data-request')) resolveRequest(thread, false);
+		else refreshWindow();
+	});
 
 	function formatTime(date) {
 		return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');

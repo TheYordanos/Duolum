@@ -62,6 +62,8 @@
 
 		$('[data-profile-share]', dialog).dataset.shareUrl = 'browse.html?mode=people&profile=' + id;
 
+		renderSafety();
+
 		const list = $('[data-profile-books]', dialog);
 
 		list.replaceChildren(...person.books.map((bookId) => {
@@ -90,6 +92,30 @@
 		$('[data-profile-empty]', dialog).hidden = person.books.length > 0;
 		$('[data-profile-empty-text]', dialog).textContent = person.name + ' hasn’t published any books yet.';
 	}
+
+	// Blocked people: no follow or message, and the block button turns into Unblock
+	function renderSafety() {
+		if (!current) return;
+
+		const isOwn = current === 'jordan';
+		const blocked = isBlocked(current);
+		const name = PEOPLE[current].name;
+
+		followButton.hidden = isOwn || blocked;
+		$('[data-profile-message]', dialog).hidden = isOwn || blocked;
+		$('[data-profile-safety]', dialog).hidden = isOwn;
+		$('[data-profile-blocked-note]', dialog).hidden = !blocked;
+		$('[data-profile-blocked-note]', dialog).textContent = 'You blocked ' + name + '.';
+
+		const block = $('[data-profile-block]', dialog);
+		const report = $('[data-profile-report]', dialog);
+
+		block.dataset.blockPerson = current;
+		block.textContent = blocked ? 'Unblock' : 'Block';
+		report.dataset.reportPerson = current;
+	}
+
+	document.addEventListener('blocks:change', renderSafety);
 
 	function open(id, trigger) {
 		if (!PEOPLE[id]) return;
@@ -152,4 +178,5 @@
 	if (linked) open(linked, null);
 
 	window.openProfile = open;
+	window.getPerson = (id) => PEOPLE[id];
 })();
