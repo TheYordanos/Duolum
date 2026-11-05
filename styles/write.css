@@ -1,3 +1,4 @@
+/* Write page: a full-width editor with no sidebar */
 html.write,
 html.write body {
 	height: 100%;
@@ -477,4 +478,263 @@ html.write body {
 	margin: 10px 0 0;
 	color: var(--foreground);
 	font-size: 12px;
+}
+
+/* Publishing */
+.write-workspace,
+.write-split {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-height: 0;
+}
+
+.write-workspace[hidden],
+.write-split[hidden] {
+	display: none;
+}
+
+.write-book-state {
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.write-footer-end {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.check-list {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	list-style: none;
+}
+
+.check-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-height: 44px;
+	padding: 6px 0;
+	border-bottom: 1px solid var(--border);
+	font-size: 14px;
+}
+
+.check-label {
+	flex: 1;
+}
+
+.check-mark {
+	display: inline-flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border: 1px solid var(--border-strong);
+	border-radius: 50%;
+	font-size: 12px;
+}
+
+.check-item[data-state="done"] .check-mark {
+	border-color: var(--foreground);
+	background: var(--foreground);
+	color: var(--background);
+}
+
+.check-item[data-state="done"] .check-label {
+	color: var(--muted);
+}
+
+/* Help steps */
+.help-steps {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding-left: 20px;
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.help-steps strong {
+	font-weight: 600;
+}
+
+/* Splitting a manuscript */
+.split-hint {
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.split-count,
+.split-meta,
+.split-note {
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.split-note {
+	padding: 12px 16px;
+	border-top: 1px solid var(--border);
+	line-height: 1.5;
+}
+
+.split-list {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.split-item {
+	display: grid;
+	grid-template-columns: 28px minmax(0, 1fr);
+	align-items: center;
+	gap: 4px 8px;
+	padding: 6px 4px;
+}
+
+.split-jump {
+	width: 28px;
+	height: 28px;
+	border: 0;
+	border-radius: var(--radius);
+	background: transparent;
+	color: var(--muted);
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.split-jump:hover {
+	background: var(--hover);
+	color: var(--foreground);
+}
+
+.split-title-input {
+	height: 34px;
+	font-size: 13px;
+}
+
+.split-title-input:disabled {
+	opacity: 0.7;
+}
+
+.split-meta {
+	grid-column: 2;
+}
+
+.split-manuscript {
+	max-width: 720px;
+	margin: 0 auto;
+	padding: 32px var(--gutter) 96px;
+}
+
+.split-paragraph {
+	margin: 0;
+	padding: 4px 0;
+	font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+	font-size: 18px;
+	line-height: 1.8;
+}
+
+.split-paragraph.is-title {
+	color: var(--muted);
+	font-style: italic;
+}
+
+.split-paragraph.is-title::before {
+	content: "Title \00b7  ";
+	font-family: 'DM Sans', sans-serif;
+	font-size: 11px;
+	font-style: normal;
+	letter-spacing: 0.4px;
+	text-transform: uppercase;
+}
+
+.split-marker {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	width: 100%;
+	height: 28px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var(--muted);
+	font-size: 12px;
+	opacity: 0;
+	cursor: pointer;
+	transition: opacity 150ms ease;
+}
+
+.split-marker::before,
+.split-marker::after {
+	content: "";
+	flex: 1;
+	border-top: 1px dashed var(--border-strong);
+}
+
+.split-marker:hover,
+.split-marker:focus-visible {
+	color: var(--foreground);
+	opacity: 1;
+}
+
+@media (hover: none) {
+	.split-marker {
+		opacity: 0.7;
+	}
+}
+
+.split-break {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px 12px;
+	margin: 16px 0 8px;
+	padding: 10px 12px;
+	border: 1px solid var(--foreground);
+	border-radius: var(--radius);
+	background: var(--surface);
+	font-size: 13px;
+}
+
+.split-break-label {
+	flex: none;
+	font-weight: 600;
+}
+
+.split-break-title {
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	color: var(--muted);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.split-break-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px;
+	margin-left: auto;
+}
+
+@media (max-width: 800px) {
+	.split-hint {
+		display: none;
+	}
+
+	.split-manuscript {
+		padding: 20px 16px 72px;
+	}
+
+	.write-footer-end .write-message {
+		display: none;
+	}
+}
+
+.tool {
+	white-space: nowrap;
 }

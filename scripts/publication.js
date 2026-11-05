@@ -30,7 +30,6 @@
 	const dialog = $('[data-new-book-dialog]');
 	const input = $('[data-upload-input]');
 	const error = $('#upload-error');
-	const status = $('#upload-status');
 	let opener = null;
 
 	$$('[data-open-new-book]').forEach((button) => {
@@ -50,7 +49,6 @@
 	dialog.addEventListener('close', () => {
 		input.value = '';
 		error.hidden = true;
-		status.hidden = true;
 		if (opener) opener.focus();
 	});
 
@@ -69,8 +67,7 @@
 
 		error.hidden = true;
 
-		// The review step is on hold: for now the chosen file is only acknowledged
-		status.textContent = file.name + ' selected. Importing manuscripts is coming soon.';
-		status.hidden = false;
+		// The writer marks the chapters themselves on the write page
+		location.href = 'write.html?import=' + encodeURIComponent(file.name);
 	});
 })();

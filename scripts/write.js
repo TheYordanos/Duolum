@@ -7,11 +7,12 @@
 	const SAMPLE = 'The wall had been there longer than the house. Mara could tell by the way the moss had settled into it, filling every crack the way water fills a footprint.\n\nShe had come out at dawn because the kitchen felt *wrong*. Nothing had been moved and nothing was missing, but the whole room held its breath.';
 
 	const known = typeof BOOKS !== 'undefined' && BOOKS[bookId];
-	const book = { title: 'Untitled', genre: '', language: 'English', description: '', cover: 'imgs/placeholder.png' };
+	const PLACEHOLDER_COVER = 'imgs/placeholder.png';
+	const book = { title: 'Untitled', genre: '', language: 'English', description: '', cover: PLACEHOLDER_COVER, published: false };
 	let chapters = [];
 
 	if (known) {
-		Object.assign(book, { title: known.title, genre: known.genre, language: known.language, description: BOOK_DESCRIPTION });
+		Object.assign(book, { title: known.title, genre: known.genre, language: known.language, description: BOOK_DESCRIPTION, published: true });
 
 		chapters = Array.from({ length: known.chapters }, (item, index) => ({
 			title: bookId === 'the-silent-garden' ? SILENT_GARDEN[index] : 'Chapter ' + (index + 1),
@@ -29,6 +30,8 @@
 	const bookTitleLabel = $('[data-book-title]');
 	const saved = $('[data-saved]');
 	const publishButton = $('[data-publish]');
+	const openPublishButton = $('[data-open-publish]');
+	const bookState = $('[data-book-state]');
 	const chaptersPanel = $('#write-chapters');
 	const chaptersToggle = $('[data-chapters-toggle]');
 	const scrim = $('[data-chapters-scrim]');
@@ -55,6 +58,7 @@
 
 	function say(text) {
 		message.textContent = text;
+		announce(text);
 		clearTimeout(messageTimer);
 		messageTimer = setTimeout(() => {
 			message.textContent = '';
@@ -73,6 +77,13 @@
 	function renderBookTitle() {
 		bookTitleLabel.textContent = book.title;
 		document.title = 'Write · ' + book.title + ' · Duolum';
+	}
+
+	function renderBookState() {
+		bookState.textContent = book.published ? 'Published' : 'Draft';
+		openPublishButton.textContent = book.published ? 'Book published' : 'Publish book';
+		openPublishButton.classList.toggle('button-primary', !book.published);
+		renderFooter();
 	}
 
 	function renderList() {
@@ -114,7 +125,7 @@
 		const words = chapter.body.trim() ? chapter.body.trim().split(/\s+/).length : 0;
 
 		wordCount.textContent = words.toLocaleString('en-US') + (words === 1 ? ' word' : ' words');
-		statusLabel.textContent = chapter.published ? 'Published' : 'Draft';
+		statusLabel.textContent = chapter.published ? (book.published ? 'Published' : 'Published \u00b7 hidden until your book is published') : 'Draft';
 
 		publishButton.textContent = chapter.published ? 'Unpublish chapter' : 'Publish chapter';
 		publishButton.classList.toggle('button-primary', !chapter.published);
@@ -240,7 +251,7 @@
 		renderList();
 		renderFooter();
 		markSaving();
-		say(chapter.published ? 'Chapter published.' : 'Chapter unpublished. It is a draft again.');
+		say(chapter.published ? (book.published ? 'Chapter published.' : 'Chapter published. Readers see it once your book is published.') : 'Chapter unpublished. It is a draft again.');
 	});
 
 	// Formatting
@@ -360,6 +371,7 @@
 	const COVER_TYPES = ['image/png', 'image/jpeg', 'image/webp'];
 	const COVER_MAX = 5 * 1024 * 1024;
 	let pendingCover = null;
+	let reopenPublish = false;
 
 	function fillDetails() {
 		fields.title.value = book.title === 'Untitled' ? '' : book.title;
@@ -408,6 +420,139 @@
 		say('Book details saved.');
 	});
 
+	detailsDialog.addEventListener('close', () => {
+		if (!reopenPublish) return;
+
+		reopenPublish = false;
+		openPublish();
+	});
+
+	// Publish book
+	const publishDialog = $('[data-publish-dialog]');
+	const checkList = $('[data-check-list]');
+	const publishConfirm = $('[data-publish-confirm]');
+	const unpublishConfirm = $('[data-unpublish-confirm]');
+	const viewBook = $('[data-view-book]');
+	let publishTrigger = null;
+
+	const checks = () => [
+		{ key: 'title', label: 'A title', ok: book.title.trim() !== '' && book.title !== 'Untitled', fix: 'Add' },
+		{ key: 'genre', label: 'A genre', ok: book.genre !== '', fix: 'Add' },
+		{ key: 'description', label: 'A description', ok: book.description.trim() !== '', fix: 'Add' },
+		{ key: 'chapter', label: 'At least one published chapter', ok: chapters.some((chapter) => chapter.published), fix: 'Publish one' },
+	];
+
+	function renderPublish() {
+		const items = checks();
+		const missing = items.filter((item) => !item.ok).length;
+		const live = book.published;
+
+		$('[data-publish-title]').textContent = live ? 'Your book is live' : 'Publish book';
+		$('[data-publish-subtitle]').textContent = live
+			? 'Readers can find it and read every chapter you have published. Switching back to draft hides it from everyone.'
+			: (missing ? 'Almost there. ' + missing + (missing === 1 ? ' thing is' : ' things are') + ' left before readers can find it.' : 'Everything is ready. Once published, readers can find your book and read your published chapters.');
+
+		$('[data-publish-checks]').hidden = live;
+		publishConfirm.hidden = live;
+		publishConfirm.disabled = missing > 0;
+		unpublishConfirm.hidden = !live;
+		viewBook.hidden = !live;
+		viewBook.href = known ? 'browse.html?book=' + bookId : 'browse.html';
+
+		$('[data-cover-note]').textContent = book.cover === PLACEHOLDER_COVER
+			? 'Cover: optional. Your book will use the placeholder until you add one in Book details.'
+			: 'Cover: added.';
+
+		checkList.replaceChildren(...items.map((item) => {
+			const row = document.createElement('li');
+			const mark = document.createElement('span');
+			const label = document.createElement('span');
+			const hidden = document.createElement('span');
+
+			row.className = 'check-item';
+			row.dataset.state = item.ok ? 'done' : 'todo';
+			mark.className = 'check-mark';
+			mark.setAttribute('aria-hidden', 'true');
+			mark.textContent = item.ok ? '\u2713' : '';
+			label.className = 'check-label';
+			label.textContent = item.label;
+			hidden.className = 'visually-hidden';
+			hidden.textContent = item.ok ? ': done' : ': still needed';
+			label.append(hidden);
+			row.append(mark, label);
+
+			if (!item.ok) {
+				const fix = document.createElement('button');
+
+				fix.type = 'button';
+				fix.className = 'button button-small';
+				fix.dataset.fix = item.key;
+				fix.textContent = item.fix;
+				row.append(fix);
+			}
+
+			return row;
+		}));
+	}
+
+	function openPublish() {
+		renderPublish();
+
+		if (!publishDialog.open) publishDialog.showModal();
+	}
+
+	openPublishButton.addEventListener('click', () => {
+		publishTrigger = openPublishButton;
+		openPublish();
+	});
+
+	$$('[data-close-dialog]', publishDialog).forEach((button) => button.addEventListener('click', () => publishDialog.close()));
+
+	publishDialog.addEventListener('click', (event) => {
+		if (event.target === publishDialog) publishDialog.close();
+	});
+
+	publishDialog.addEventListener('close', () => {
+		if (publishTrigger && !reopenPublish) publishTrigger.focus();
+	});
+
+	checkList.addEventListener('click', (event) => {
+		const fix = event.target.closest('[data-fix]');
+		if (!fix) return;
+
+		if (fix.dataset.fix === 'chapter') {
+			publishDialog.close();
+			publishButton.focus();
+			say('Open the chapter you want to publish, then press Publish chapter.');
+			return;
+		}
+
+		reopenPublish = true;
+		publishDialog.close();
+		$('[data-open-details]').click();
+		fields[fix.dataset.fix].focus();
+	});
+
+	publishConfirm.addEventListener('click', () => {
+		if (publishConfirm.disabled) return;
+
+		book.published = true;
+		renderBookState();
+		renderPublish();
+		markSaving();
+		say('Your book is published.');
+		viewBook.focus();
+	});
+
+	unpublishConfirm.addEventListener('click', () => {
+		book.published = false;
+		renderBookState();
+		renderPublish();
+		markSaving();
+		say('Your book is a draft again.');
+		publishConfirm.focus();
+	});
+
 	// Markdown help
 	wireDialog($('[data-help-dialog]'), $('[data-open-help]'));
 
@@ -428,6 +573,7 @@
 
 	// Start
 	renderBookTitle();
+	renderBookState();
 	setChaptersOpen(!narrow.matches);
 
 	const wanted = Number(params.get('chapter'));
@@ -436,4 +582,17 @@
 	setMode('write', { focus: false });
 	if (!bookId) titleInput.focus();
 	else window.scrollTo(0, 0);
+
+	// Used by the manuscript splitter (split.js) once the writer has marked their chapters
+	window.writeApi = {
+		finishImport(title, newChapters) {
+			if (title && book.title === 'Untitled') book.title = title;
+
+			chapters = newChapters;
+			renderBookTitle();
+			select(0);
+			markSaving();
+			say(newChapters.length + (newChapters.length === 1 ? ' chapter' : ' chapters') + ' created. Check the titles and text, then publish.');
+		},
+	};
 })();
