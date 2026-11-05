@@ -11,26 +11,7 @@
 .home-nav {
 	display: flex;
 	align-items: center;
-	gap: 20px;
-}
-
-.home-nav-link {
-	color: var(--muted);
-	font-size: 13px;
-	text-decoration: none;
-}
-
-.home-nav-link:is(button) {
-	padding: 0;
-	border: 0;
-	background: none;
-	font-family: inherit;
-	cursor: pointer;
-}
-
-.home-nav-link:hover {
-	color: var(--foreground);
-	text-decoration: underline;
+	gap: 10px;
 }
 
 main {
@@ -87,11 +68,6 @@ main:focus {
 	font-size: 20px;
 	font-weight: 600;
 	letter-spacing: -0.5px;
-}
-
-.home-section-top .text-link {
-	color: var(--muted);
-	font-size: 13px;
 }
 
 .home-section .book-grid {
@@ -154,13 +130,12 @@ main:focus {
 	font-size: 12px;
 }
 
-.home-footer a {
+.home-footer-link {
 	text-decoration: none;
 }
 
-.home-footer a:hover {
+.home-footer-link:hover {
 	color: var(--foreground);
-	text-decoration: underline;
 }
 
 @media (max-width: 800px) {
@@ -186,4 +161,9 @@ main:focus {
 	.home-section {
 		padding: 40px 0;
 	}
+}
+
+.home-theme-state {
+	margin-left: 6px;
+	color: var(--muted);
 }
