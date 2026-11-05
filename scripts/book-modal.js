@@ -96,4 +96,6 @@
 	const linked = new URLSearchParams(location.search).get('book');
 
 	if (linked) open(linked, null);
+
+	window.openBook = open;
 })();

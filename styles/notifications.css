@@ -1,0 +1,70 @@
+.notifications-modal {
+	width: min(480px, calc(100vw - 32px));
+}
+
+.notifications-actions {
+	display: flex;
+	justify-content: flex-end;
+	margin: -4px 0 8px;
+}
+
+.notification-list {
+	display: flex;
+	flex-direction: column;
+	max-height: min(60vh, 440px);
+	margin: 0 -8px;
+	list-style: none;
+	overflow-y: auto;
+}
+
+.notification-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	width: 100%;
+	padding: 12px 8px;
+	border: 0;
+	border-bottom: 1px solid var(--border);
+	background: transparent;
+	color: var(--foreground);
+	font-size: 13px;
+	line-height: 1.5;
+	text-align: left;
+	cursor: pointer;
+	transition: background 150ms ease;
+}
+
+.notification-item:hover {
+	background: var(--hover);
+}
+
+.notification-marker {
+	flex: none;
+	width: 8px;
+	height: 8px;
+	margin-top: 7px;
+	border-radius: 50%;
+	background: var(--foreground);
+}
+
+.notification-marker[hidden] {
+	display: block;
+	visibility: hidden;
+}
+
+.notification-body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+}
+
+.notification-text strong {
+	font-weight: 600;
+}
+
+.notification-time {
+	color: var(--muted);
+	font-size: 12px;
+}

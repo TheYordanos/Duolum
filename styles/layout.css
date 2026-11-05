@@ -65,6 +65,14 @@
 	transition: background 150ms ease, color 150ms ease;
 }
 
+.nav-item:is(button) {
+	border: 0;
+	background: transparent;
+	font-family: inherit;
+	text-align: left;
+	cursor: pointer;
+}
+
 .nav-item:hover,
 .nav-item.active {
 	background: var(--hover);
@@ -89,6 +97,7 @@
 }
 
 .main-content {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	min-width: 0;

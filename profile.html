@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="styles/profile.css">
 	<link rel="stylesheet" href="styles/profile-modal.css">
 	<link rel="stylesheet" href="styles/book-modal.css">
+	<link rel="stylesheet" href="styles/notifications.css">
 </head>
 <body>
 
@@ -39,6 +40,7 @@
 				</nav>
 
 				<div class="sidebar-footer">
+					<button class="nav-item" type="button" data-open-notifications>Notifications<span class="nav-dot" data-notification-dot><span class="visually-hidden">Unread notifications</span></span></button>
 					<a class="nav-item" href="legal.html">Legal</a>
 				</div>
 			</div>
@@ -53,17 +55,17 @@
 				</header>
 
 				<section class="profile-header" aria-label="Your profile">
-					<img class="avatar avatar-large" src="imgs/profile.jpg" alt="Jordan Hale">
+					<img class="avatar avatar-large" src="imgs/profile.jpg" alt="Jordan Hale" data-head-photo>
 
 					<div class="profile-identity">
-						<h2 class="profile-name">Jordan Hale</h2>
-						<p class="profile-handle">@jordanhale</p>
-						<p class="profile-bio">Writer of quiet, character-driven fiction and a reader of almost everything else.</p>
+						<h2 class="profile-name" data-head-name>Jordan Hale</h2>
+						<p class="profile-handle" data-head-handle>@jordanhale</p>
+						<p class="profile-bio" data-head-bio>Writer of quiet, character-driven fiction and a reader of almost everything else.</p>
 
 						<ul class="profile-links">
 							<li>Joined October 2024</li>
 							<li>312 followers</li>
-							<li><a href="#">jordanhale.com</a></li>
+							<li data-head-website-item><a href="https://jordanhale.com" target="_blank" rel="noopener nofollow ugc" data-head-website>jordanhale.com</a></li>
 						</ul>
 					</div>
 
@@ -164,59 +166,182 @@
 
 				<div id="profile-panel-settings" role="tabpanel" aria-labelledby="profile-tab-settings" hidden>
 
-					<form class="settings-form">
+					<form class="settings-form" novalidate data-settings-form>
 
-						<section class="settings-section">
-							<h2 class="section-title">Profile details</h2>
+						<section class="settings-section" id="settings-profile" aria-labelledby="settings-profile-title">
+							<h2 class="section-title" id="settings-profile-title">Profile</h2>
 
 							<div class="settings-fields">
 								<div class="settings-avatar">
-									<img class="avatar avatar-medium" src="imgs/profile.jpg" alt="Current profile photo" loading="lazy" decoding="async">
-									<button class="button button-small" type="button">Change photo</button>
+									<img class="avatar avatar-medium" src="imgs/profile.jpg" alt="Current profile photo" loading="lazy" decoding="async" data-settings-photo>
+									<button class="button button-small" type="button" data-open-photo>Change photo</button>
 								</div>
 
 								<div class="field">
 									<label for="settings-name">Display name</label>
-									<input class="input" id="settings-name" type="text" value="Jordan Hale">
+									<input class="input" id="settings-name" name="name" type="text" value="Jordan Hale" maxlength="50" autocomplete="name" required aria-describedby="settings-name-error">
+									<p class="field-error" id="settings-name-error" hidden></p>
 								</div>
 
 								<div class="field">
 									<label for="settings-handle">Handle</label>
-									<input class="input" id="settings-handle" type="text" value="jordanhale">
+									<input class="input" id="settings-handle" name="handle" type="text" value="jordanhale" maxlength="20" autocomplete="username" autocapitalize="none" spellcheck="false" required aria-describedby="settings-handle-hint settings-handle-error">
+									<p class="field-hint" id="settings-handle-hint">3 to 20 letters, numbers or underscores.</p>
+									<p class="field-error" id="settings-handle-error" hidden></p>
 								</div>
 
 								<div class="field">
 									<label for="settings-bio">Bio</label>
-									<textarea class="input" id="settings-bio" rows="4">Writer of quiet, character-driven fiction and a reader of almost everything else.</textarea>
+									<textarea class="input" id="settings-bio" name="bio" rows="4" maxlength="160" aria-describedby="settings-bio-count">Writer of quiet, character-driven fiction and a reader of almost everything else.</textarea>
+									<p class="field-hint" id="settings-bio-count" data-bio-count></p>
 								</div>
 
 								<div class="field">
 									<label for="settings-website">Website</label>
-									<input class="input" id="settings-website" type="text" value="jordanhale.com">
+									<input class="input" id="settings-website" name="website" type="text" value="jordanhale.com" inputmode="url" autocapitalize="none" spellcheck="false" aria-describedby="settings-website-error">
+									<p class="field-error" id="settings-website-error" hidden></p>
 								</div>
 							</div>
 						</section>
 
-						<section class="settings-section">
-							<h2 class="section-title">Account</h2>
+						<section class="settings-section" id="settings-privacy" aria-labelledby="settings-privacy-title">
+							<h2 class="section-title" id="settings-privacy-title">Privacy</h2>
 
 							<div class="settings-fields">
 								<div class="field">
-									<label for="settings-email">Email</label>
-									<input class="input" id="settings-email" type="email" value="jordan@example.com">
+									<label for="privacy-messages">Who can message you</label>
+									<select class="select" id="privacy-messages" name="messages">
+										<option value="everyone" selected>Everyone</option>
+										<option value="following">People you follow</option>
+										<option value="nobody">Nobody</option>
+									</select>
+									<p class="field-hint">Anyone who can&rsquo;t message you can still read your books.</p>
 								</div>
 
-								<div>
-									<button class="button" type="button">Change password</button>
+								<div class="switch-list">
+									<label class="switch-row">
+										<span class="switch-text">
+											<span class="switch-title">Show my reading activity</span>
+											<span class="switch-hint">What you&rsquo;re reading, finished and favourited is visible on your profile.</span>
+										</span>
+										<input type="checkbox" role="switch" name="activity" checked>
+									</label>
+
+									<label class="switch-row">
+										<span class="switch-text">
+											<span class="switch-title">Show my follower count</span>
+											<span class="switch-hint">Others can see how many people follow you.</span>
+										</span>
+										<input type="checkbox" role="switch" name="followers" checked>
+									</label>
+
+									<label class="switch-row">
+										<span class="switch-text">
+											<span class="switch-title">Appear in people search</span>
+											<span class="switch-hint">Readers can find you when they browse people.</span>
+										</span>
+										<input type="checkbox" role="switch" name="search" checked>
+									</label>
 								</div>
 							</div>
+						</section>
+
+						<section class="settings-section" id="settings-notifications" aria-labelledby="settings-notifications-title">
+							<h2 class="section-title" id="settings-notifications-title">Notifications</h2>
+
+							<table class="notify-table">
+								<thead>
+									<tr>
+										<th scope="col"><span class="visually-hidden">Notification</span></th>
+										<th scope="col">In app</th>
+										<th scope="col">Email</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">New chapter from people you follow</th>
+										<td><input type="checkbox" name="chapter-app" aria-label="New chapters, in app" checked></td>
+										<td><input type="checkbox" name="chapter-email" aria-label="New chapters, by email"></td>
+									</tr>
+									<tr>
+										<th scope="row">New book from people you follow</th>
+										<td><input type="checkbox" name="book-app" aria-label="New books, in app" checked></td>
+										<td><input type="checkbox" name="book-email" aria-label="New books, by email"></td>
+									</tr>
+									<tr>
+										<th scope="row">New follower</th>
+										<td><input type="checkbox" name="follower-app" aria-label="New followers, in app" checked></td>
+										<td><input type="checkbox" name="follower-email" aria-label="New followers, by email"></td>
+									</tr>
+									<tr>
+										<th scope="row">Message request</th>
+										<td><input type="checkbox" name="request-app" aria-label="Message requests, in app" checked></td>
+										<td><input type="checkbox" name="request-email" aria-label="Message requests, by email" checked></td>
+									</tr>
+								</tbody>
+							</table>
+
+							<label class="switch-row switch-row-plain">
+								<span class="switch-text">
+									<span class="switch-title">Product news and tips</span>
+									<span class="switch-hint">An occasional email about what&rsquo;s new on Duolum.</span>
+								</span>
+								<input type="checkbox" role="switch" name="news">
+							</label>
 						</section>
 
 						<div class="settings-actions">
 							<button class="button button-primary" type="submit">Save changes</button>
+							<p class="settings-status" role="status" data-settings-status></p>
 						</div>
 
 					</form>
+
+					<section class="settings-section settings-account" id="settings-account" aria-labelledby="settings-account-title">
+						<h2 class="section-title" id="settings-account-title">Account</h2>
+
+						<ul class="account-list">
+							<li class="account-row">
+								<div>
+									<p class="account-title">Email</p>
+									<p class="account-value" data-account-email>jordan@example.com</p>
+								</div>
+								<button class="button button-small" type="button" data-open-dialog="email-dialog">Change email</button>
+							</li>
+
+							<li class="account-row">
+								<div>
+									<p class="account-title">Password</p>
+									<p class="account-value">Last changed 3 months ago</p>
+								</div>
+								<button class="button button-small" type="button" data-open-dialog="password-dialog">Change password</button>
+							</li>
+
+							<li class="account-row">
+								<div>
+									<p class="account-title">Download your data</p>
+									<p class="account-value" data-export-text>Get a copy of your profile, books and messages.</p>
+								</div>
+								<button class="button button-small" type="button" data-request-export>Request download</button>
+							</li>
+
+							<li class="account-row">
+								<div>
+									<p class="account-title">Log out</p>
+									<p class="account-value">Sign out of Duolum on this device.</p>
+								</div>
+								<a class="button button-small" href="auth.html?mode=login">Log out</a>
+							</li>
+
+							<li class="account-row">
+								<div>
+									<p class="account-title">Delete account</p>
+									<p class="account-value">Permanently removes your profile, books and messages.</p>
+								</div>
+								<button class="button button-small" type="button" data-open-dialog="delete-account-dialog">Delete account</button>
+							</li>
+						</ul>
+					</section>
 
 				</div>
 
@@ -225,6 +350,121 @@
 		</main>
 
 	</div>
+
+	<dialog class="modal settings-modal" id="photo-dialog" aria-labelledby="photo-title">
+		<div class="modal-header">
+			<div>
+				<h2 id="photo-title">Change photo</h2>
+				<p class="modal-subtitle">PNG, JPG or WebP, up to 5 MB.</p>
+			</div>
+			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+		</div>
+
+		<div class="photo-picker">
+			<img class="avatar avatar-large" src="imgs/profile.jpg" alt="Photo preview" data-photo-preview>
+
+			<div>
+				<label class="button button-small">
+					Choose image
+					<input class="visually-hidden" type="file" accept="image/png,image/jpeg,image/webp" data-photo-input>
+				</label>
+				<p class="field-error" role="alert" data-photo-error hidden></p>
+			</div>
+		</div>
+
+		<div class="modal-actions">
+			<button class="button" type="button" data-close-dialog>Cancel</button>
+			<button class="button button-primary" type="button" data-photo-save disabled>Use this photo</button>
+		</div>
+	</dialog>
+
+	<dialog class="modal settings-modal" id="email-dialog" aria-labelledby="email-title">
+		<form data-account-form="email" novalidate>
+			<div class="modal-header">
+				<div>
+					<h2 id="email-title">Change email</h2>
+					<p class="modal-subtitle">We&rsquo;ll send a link to the new address to confirm it.</p>
+				</div>
+				<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+			</div>
+
+			<div class="settings-fields">
+				<div class="field">
+					<label for="email-new">New email</label>
+					<input class="input" id="email-new" name="email" type="email" autocomplete="email">
+					<p class="field-error" data-error="email" hidden></p>
+				</div>
+
+				<div class="field">
+					<label for="email-password">Current password</label>
+					<input class="input" id="email-password" name="password" type="password" autocomplete="current-password">
+					<p class="field-error" data-error="password" hidden></p>
+				</div>
+			</div>
+
+			<div class="modal-actions">
+				<button class="button" type="button" data-close-dialog>Cancel</button>
+				<button class="button button-primary" type="submit">Change email</button>
+			</div>
+		</form>
+	</dialog>
+
+	<dialog class="modal settings-modal" id="password-dialog" aria-labelledby="password-title">
+		<form data-account-form="password" novalidate>
+			<div class="modal-header">
+				<div>
+					<h2 id="password-title">Change password</h2>
+					<p class="modal-subtitle">Use at least 8 characters.</p>
+				</div>
+				<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+			</div>
+
+			<div class="settings-fields">
+				<div class="field">
+					<label for="password-current">Current password</label>
+					<input class="input" id="password-current" name="current" type="password" autocomplete="current-password">
+					<p class="field-error" data-error="current" hidden></p>
+				</div>
+
+				<div class="field">
+					<label for="password-new">New password</label>
+					<input class="input" id="password-new" name="password" type="password" autocomplete="new-password">
+					<p class="field-error" data-error="password" hidden></p>
+				</div>
+
+				<div class="field">
+					<label for="password-confirm">Confirm new password</label>
+					<input class="input" id="password-confirm" name="confirm" type="password" autocomplete="new-password">
+					<p class="field-error" data-error="confirm" hidden></p>
+				</div>
+			</div>
+
+			<div class="modal-actions">
+				<button class="button" type="button" data-close-dialog>Cancel</button>
+				<button class="button button-primary" type="submit">Change password</button>
+			</div>
+		</form>
+	</dialog>
+
+	<dialog class="modal settings-modal" id="delete-account-dialog" aria-labelledby="delete-account-title">
+		<div class="modal-header">
+			<div>
+				<h2 id="delete-account-title">Delete your account?</h2>
+				<p class="modal-subtitle">This permanently removes your profile, published books and messages. It can&rsquo;t be undone.</p>
+			</div>
+			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+		</div>
+
+		<div class="field">
+			<label for="delete-confirm">Type <strong data-delete-handle>jordanhale</strong> to confirm</label>
+			<input class="input" id="delete-confirm" type="text" autocomplete="off" autocapitalize="none" spellcheck="false">
+		</div>
+
+		<div class="modal-actions">
+			<button class="button" type="button" data-close-dialog>Cancel</button>
+			<a class="button button-primary" href="index.html" data-delete-confirm aria-disabled="true">Delete account</a>
+		</div>
+	</dialog>
 
 	<dialog class="modal profile-modal" id="profile-dialog" aria-labelledby="profile-modal-name" data-profile-dialog>
 		<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
@@ -309,10 +549,32 @@
 		</div>
 	</dialog>
 
+	<dialog class="modal notifications-modal" id="notifications-dialog" aria-labelledby="notifications-title" data-notifications-dialog>
+		<div class="modal-header">
+			<div>
+				<h2 id="notifications-title">Notifications</h2>
+				<p class="modal-subtitle" data-notifications-subtitle></p>
+			</div>
+			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+		</div>
+
+		<div class="notifications-actions">
+			<button class="button button-small" type="button" data-mark-all-read>Mark all as read</button>
+		</div>
+
+		<ul class="notification-list" data-notification-list></ul>
+
+		<div class="empty-state empty-state-compact" data-notifications-empty hidden>
+			<h3>No notifications yet</h3>
+			<p>New chapters from people you follow, new followers and message requests show up here.</p>
+		</div>
+	</dialog>
+
 	<script src="scripts/common.js" defer></script>
 	<script src="scripts/books.js" defer></script>
 	<script src="scripts/profile-modal.js" defer></script>
 	<script src="scripts/book-modal.js" defer></script>
+	<script src="scripts/notifications.js" defer></script>
 	<script src="scripts/profile.js" defer></script>
 </body>
 </html>

@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="styles/profile-modal.css">
 	<link rel="stylesheet" href="styles/messages.css">
 	<link rel="stylesheet" href="styles/book-modal.css">
+	<link rel="stylesheet" href="styles/notifications.css">
 </head>
 <body>
 
@@ -39,6 +40,7 @@
 				</nav>
 
 				<div class="sidebar-footer">
+					<button class="nav-item" type="button" data-open-notifications>Notifications<span class="nav-dot" data-notification-dot><span class="visually-hidden">Unread notifications</span></span></button>
 					<a class="nav-item" href="legal.html">Legal</a>
 				</div>
 			</div>
@@ -526,10 +528,32 @@
 		</div>
 	</dialog>
 
+	<dialog class="modal notifications-modal" id="notifications-dialog" aria-labelledby="notifications-title" data-notifications-dialog>
+		<div class="modal-header">
+			<div>
+				<h2 id="notifications-title">Notifications</h2>
+				<p class="modal-subtitle" data-notifications-subtitle></p>
+			</div>
+			<button class="modal-close" type="button" aria-label="Close" data-close-dialog>&times;</button>
+		</div>
+
+		<div class="notifications-actions">
+			<button class="button button-small" type="button" data-mark-all-read>Mark all as read</button>
+		</div>
+
+		<ul class="notification-list" data-notification-list></ul>
+
+		<div class="empty-state empty-state-compact" data-notifications-empty hidden>
+			<h3>No notifications yet</h3>
+			<p>New chapters from people you follow, new followers and message requests show up here.</p>
+		</div>
+	</dialog>
+
 	<script src="scripts/common.js" defer></script>
 	<script src="scripts/books.js" defer></script>
 	<script src="scripts/profile-modal.js" defer></script>
 	<script src="scripts/book-modal.js" defer></script>
+	<script src="scripts/notifications.js" defer></script>
 	<script src="scripts/messages.js" defer></script>
 </body>
 </html>
